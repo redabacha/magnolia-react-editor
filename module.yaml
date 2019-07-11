@@ -1,0 +1,4 @@
+version: 1.0
+dependencies:
+  headless-rendering:
+    version: 1.0

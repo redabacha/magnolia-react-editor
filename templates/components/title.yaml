@@ -1,0 +1,3 @@
+title: Title component
+dialog: headless-angular-module:components/title
+templateScript: TitleComponent

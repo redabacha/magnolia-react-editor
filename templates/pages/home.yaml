@@ -1,0 +1,12 @@
+templateScript: /headless-angular-module/webresources/index.html
+renderType: headless-base
+visible: true
+title: Angular-minimal home
+areas:
+  main-area:
+    renderType: freemarker
+    availableComponents:
+      title:
+        id: headless-angular-module:components/title
+parameters:
+  restEndpoint: angular-endpoint
