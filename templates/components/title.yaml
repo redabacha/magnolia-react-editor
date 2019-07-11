@@ -1,3 +1,3 @@
 title: Title component
-dialog: headless-angular-module:components/title
+dialog: spa-angular-minimal:components/title
 templateScript: TitleComponent

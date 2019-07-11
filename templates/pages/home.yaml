@@ -1,4 +1,4 @@
-templateScript: /headless-angular-module/webresources/index.html
+templateScript: /spa-angular-minimal/webresources/index.html
 renderType: headless-base
 visible: true
 title: Angular-minimal home
@@ -7,6 +7,6 @@ areas:
     renderType: freemarker
     availableComponents:
       title:
-        id: headless-angular-module:components/title
+        id: spa-angular-minimal:components/title
 parameters:
   restEndpoint: angular-endpoint
