@@ -1,4 +1,4 @@
 export interface MagnoliaComponent  {
-	/** Component config.*/
-	component: any;
+  /** Component config. */
+  component: any;
 }

@@ -17,7 +17,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       }
 
       if (event instanceof NavigationEnd) {
-
       }
 
       if (event instanceof NavigationError) {
