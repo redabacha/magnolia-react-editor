@@ -4,7 +4,10 @@ visible: true
 title: Angular-minimal home
 areas:
   main-area:
-    renderType: freemarker
+    availableComponents:
+      title:
+        id: spa-angular-minimal:components/title
+  secondary-area:
     availableComponents:
       title:
         id: spa-angular-minimal:components/title
