@@ -9,4 +9,4 @@ areas:
       title:
         id: spa-angular-minimal:components/title
 parameters:
-  restEndpoint: angular-endpoint
+  restEndpoint: delivery/pages/v1
