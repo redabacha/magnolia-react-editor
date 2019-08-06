@@ -8,6 +8,7 @@ import { MagnoliaComponent } from '../../../magnolia-app/component/magnolia.comp
 })
 export class TitleComponent implements OnInit, MagnoliaComponent {
   static key = 'TitleComponent';
+
   @Input() component: any;
 
   constructor() {

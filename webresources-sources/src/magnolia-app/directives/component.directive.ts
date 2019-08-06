@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, ViewContainerRef } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, ViewContainerRef, OnDestroy } from '@angular/core';
 
 import { MagnoliaContextService } from '../services/magnolia-context.service';
 
@@ -14,7 +14,7 @@ export class ComponentDirective implements OnInit {
   constructor(
     private el: ElementRef,
     private mgnCtxService: MagnoliaContextService,
-    public viewContainerRef: ViewContainerRef
+    public viewContainerRef: ViewContainerRef,
   ) {
     this.nativeElement = el.nativeElement;
   }
@@ -26,6 +26,7 @@ export class ComponentDirective implements OnInit {
 
       // Get parent element
       const parentDiv = this.nativeElement.parentNode;
+
       // Create comment before
       const commentBefore = document.createComment(htmlComment.start);
       parentDiv.appendChild(commentBefore);

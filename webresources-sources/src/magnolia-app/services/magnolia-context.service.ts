@@ -12,8 +12,10 @@ import 'rxjs/add/operator/map';
 export class MagnoliaContextService {
   /** Native window object. */
   nativeWindow: any;
-  /** Single page config.*/
-  singlePageConfig: any;
+  /** HTML comments containing code for editbars generation. */
+  mgnlEditbars: any;
+  /** Component mappings. */
+  componentMappings: any;
   /** Fragment URL.*/
   fragmentURL: string;
   /** Content node. */
@@ -23,13 +25,9 @@ export class MagnoliaContextService {
 	 */
   constructor(private winRef: WindowRef, private http: HttpClient) {
     this.nativeWindow = winRef.nativeWindow;
-    this.singlePageConfig = this.nativeWindow.singlePageConfig;
+    this.mgnlEditbars = this.nativeWindow.singlePageConfig.htmlComments;
+    this.componentMappings = [];
     this.fragmentURL = '/';
-    if (this.singlePageConfig == null) {
-      this.singlePageConfig = {};
-    } else {
-      this.contentNode = Promise.resolve(this.singlePageConfig.content);
-    }
   }
 
   /**
@@ -37,11 +35,8 @@ export class MagnoliaContextService {
 	 */
   setFragmentURL(fragment: string) {
     // If production mode, then gather content through a REST call
-    if (!environment.mgnEditMode) {
-      this.fragmentURL = fragment;
-
-      this.contentNode = this.retrievePageContent();
-    }
+    this.fragmentURL = fragment;
+    this.contentNode = this.retrievePageContent();
   }
 
   /**
@@ -50,7 +45,7 @@ export class MagnoliaContextService {
 	 * @return Whether the page is in edition mode
 	 */
   isEditionMode(): boolean {
-    return environment.mgnEditMode;
+    return this.mgnlEditbars !== undefined;
   }
 
   /**
@@ -81,7 +76,7 @@ export class MagnoliaContextService {
   async getAreaComponents(areaName: string) {
     const results = new Array();
 
-    const content = await this.contentNode;;
+    const content = await this.contentNode;
 
     // Gets the area content
     const areaContent = content[areaName];
@@ -101,48 +96,47 @@ export class MagnoliaContextService {
   }
 
   /**
-	 * Return the component mapping
-	 *
-	 * @param nodePath The component mapping
-	 */
-  getComponentMapping(templateId: string) {
-    if (this.singlePageConfig.componentMappings !== null) {
-      return this.singlePageConfig.componentMappings[templateId];
-    } else {
-      return null;
-    }
-  }
-
-  /**
 	 * Return the HTML comment
 	 *
 	 * @param nodePath The node path
 	 */
   getHtmlComment(nodePath: string) {
-    if (this.singlePageConfig.htmlComments !== null) {
-      return this.singlePageConfig.htmlComments[nodePath];
+    if (this.mgnlEditbars !== null) {
+      return this.mgnlEditbars[nodePath];
     } else {
       return null;
     }
   }
 
-  private async retrievePageContent(): Promise<any> {
-    this.singlePageConfig.componentMappings = await this.retrieveComponentMappings()
+    /**
+     * Return the component mapping
+     *
+     * @param nodePath The component mapping
+     */
+    getComponentMapping(templateId: string) {
+        if (this.componentMappings !== null) {
+            return this.componentMappings[templateId];
+        } else {
+            return null;
+        }
+    }
 
-    return this.http.get(environment.restUrl + this.fragmentURL)
+
+  private async retrievePageContent(): Promise<any> {
+    this.componentMappings = await this.retrieveComponentMappings()
+
+    return this.http.get(environment.contentEndpoint + this.fragmentURL)
       .map(response => {
-        // console.log("retrievePageContent with " + this.fragmentURL + " value " + JSON.stringify(response,
-        // null, 2));
+        console.log('retrievePageContent for ' + this.fragmentURL + ' with value ' + JSON.stringify(response, null, 2));
         return response;
       })
       .toPromise();
   }
 
   private async retrieveComponentMappings(): Promise<any> {
-    return this.http.get(environment.configRestUrl + this.fragmentURL)
+    return this.http.get(environment.headlessRenderingEndpoint + this.fragmentURL)
       .map(response => {
-        // console.log("retrieveComponentMappings with " + this.fragmentURL + " value " +
-        // JSON.stringify(response, null, 2));
+        console.log('retrieveComponentMappings for ' + this.fragmentURL + ' with value ' + JSON.stringify(response, null, 2));
         return response;
        })
       .toPromise();
