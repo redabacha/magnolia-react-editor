@@ -22,7 +22,9 @@ Set up URLs in webresources-sources/src/environments/environment.ts accordingly 
 
 ## Setup Magnolia
 
-Create a new role `rest-angular` with access to `/.rest/angular-endpoint*` and `website:/angular-minimal`.
+1. Create a new role `rest-angular` with access to `/.rest/angular-endpoint*` and `website:/angular-minimal` and assign it to anonymous user.
+
+2. If you're using site module, add `headless-base` to `/travel/templates/availability/enableAllWithRenderType`.
 
 Then, create `angular-minimal` page.
 
