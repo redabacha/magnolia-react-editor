@@ -11,10 +11,20 @@ This light-module is dependent on [magnolia-headless-rendering](https://git.magn
 which sets up endpoints for retrieving component mappings and HTML comments for editbars.
 
 
-## Setup
+## Build the app
 
-Create a new role `rest-angular` with access to `/.rest/angular-andpoint*` and `website:/angular-minimal`.
-Then you can create `angular-minimal` page.
+Set up URLs in webresources-sources/src/environments/environment.ts accordingly and then run in webresources-sources folder:
+
+    npm install
+
+    npm run build
+
+
+## Setup Magnolia
+
+Create a new role `rest-angular` with access to `/.rest/angular-endpoint*` and `website:/angular-minimal`.
+
+Then, create `angular-minimal` page.
 
 
 ## Information on Magnolia CMS
