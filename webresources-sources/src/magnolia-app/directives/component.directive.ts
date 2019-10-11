@@ -1,17 +1,19 @@
-import { Directive, ElementRef, Input, OnInit, ViewContainerRef, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, ViewContainerRef, AfterContentInit } from '@angular/core';
 
 import { MagnoliaContextService } from '../services/magnolia-context.service';
+import { WindowRef } from '../services/windowref.service';
 
 @Directive({
   selector: '[cmsComponent]'
 })
-export class ComponentDirective implements OnInit {
+export class ComponentDirective implements OnInit, AfterContentInit {
   /** Native element. */
   nativeElement: any;
   /** Component config. */
   @Input() component: any;
 
   constructor(
+    private winRef: WindowRef,
     private el: ElementRef,
     private mgnCtxService: MagnoliaContextService,
     public viewContainerRef: ViewContainerRef,
@@ -37,6 +39,12 @@ export class ComponentDirective implements OnInit {
       parentDiv.insertBefore(commentBefore, this.nativeElement);
       // Insert comment after
       parentDiv.insertBefore(commentAfter, this.nativeElement.nextSibling);
+    }
+  }
+
+  ngAfterContentInit(): void {
+    if (this.mgnCtxService.isEditionMode()) {
+      this.winRef.nativeWindow.parent.mgnlRefresh();
     }
   }
 }

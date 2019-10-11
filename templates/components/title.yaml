@@ -1,3 +1,5 @@
 title: Title component
 dialog: spa-angular-minimal:components/title
 templateScript: TitleComponent
+parameters:
+  jsComponent: TitleComponent
