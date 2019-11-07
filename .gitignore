@@ -1,2 +1,4 @@
 node_modules/
-webresources/
+package-lock.json
+light-modules/angular-magnolia-int/webresources
+*.iml
