@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
-import { MagnoliaModule } from 'angular-components';
+import { MagnoliaModule } from 'angular-renderer';
 
 import { TitleComponent } from './title/title.component';
 import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   imports: [
-    RouterModule,
+    CommonModule,
     MagnoliaModule,
   ],
-  exports: [
-    RouterModule,
-  ],
   declarations: [
+    HomeComponent,
     TitleComponent,
-      ComponentWithAreaComponent,
+    ComponentWithAreaComponent,
   ],
   entryComponents: [
     TitleComponent,
-      ComponentWithAreaComponent,
+    ComponentWithAreaComponent,
   ],
 })
 export class ComponentsModule { }

@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { MagnoliaContextService } from 'angular-components';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +7,7 @@ import { MagnoliaContextService } from 'angular-components';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  constructor(public router: Router, private mgnlCtxService: MagnoliaContextService) {
-
-    this.router.events.subscribe((event: Event) => {
-        if (event instanceof NavigationStart) {
-          // Initializes the Magnolia service
-          this.mgnlCtxService.setFragmentURL('/');
-        }
-
-
-        if (event instanceof NavigationEnd) {
-        }
-
-        if (event instanceof NavigationError) {
-          console.log(event.error);
-        }
-    });
-  }
+  constructor(public router: Router) {}
 
   ngOnInit() {
    // this.router.navigate(['']);  //redirect other pages to homepage on browser refresh

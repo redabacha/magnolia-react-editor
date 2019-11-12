@@ -1,12 +1,9 @@
-import {AfterViewInit, Component, ComponentFactoryResolver, Input, OnInit} from '@angular/core';
-import {MagnoliaComponent} from 'angular-components';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-component-with-area',
   templateUrl: './componentWithArea.component.html',
-  styleUrls: ['./componentWithArea.component.scss']
+  styleUrls: ['./componentWithArea.component.scss'],
 })
-export class ComponentWithAreaComponent extends MagnoliaComponent {
-  @Input() content;
-
+export class ComponentWithAreaComponent {
 }
