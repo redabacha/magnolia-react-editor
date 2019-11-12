@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 
 import { PagesModule } from './pages/pages.module';
 
-import { MagnoliaModule } from '../magnolia-app/magnolia.module';
-import { MagnoliaContextService } from '../magnolia-app/services/magnolia-context.service';
+import { MagnoliaModule } from 'angular-components';
+import { MagnoliaContextService } from 'angular-components';
 
 @NgModule({
    imports: [

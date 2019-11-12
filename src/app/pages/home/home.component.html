@@ -1,3 +1,10 @@
-<h2>Home page</h2>
+<h1>Home page</h1>
+<i>{{content.title}}</i>
 
-<div [cmsArea]="'main-area'" list-area></div>
+<h2>Some dynamic data</h2>
+<ul *ngFor='let item of list'>
+    <li>{{item}}</li>
+</ul>
+
+<h2>Main area</h2>
+<div list-area areaName="main-area" [content]="content"></div>

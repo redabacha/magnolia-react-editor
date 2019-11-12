@@ -1,17 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MagnoliaComponent } from '../../../magnolia-app/component/magnolia.component';
+import {Component, Input } from '@angular/core';
+import { MagnoliaComponent } from 'angular-components';
 
 @Component({
-  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, MagnoliaComponent {
-  @Input() component: any;
+export class HomeComponent extends MagnoliaComponent {
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+  @Input() list = ['a', 'b', 'c'];
 }

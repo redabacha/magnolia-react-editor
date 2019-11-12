@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
-import { MagnoliaContextService } from '../magnolia-app/services/magnolia-context.service';
+import { MagnoliaContextService } from 'angular-components';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +9,20 @@ import { MagnoliaContextService } from '../magnolia-app/services/magnolia-contex
 })
 export class AppComponent implements OnInit, AfterViewInit {
   constructor(public router: Router, private mgnlCtxService: MagnoliaContextService) {
+
     this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationStart) {
-        console.log('Navigating to ' + event.url);
-        // Initializes the Magnolia service
-        this.mgnlCtxService.setFragmentURL('/');
-      }
+        if (event instanceof NavigationStart) {
+          // Initializes the Magnolia service
+          this.mgnlCtxService.setFragmentURL('/');
+        }
 
-      if (event instanceof NavigationEnd) {
-      }
 
-      if (event instanceof NavigationError) {
-        console.log(event.error);
-      }
+        if (event instanceof NavigationEnd) {
+        }
+
+        if (event instanceof NavigationError) {
+          console.log(event.error);
+        }
     });
   }
 

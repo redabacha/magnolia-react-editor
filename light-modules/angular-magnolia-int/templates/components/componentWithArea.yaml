@@ -1,7 +1,7 @@
 title: Component with area
 class: info.magnolia.rendering.spa.renderer.ConfiguredSpaRenderableDefinition
 areas:
-  main-area:
+  secondary-area:
     availableComponents:
       title:
         id: angular-magnolia-int:components/title

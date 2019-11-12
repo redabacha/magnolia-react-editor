@@ -1,16 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MagnoliaComponent } from 'angular-components';
 
 @Component({
-  selector: 'app-title',
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss']
 })
-export class TitleComponent implements OnInit {
-  static key = 'TitleComponent';
+export class TitleComponent extends MagnoliaComponent {
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 }
