@@ -1,0 +1,102 @@
+function TemplateAnnotations() {
+    const VALUE_PROCESSORS = {
+        content: getContentPath,
+        availableComponents: getAvailableComponents,
+        showAddButton: canAddMoreComponents
+    };
+    const PAGE_MAP = {
+        content: ['@path', ''],
+        dialog: ['mgnl:template', '']
+    };
+    const AREA_MAP = {
+        name: ['@name', ''],
+        content: PAGE_MAP.content,
+        availableComponents: ['availableComponents', []],
+        type: ['type', 'list', getValueFromObject],
+        label: ['title', '', getValueFromObject],
+        inherit: ['inheritance', false, getValueFromObject],
+        optional: ['optional', false, getValueFromObject],
+        createdAreaNode: ['createAreaNode', true, getValueFromObject],
+        showAddButton: ['maxComponents', true],
+        showNewComponentArea: [null, true],
+        description: ['description', '', getValueFromObject],
+        activationStatus: [null, 0]
+    };
+
+    const COMPONENT_MAP = {
+        content: PAGE_MAP.content,
+        dialog: PAGE_MAP.dialog,
+        label: ['title', '', getValueFromObject],
+        description: ['description', '', getValueFromObject],
+        activationStatus: [null, 0]
+    };
+    return {
+        getAreaCommentString,
+        getComponentCommentString,
+        getPageCommentString
+    };
+
+    function getPageCommentString(page, templateDefinition) {
+        return `cms:page ${getCommentString(page, PAGE_MAP, templateDefinition)}`;
+    }
+
+    function getAreaCommentString(area, templateDefinition, componentCount) {
+        const customParams = { componentCount };
+        const areaTemplateDefinition = templateDefinition && templateDefinition.areas ? templateDefinition.areas[area['@name']] : {};
+        return `cms:area ${getCommentString(area, AREA_MAP, areaTemplateDefinition, customParams)}`;
+    }
+
+    function getComponentCommentString(component, templateDefinition) {
+        return `cms:component ${getCommentString(component, COMPONENT_MAP, templateDefinition)}`;
+    }
+
+    function getCommentString(data, map, templateDefinition, customParams) {
+        const result = [];
+        Object.keys(map).forEach(key => {
+            const [dataKey, defaultValue, getDataFn] = map[key];
+            const contentProcessor = VALUE_PROCESSORS[key];
+            let value = defaultValue;
+            if (contentProcessor) {
+                value = contentProcessor(data, dataKey, templateDefinition, customParams);
+            } else if (getDataFn) {
+                value = getDataFn(templateDefinition, dataKey, defaultValue);
+            } else if (data != null && dataKey !== null) {
+                value = data[dataKey] || '';
+            }
+            const item = { key, value };
+            result.push(`${key}="${item.value}"`);
+        });
+
+        return result.join(' ');
+    }
+
+    function getAvailableComponents(area, dataKey, templateDefinition) {
+        if (!templateDefinition || !templateDefinition[dataKey]) {
+            return '';
+        }
+
+        return Object.keys(templateDefinition[dataKey]).map(key => templateDefinition[dataKey][key].id).join(', ');
+    }
+
+    function canAddMoreComponents(area, dataKey, templateDefinition, customParams) {
+        if (!templateDefinition || templateDefinition.maxComponents == null || !customParams || customParams.componentCount == null) {
+            return true;
+        }
+        return customParams.componentCount < templateDefinition.maxComponents;
+    }
+
+    function getValueFromObject(obj, key, defaultValue) {
+        let value = obj && typeof obj === 'object' && key ? obj[key] : null;
+        value = value == null ? defaultValue : value;
+        value = typeof defaultValue === 'boolean' ? Boolean(value) : value;
+        return value != null ? value : defaultValue;
+    }
+
+    function getContentPath(data, key) {
+        const value = data ? data[key] : null;
+        // NOTE: Empty string is acceptable. So we need check value != null
+        return value != null ? `website:${value}` : '';
+    }
+}
+
+export default TemplateAnnotations();

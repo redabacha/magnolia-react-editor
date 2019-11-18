@@ -1,0 +1,132 @@
+{
+    "id": "spa-react-app:pages/standard",
+    "name": "standard",
+    "title": "Standard Minimal Page",
+    "templateScript": "/spa-react-app/templates/pages/index.html",
+    "renderType": "spa",
+    "description": null,
+    "i18nBasename": null,
+    "modelClass": null,
+    "autoGeneration": {
+        "content": {},
+        "generatorClass": null
+    },
+    "variations": {},
+    "autoPopulateFromRequest": null,
+    "fragmentDefinition": null,
+    "parameters": {},
+    "visible": true,
+    "dialog": "mte:pages/pageProperties",
+    "templateAvailability": {},
+    "type": "content",
+    "subtype": null,
+    "editable": null,
+    "moveable": null,
+    "deletable": null,
+    "writable": null,
+    "jsPaths": [
+        "/.resources/spa-react-app/webresources/public/static/js/main.js"
+    ],
+    "cssPaths": [
+        "/.resources/spa-react-app/webresources/public/static/css/main.css"
+    ],
+    "jsComponent": null,
+    "areas": {
+        "main-area": {
+            "id": null,
+            "name": "main-area",
+            "title": null,
+            "templateScript": null,
+            "renderType": "spa",
+            "description": null,
+            "i18nBasename": null,
+            "modelClass": null,
+            "autoGeneration": {
+                "content": {},
+                "generatorClass": null
+            },
+            "variations": {},
+            "autoPopulateFromRequest": null,
+            "fragmentDefinition": null,
+            "parameters": {},
+            "visible": null,
+            "dialog": null,
+            "templateAvailability": {},
+            "type": null,
+            "subtype": null,
+            "editable": null,
+            "moveable": null,
+            "deletable": null,
+            "writable": null,
+            "availableComponents": {
+                "title": {
+                    "roles": [],
+                    "permissions": null,
+                    "id": "spa-react-app:components/title",
+                    "enabled": true
+                },
+                "text-image": {
+                    "roles": [],
+                    "permissions": null,
+                    "id": "spa-react-app:components/text-image",
+                    "enabled": true
+                }
+            },
+            "enabled": null,
+            "optional": null,
+            "contentStructure": null,
+            "inheritance": null,
+            "maxComponents": null,
+            "createAreaNode": null,
+            "areas": {}
+        },
+        "secondary-area": {
+            "id": null,
+            "name": "secondary-area",
+            "title": null,
+            "templateScript": null,
+            "renderType": "spa",
+            "description": null,
+            "i18nBasename": null,
+            "modelClass": null,
+            "autoGeneration": {
+                "content": {},
+                "generatorClass": null
+            },
+            "variations": {},
+            "autoPopulateFromRequest": null,
+            "fragmentDefinition": null,
+            "parameters": {},
+            "visible": null,
+            "dialog": null,
+            "templateAvailability": {},
+            "type": null,
+            "subtype": null,
+            "editable": null,
+            "moveable": null,
+            "deletable": null,
+            "writable": null,
+            "availableComponents": {
+                "title": {
+                    "roles": [],
+                    "permissions": null,
+                    "id": "spa-react-app:components/title",
+                    "enabled": true
+                },
+                "text-image": {
+                    "roles": [],
+                    "permissions": null,
+                    "id": "spa-react-app:components/text-image",
+                    "enabled": true
+                }
+            },
+            "enabled": null,
+            "optional": null,
+            "contentStructure": null,
+            "inheritance": null,
+            "maxComponents": null,
+            "createAreaNode": null,
+            "areas": {}
+        }
+    }
+}

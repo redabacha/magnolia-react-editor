@@ -11,4 +11,20 @@ npm install --save @magnolia/magnolia-template-annotations
 
 == Usage
 
-// To be completed
+=== link:#templateAnnotations[Magnolia SPA Service]
+
+To use *templateAnnotations*, you need to import it from *mgnl-service*:
+
+[source,javascript]
+----
+import { templateAnnotations } from '@magnolia/magnolia-template-annotations';
+----
+
+*templateAnnotations* is supported:
+
+[source,javascript]
+----
+function getAreaCommentString(data: object, templateDefinition: object, componentCount?: number): string;
+function getComponentCommentString(data: object, templateDefinition: object): string;
+function getPageCommentString(data: object, templateDefinition: object): string;
+----
