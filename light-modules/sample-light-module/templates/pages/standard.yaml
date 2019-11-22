@@ -1,0 +1,60 @@
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+renderType: spa
+visible: true
+title: Standard Minimal Page
+dialog: mte:pages/pageProperties
+templateScript: /rsample-light-module/webresources/public/index.html
+jsPaths:
+  - /.resources/rsample-light-module/webresources/public/static/js/main.js
+cssPaths:
+  - /.resources/rsample-light-module/webresources/public/static/css/main.css
+
+areas:
+  main:
+    renderType: spa
+    title: Main
+    availableComponents:
+      title:
+        id: rsample-light-module:components/title
+      text-image:
+        id: rsample-light-module:components/text-image
+      nested:
+        id: rsample-light-module:components/nested
+  secondary:
+    renderType: spa
+    title: Secondary
+    availableComponents:
+      title:
+        id: rsample-light-module:components/title
+      text-image:
+        id: rsample-light-module:components/text-image
+      nested:
+        id: rsample-light-module:components/nested
+  single:
+    type: single
+    availableComponents:
+      title:
+        id: rsample-light-module:components/title
+      text-image:
+        id: rsample-light-module:components/text-image
+  noComponent:
+    type: noComponent
+  noComponentNoCreatedNode:
+    createAreaNode: false
+    type: noComponent
+  nestedAreas:
+    areas:
+      navigation1:
+        type: single
+        availableComponents:
+          title:
+            id: rsample-light-module:components/title
+          text-image:
+            id: rsample-light-module:components/text-image
+      navigation2:
+        type: single
+        availableComponents:
+          title:
+            id: rsample-light-module:components/title
+          text-image:
+            id: rsample-light-module:components/text-image

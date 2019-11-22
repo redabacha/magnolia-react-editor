@@ -1,0 +1,11 @@
+renderType: spa
+title: The nested area in component
+dialog: rsample-light-module:components/title
+areas:
+  nestedArea:
+    type: list
+    availableComponents:
+      title:
+        id: rsample-light-module:components/title
+      text-image:
+        id: rsample-light-module:components/text-image
