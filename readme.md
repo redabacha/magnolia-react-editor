@@ -12,3 +12,7 @@ npm start
 
 ## Step 2
 Lets create a light-module. We won't discuss how to create light-module here, please refer to https://documentation.magnolia-cms.com/display/DOCS61/Light+modules for more information. You can find a sample light module in light-modules folder in this project.
+
+## Step 3
+Configure javascript-models app and roles. These configurations you can import them from content-import folder.
+Please refer to this document https://documentation.magnolia-cms.com/display/DOCS61/Importing+and+exporting+data
