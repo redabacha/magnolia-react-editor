@@ -1,14 +1,19 @@
 const path = require('path');
+
 module.exports = {
-    entry: ['whatwg-fetch', './src/index.js'],
+    entry: ['./src/index.js'],
+    externals: {
+        react: 'umd react',
+        'react-dom': 'umd react-dom'
+    },
     module: {
         rules: [{
-            test: /\.(js)$/,
+            test: /\.(js|jsx)$/,
             exclude: /(node_modules|build)/,
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env']
+                    presets: ['@babel/preset-env', '@babel/preset-react']
                 }
             }
         }]
