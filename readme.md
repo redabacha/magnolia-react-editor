@@ -25,3 +25,31 @@ npm install --save-dev copyfiles
 npm install --save-dev rimraf
 npm install --save-dev renamer
 ```
+## Step 5
+Create a script to transpile the code. We don't use normal configuration because we don't want to split the code into multiple files.
+Let's create `scripts/build-non-split.js`:
+```javascript
+/*
+Prevent create-react-app from 'chunking' the js. Because chunking makes it hard to automatically include in Magnolia freemarker script.
+Change the create-react-app config without 'ejecting'.
+
+From this thread: https://github.com/facebook/create-react-app/issues/5306
+*/
+'use strict';
+
+const rewire = require('rewire');
+const defaults = rewire('react-scripts/scripts/build.js');
+let config = defaults.__get__('config');
+
+config.optimization.splitChunks = {
+    cacheGroups: {
+        default: false,
+    },
+};
+
+config.optimization.runtimeChunk = false;
+```
+We also need to install `rewire` to override splitChunks config: `npm install --save-dev rewire`. After that, we edit build script like below:
+```
+"build": "node scripts/build-non-split.js"
+```
