@@ -67,3 +67,8 @@ Please refer to the script as below:
 As you can see, if we run `deploy` task, it will run `clean` -> `build` -> `build-rename` -> copy the build into webresources folder.
 ## Step 7
 Start developing the app to render pages from REST API. Please the sample code from this project. Especially, `environment.js`, `mapping.js`, and `App.js`.
+## Step 8
+Point light-modules setting to light-modules folder in this project, or copy sample-light-module into your light-modules folder, then run the server.
+Note: Before running server, please check a gain `environment.js` to update server URL, page root path (the root page you will create after running server)
+## Step 9
+Create a page with the path you've chosen in the previous step, then edit the page.
