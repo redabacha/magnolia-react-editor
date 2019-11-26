@@ -16,3 +16,12 @@ Lets create a light-module. We won't discuss how to create light-module here, pl
 ## Step 3
 Configure javascript-models app and roles. These configurations you can import them from content-import folder.
 Please refer to this document https://documentation.magnolia-cms.com/display/DOCS61/Importing+and+exporting+data
+
+## Step 4
+Install `@magnolia/magnolia-react-renderer`, `copyfiles`, `rimraf`, and `renamer`. `@magnolia/magnolia-react-renderer` is a library that has `Page`, `Area`, and `Component` for rendering Magnolia edit bars in author mode. `copyfiles` and `rimraf` are helping to copy/remove files. It can be done by using OS's commands but we need to handle when it is run on MacOS, Windows, or Linux. `renamer` helps remove hash code on built files.
+```
+npm install --save @magnolia/magnolia-react-renderer
+npm install --save-dev copyfiles
+npm install --save-dev rimraf
+npm install --save-dev renamer
+```
