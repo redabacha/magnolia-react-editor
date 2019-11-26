@@ -53,3 +53,15 @@ We also need to install `rewire` to override splitChunks config: `npm install --
 ```
 "build": "node scripts/build-non-split.js"
 ```
+## Step 6
+Before running build script, we need to clean the previous build. After that, we also need to remove the hash code from files in build folder, because it's more complicated to include the hash code to our page template file. And we need to copy the build into webresources folder in light-module.
+Please refer to the script as below:
+```
+"build": "npm run clean && node scripts/build-non-split.js",
+"deploy": "npm run build && npm run build-rename && copyfiles -u 1 \"build/**/*\" light-modules/sample-light-module/webresources/",
+"build-rename": "npm run build-rename-js && npm run build-rename-css",
+"build-rename-js": "renamer --find \"/main.[^\\.]+.js/\" --replace \"main.js\" build/static/js/*.js",
+"build-rename-css": "renamer --find \"/main\\.[^\\.]+\\.css/\" --replace \"main.css\" build/static/css/*.css",
+"clean": "rimraf build && rimraf light-modules/sample-light-module/webresources"
+```
+As you can see, if we run `deploy` task, it will run `clean` -> `build` -> `build-rename` -> copy the build into webresources folder.

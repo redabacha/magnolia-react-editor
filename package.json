@@ -3,13 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@magnolia/magnolia-react-renderer": "/Users/dominicnguyen/wksp/spa/mgnl-sdk/frontend-helpers/react-renderer",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run clean && node scripts/build-non-split.js",
+    "deploy": "npm run build && npm run build-rename && copyfiles -u 1 \"build/**/*\" light-modules/sample-light-module/webresources/",
+    "build-rename": "npm run build-rename-js && npm run build-rename-css",
+    "build-rename-js": "renamer --find \"/main.[^\\.]+.js/\" --replace \"main.js\" build/static/js/*.js",
+    "build-rename-css": "renamer --find \"/main\\.[^\\.]+\\.css/\" --replace \"main.css\" build/static/css/*.css",
+    "clean": "rimraf build && rimraf light-modules/sample-light-module/webresources",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -27,5 +34,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "copyfiles": "^2.1.1",
+    "renamer": "^1.1.4",
+    "rewire": "^4.0.1",
+    "rimraf": "^3.0.0"
   }
 }
