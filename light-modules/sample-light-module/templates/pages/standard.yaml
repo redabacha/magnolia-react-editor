@@ -3,11 +3,11 @@ renderType: spa
 visible: true
 title: Standard Minimal Page
 dialog: mte:pages/pageProperties
-templateScript: /rsample-light-module/webresources/public/index.html
+templateScript: /sample-light-module/webresources/index.html
 jsPaths:
-  - /.resources/rsample-light-module/webresources/public/static/js/main.js
+  - /.resources/sample-light-module/webresources/static/js/main.js
 cssPaths:
-  - /.resources/rsample-light-module/webresources/public/static/css/main.css
+  - /.resources/sample-light-module/webresources/static/css/main.css
 
 areas:
   main:
@@ -15,28 +15,28 @@ areas:
     title: Main
     availableComponents:
       title:
-        id: rsample-light-module:components/title
+        id: sample-light-module:components/title
       text-image:
-        id: rsample-light-module:components/text-image
+        id: sample-light-module:components/text-image
       nested:
-        id: rsample-light-module:components/nested
+        id: sample-light-module:components/nested
   secondary:
     renderType: spa
     title: Secondary
     availableComponents:
       title:
-        id: rsample-light-module:components/title
+        id: sample-light-module:components/title
       text-image:
-        id: rsample-light-module:components/text-image
+        id: sample-light-module:components/text-image
       nested:
-        id: rsample-light-module:components/nested
+        id: sample-light-module:components/nested
   single:
     type: single
     availableComponents:
       title:
-        id: rsample-light-module:components/title
+        id: sample-light-module:components/title
       text-image:
-        id: rsample-light-module:components/text-image
+        id: sample-light-module:components/text-image
   noComponent:
     type: noComponent
   noComponentNoCreatedNode:
@@ -48,13 +48,13 @@ areas:
         type: single
         availableComponents:
           title:
-            id: rsample-light-module:components/title
+            id: sample-light-module:components/title
           text-image:
-            id: rsample-light-module:components/text-image
+            id: sample-light-module:components/text-image
       navigation2:
         type: single
         availableComponents:
           title:
-            id: rsample-light-module:components/title
+            id: sample-light-module:components/title
           text-image:
-            id: rsample-light-module:components/text-image
+            id: sample-light-module:components/text-image

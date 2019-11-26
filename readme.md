@@ -65,3 +65,5 @@ Please refer to the script as below:
 "clean": "rimraf build && rimraf light-modules/sample-light-module/webresources"
 ```
 As you can see, if we run `deploy` task, it will run `clean` -> `build` -> `build-rename` -> copy the build into webresources folder.
+## Step 7
+Start developing the app to render pages from REST API. Please the sample code from this project. Especially, `environment.js`, `mapping.js`, and `App.js`.
