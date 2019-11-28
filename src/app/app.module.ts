@@ -1,25 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { routing } from './app.routing';
-import { AppComponent } from './app.component';
 
-import { MagnoliaModule } from 'angular-renderer';
-import { ComponentsModule } from './components/components.module';
+import { MagnoliaModule } from '@magnolia/angular-renderer';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { TitleComponent } from './title/title.component';
+import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
 
 @NgModule({
-   imports: [
+  imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     routing,
     MagnoliaModule,
-    ComponentsModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    TitleComponent,
+    ComponentWithAreaComponent
+  ],
+  entryComponents: [
+    HomeComponent,
+    TitleComponent,
+    ComponentWithAreaComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -11,7 +11,7 @@ Set up URLs in src/environments/environment.ts accordingly and then run:
 
     npm install
 
-    npm run build
+    ng build
 
 
 ## Setup Magnolia
