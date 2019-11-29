@@ -9,7 +9,7 @@ import "./index.css";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <App history={window.history} />
   </BrowserRouter>,
   document.getElementById("root")
 );

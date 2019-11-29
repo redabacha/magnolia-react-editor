@@ -3,7 +3,7 @@
 This tutorial shows step-by-step how to render data from Magnolia using ReactJS.
 
 ## Step 1
-Lets create a React App. Please refer to this document for more information https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
+Let create a React App. Please refer to this document for more information https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
 ```
 npx create-react-app my-app
 cd my-app
@@ -11,7 +11,7 @@ npm start
 ```
 
 ## Step 2
-Lets create a light-module. We won't discuss how to create light-module here, please refer to https://documentation.magnolia-cms.com/display/DOCS61/Light+modules for more information. You can find a sample light module in light-modules folder in this project.
+Let create a light-module. We won't discuss how to create light-module here, please refer to https://documentation.magnolia-cms.com/display/DOCS61/Light+modules for more information. You can find a sample light module in light-modules folder in this project.
 
 ## Step 3
 Configure javascript-models app and roles. These configurations you can import them from content-import folder.
@@ -66,9 +66,11 @@ Please refer to the script as below:
 ```
 As you can see, if we run `deploy` task, it will run `clean` -> `build` -> `build-rename` -> copy the build into webresources folder.
 ## Step 7
-Start developing the app to render pages from REST API. Please the sample code from this project. Especially, `environment.js`, `mapping.js`, and `App.js`.
+Start developing the app to render pages from REST API. Please see the sample code from this project. Especially, `environment.js`, `mapping.js`, and `App.js`.
 ## Step 8
 Point light-modules setting to light-modules folder in this project, or copy sample-light-module into your light-modules folder, then run the server.
-Note: Before running server, please check a gain `environment.js` to update server URL, page root path (the root page you will create after running server)
+Note: Before running server, please check again `environment.js` to update server URL, page root path (the root page you will create after running server)
 ## Step 9
+Run `npm run deploy` to build and copy the app to light-modules.
+## Step 10
 Create a page with the path you've chosen in the previous step, then edit the page.

@@ -1,32 +1,49 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ENVIRONMENT from '../../environments/environment';
 
-import ENVIRONMENT from "../../environments/environment";
+function TextImage(props) {
+    const { title, image, text } = props;
 
-class TextImage extends React.Component {
-  render() {
-    function CleanImage(props) {
-      if (props.image) {
-        var damURL = ENVIRONMENT.server + props.image.renditions["480"].link;
+    function CleanImage(properties) {
+        const { image: img } = properties;
+        if (img) {
+            const damURL = ENVIRONMENT.server + img.renditions['480'].link;
 
-        return (
-          <img className="img-responsive" src={damURL} alt="TextIm alt." />
-        );
-      }
-      return null;
+            return (
+                <img className="img-responsive" src={damURL} alt="TextIm alt." />
+            );
+        }
+        return null;
+    }
+
+    function createMarkup() {
+        return { __html: text };
     }
 
     return (
-      <div>
-        <h5 className="light">{this.props.title}</h5>
         <div>
-          <CleanImage image={this.props.image} />
+            <h5 className="light">{title}</h5>
+            <div>
+                <CleanImage image={image} />
+            </div>
+            <div>
+                <p dangerouslySetInnerHTML={createMarkup()} />
+            </div>
         </div>
-        <div>
-          <p dangerouslySetInnerHTML={{ __html: this.props.text }} />
-        </div>
-      </div>
     );
-  }
 }
+
+TextImage.propTypes = {
+    title: PropTypes.string,
+    image: PropTypes.object,
+    text: PropTypes.string
+};
+
+TextImage.defaultProps = {
+    title: '',
+    image: null,
+    text: ''
+};
 
 export default TextImage;

@@ -1,61 +1,69 @@
-import React, {Component} from "react";
-import {dlog} from "../AppHelpers";
+import React from 'react';
+import { Area, enableMgnlRenderer, RendererContext } from '@magnolia/magnolia-react-renderer';
+import PropTypes from 'prop-types';
+import { dlog } from '../AppHelpers';
+import COMPONENTS from '../../environments/mapping';
 
-import COMPONENTS from "../../environments/mapping";
-import {Area, makeSpaPage} from "@magnolia/magnolia-react-renderer";
-
-class Page extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            areaVisible: true,
-            templateDefinitions: null
+function Page(props) {
+    const [areaVisible, setAreaVisible] = React.useState(true);
+    const context = React.useContext(RendererContext);
+    React.useEffect(() => {
+        if (window.parent.mgnlRefresh !== undefined) {
+            window.parent.mgnlRefresh();
         }
+    });
+    dlog('render PageStandard.');
+    dlog('page context', context);
+    const { content } = props;
+    const {
+        main: mainAreaContent, secondary: secondaryAreaContent, title, single
+    } = content;
+
+    function toggleArea() {
+        setAreaVisible(!areaVisible);
     }
 
-    render() {
-        dlog("render PageStandard.");
-        dlog("page context", this.context);
-        let mainAreaContent = this.props.content.main;
-        let secondaryAreaContent = this.props.content.secondary;
-
-        return (
-            <div className="content-background">
-                <div className="container">
-                    <h1 className="bd-title">{this.props.content.title}</h1>
-                    <div>
-                        <h2>Primary Area</h2>
-                        <div className="col-12">
-                            <Area key={"main"} content={mainAreaContent} />
-                        </div>
+    return (
+        <div className="content-background">
+            <div className="container">
+                <h1 className="bd-title">{title}</h1>
+                <div>
+                    <h2>Primary Area</h2>
+                    <div className="col-12">
+                        <Area key="main" content={mainAreaContent} />
                     </div>
-                    {
-                        this.state.areaVisible ?
+                </div>
+                {
+                    areaVisible
+                        ? (
                             <div>
                                 <h2>Secondary Area</h2>
                                 <div className="col-12">
-                                    <Area key={"secondary"} content={secondaryAreaContent} />
+                                    <Area key="secondary" content={secondaryAreaContent} />
                                 </div>
                             </div>
-                            : null
-                    }
-                    <div>
-                        <h2>Single component area</h2>
-                        <div className="col-12">
-                            <Area key={'single'} content={this.props.content.single} />
-                        </div>
+                        )
+                        : null
+                }
+                <div>
+                    <h2>Single component area</h2>
+                    <div className="col-12">
+                        <Area key="single" content={single} />
                     </div>
-
-                    <button className="btn btn-danger" onClick={() => this.toggleArea()}>Click me</button>
                 </div>
-            </div>
-        );
-    }
 
-    toggleArea() {
-        this.setState({areaVisible: !this.state.areaVisible})
-    }
+                <button type="button" className="btn btn-danger" onClick={() => toggleArea()}>Click me</button>
+            </div>
+        </div>
+    );
 }
 
-export default makeSpaPage(Page, COMPONENTS);
+Page.propTypes = {
+    content: PropTypes.object
+};
+
+Page.defaultProps = {
+    content: null
+};
+
+export default enableMgnlRenderer(Page, COMPONENTS);

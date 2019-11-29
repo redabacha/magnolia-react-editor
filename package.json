@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@magnolia/magnolia-react-renderer": "/Users/dominicnguyen/wksp/spa/mgnl-sdk/frontend-helpers/react-renderer",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
@@ -11,8 +12,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run clean && node scripts/build-non-split.js",
-    "deploy": "npm run build && npm run build-rename && copyfiles -u 1 \"build/**/*\" light-modules/sample-light-module/webresources/",
+    "build": "npm run clean && node scripts/build-non-split.js --env=development",
+    "deploy": "npm run build && npm run build-rename && copyfiles -u 1 \"build/**/*\" light-modules/sample-light-module/webresources/ && copyfiles -u 1 public/index.html light-modules/sample-light-module/webresources",
     "build-rename": "npm run build-rename-js && npm run build-rename-css",
     "build-rename-js": "renamer --find \"/main.[^\\.]+.js/\" --replace \"main.js\" build/static/js/*.js",
     "build-rename-css": "renamer --find \"/main\\.[^\\.]+\\.css/\" --replace \"main.css\" build/static/css/*.css",
@@ -37,6 +38,13 @@
   },
   "devDependencies": {
     "copyfiles": "^2.1.1",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jasmine": "2.10.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "renamer": "^1.1.4",
     "rewire": "^4.0.1",
     "rimraf": "^3.0.0"

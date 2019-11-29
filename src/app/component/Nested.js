@@ -1,18 +1,24 @@
-import React from "react";
-import { Area } from "@magnolia/magnolia-react-renderer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Area } from '@magnolia/magnolia-react-renderer';
 
-class Title extends React.Component {
-  /**
-   * Render the element
-   */
-  render() {
+function Title(props) {
+    const { title, nestedArea } = props;
+
     return (
-      <div>
-        <h2>{this.props.title}</h2>
-        <Area key={"nestedArea"} content={this.props.nestedArea} />
-      </div>
+        <div>
+            <h2>{title}</h2>
+            <Area key="nestedArea" content={nestedArea} />
+        </div>
     );
-  }
 }
+Title.propTypes = {
+    title: PropTypes.string,
+    nestedArea: PropTypes.object
+};
+Title.defaultProps = {
+    title: '',
+    nestedArea: null
+};
 
 export default Title;

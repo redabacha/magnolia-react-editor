@@ -1,34 +1,63 @@
-import React, {Component} from "react";
-import {withRouter} from "react-router-dom";
-
-import {dlog
-} from "./app/AppHelpers";
-
-import ENVIRONMENT from "./environments/environment";
-
-import Page from "./app/component/Page";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import {
+    dlog, isInPageEditor, getEditorPath, removeExtension
+} from './app/AppHelpers';
+import ENVIRONMENT from './environments/environment';
+import Page from './app/component/Page';
 
 class App extends Component {
+    static propTypes = {
+        history: PropTypes.object
+    };
+
+    static defaultProps = {
+        history: null
+    };
+
     /**
      * On init
      */
     constructor(props) {
         super(props);
 
-        dlog("***");
-        dlog("App Constructor.");
+        dlog('***');
+        dlog('App Constructor.');
 
         this.loadPageContent = this.loadPageContent.bind(this);
 
         // Initialize state object.
         this.state = {
             init: false,
-            inPageEditor: false,
+            inPageEditor: isInPageEditor(),
             rootCmsPath: ENVIRONMENT.rootCmsPath,
             serverPath: ENVIRONMENT.serverPath,
             content: {},
             templateDefinitions: {}
         };
+    }
+
+    // https://reactjs.org/docs/react-component.html#unsafe_componentwillmount
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillMount() {
+        // Use ReactRouter to handle route events when the browser URL changes.
+        const { history } = this.props;
+        const { inPageEditor } = this.state;
+        this.unlisten = history.listen((location, action) => {
+            let relativePath = location.pathname;
+
+            if (inPageEditor) {
+                relativePath = getEditorPath(relativePath);
+            }
+
+            relativePath = removeExtension(relativePath);
+
+            dlog('***');
+            dlog(`Route Change. RelativePath: ${relativePath}`);
+
+            this.loadPageContent(relativePath);
+        });
     }
 
     componentDidMount() {
@@ -42,31 +71,14 @@ class App extends Component {
         }
     }
 
-     async loadPageContent () {
-        this.setState({init: false});
+    async loadTemplateDefinitions(templateId) {
+        const templateEndpointUrl = `${ENVIRONMENT.templateDefinitionBase}/${templateId}`;
 
-        let fullURL = ENVIRONMENT.restUrlBase + ENVIRONMENT.rootCmsPath ;
-        dlog("Request content from: " + fullURL);
+        // Loads the single page config
+        const response = await fetch(templateEndpointUrl);
+        const json = await response.json();
 
-        let response = await fetch(fullURL);
-
-        let json = await response.json();
-
-        console.log("CONTENT===", json);
-
-        this.setState({
-            content: json
-        }, () => this.loadTemplateDefinitions(json['mgnl:template']));
-    }
-
-    async loadTemplateDefinitions (templateId) {
-        let templateEndpointUrl = ENVIRONMENT.templateDefinitionBase + "/" + templateId;
-
-        //Loads the single page config
-        let response = await fetch(templateEndpointUrl);
-        let json = await response.json();
-
-        console.log("Definition", json);
+        console.log('Definition', json);
 
         this.setState({
             init: true,
@@ -74,55 +86,39 @@ class App extends Component {
         });
     }
 
-    getEditorPath(relativePath) {
-        // remove serverPath
-        relativePath = relativePath.substr(ENVIRONMENT.serverPath.length);
+    async loadPageContent() {
+        this.setState({ init: false });
 
-        // remove rootCmsPath
-        relativePath = relativePath.substr(ENVIRONMENT.rootCmsPath.length);
-        return relativePath;
-    }
+        const fullURL = ENVIRONMENT.restUrlBase + ENVIRONMENT.rootCmsPath;
+        dlog(`Request content from: ${fullURL}`);
 
-    removeExtension(path) {
-        if (path.indexOf(".") > -1) {
-            path = path.substr(0, path.lastIndexOf("."));
-        }
-        return path;
-    }
+        const response = await fetch(fullURL);
 
-    componentWillMount() {
-        // Use ReactRouter to handle route events when the browser URL changes.
-        this.unlisten = this.props.history.listen((location, action) => {
-            var relativePath = location.pathname;
+        const json = await response.json();
 
-            if (this.state.inPageEditor) {
-                relativePath = this.getEditorPath(relativePath);
-            }
+        console.log('CONTENT===', json);
 
-            relativePath = this.removeExtension(relativePath);
-
-            dlog("***");
-            dlog("Route Change. RelativePath: " + relativePath);
-
-            this.loadPageContent(relativePath);
-        });
+        this.setState({
+            content: json
+        }, () => this.loadTemplateDefinitions(json['mgnl:template']));
     }
 
     render() {
-        console.log("The state", this.state);
-        console.log("The state", this.state.content);
+        const { content, templateDefinitions, init } = this.state;
+        console.log('The state', this.state);
+        console.log('The state', content);
+        console.log(Page);
 
-        if (this.state.init) {
-            dlog("***");
-            dlog("App Render.");
+        if (init) {
+            dlog('***');
+            dlog('App Render.');
             return (
-              <Page key={"mainPage"} content={this.state.content} templateDefinitions={this.state.templateDefinitions} />
-            );
-        } else {
-            return (
-              <p>Loading content from CMS...</p>
+                <Page key="mainPage" content={content} templateDefinitions={templateDefinitions} />
             );
         }
+        return (
+            <p>Loading content from CMS...</p>
+        );
     }
 }
 
