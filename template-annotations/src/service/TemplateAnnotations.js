@@ -75,7 +75,7 @@ function TemplateAnnotations() {
             return '';
         }
 
-        return Object.keys(templateDefinition[dataKey]).map(key => templateDefinition[dataKey][key].id).join(', ');
+        return Object.keys(templateDefinition[dataKey]).map(key => templateDefinition[dataKey][key].id).join(',');
     }
 
     function canAddMoreComponents(area, dataKey, templateDefinition, customParams) {

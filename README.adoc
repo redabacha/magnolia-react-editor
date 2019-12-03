@@ -6,4 +6,14 @@ They help integrate Magnolia with Single Page Applications (SPAs), built with An
 // == Modules
 // Make a modules section as soon as there is more than one.
 
+'''
+
 include::template-annotations/README.adoc[leveloffset=+2]
+
+'''
+
+include::react-renderer/README.adoc[leveloffset=+2]
+
+'''
+
+include::react-renderer-example/README.adoc[leveloffset=+2]
