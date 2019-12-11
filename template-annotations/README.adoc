@@ -11,16 +11,16 @@ npm install --save @magnolia/magnolia-template-annotations
 
 == Usage
 
-=== link:#templateAnnotations[Magnolia SPA Service]
+=== link:#TemplateAnnotations[Magnolia SPA Service]
 
-To use *templateAnnotations*, you need to import it from *mgnl-service*:
+To use *TemplateAnnotations*, you need to import it from *mgnl-service*:
 
 [source,javascript]
 ----
-import { templateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
 ----
 
-*templateAnnotations* is supported:
+*TemplateAnnotations* module provides these functions:
 
 [source,javascript]
 ----

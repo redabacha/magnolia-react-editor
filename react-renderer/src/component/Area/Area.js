@@ -1,5 +1,5 @@
 import React from 'react';
-import { templateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
 import { RendererContext, constants } from '../../util';
@@ -52,7 +52,7 @@ class Area extends React.Component {
             const templateId = componentContent['mgnl:template'];
             const { templateDefinitions: allDefinitions } = this.context;
             const templateDefinitions = allDefinitions[templateId];
-            const openComponentComment = templateAnnotations.getComponentCommentString(componentContent, templateDefinitions);
+            const openComponentComment = TemplateAnnotations.getComponentCommentString(componentContent, templateDefinitions);
             const closedComponentComment = this.getComponentClosedCommentContent();
 
             return (
@@ -116,7 +116,7 @@ class Area extends React.Component {
         const pageTemplateId = this.getParentTemplateId();
         const { templateDefinitions: allDefinitions } = this.context;
         const templateDefinitions = allDefinitions[pageTemplateId];
-        const openComment = templateAnnotations.getAreaCommentString(content, templateDefinitions);
+        const openComment = TemplateAnnotations.getAreaCommentString(content, templateDefinitions);
         return (
             <>
                 <Comment text={openComment} />

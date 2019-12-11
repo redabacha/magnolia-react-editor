@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { templateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
 import { RendererProvider } from './RendererContext';
 
 export default function enableMgnlRenderer(WrappedComponent, componentMappings) {
@@ -38,7 +38,7 @@ export default function enableMgnlRenderer(WrappedComponent, componentMappings) 
             const { content } = this.props;
             const { templateDefinitions } = this.state;
             const pageTemplateId = content['mgnl:template'];
-            const pageOpenCommentString = templateAnnotations.getPageCommentString(content, templateDefinitions[pageTemplateId]);
+            const pageOpenCommentString = TemplateAnnotations.getPageCommentString(content, templateDefinitions[pageTemplateId]);
             const pageCloseCommentString = '/cms:page';
 
             document.head.appendChild(document.createComment(pageOpenCommentString));

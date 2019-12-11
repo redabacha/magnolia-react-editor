@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { templateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
 import { RendererContextService } from '../services/renderer-context.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class MagnoliaAreaComponent {
       this.components = this.getAreaComponents(content, this.name);
 
       if (this.rendererContext.isEditMode()) {
-        this.openComment = templateAnnotations.getAreaCommentString(content[this.name], this.rendererContext.getTemplateDefinition(content['mgnl:template']));
+        this.openComment = TemplateAnnotations.getAreaCommentString(content[this.name], this.rendererContext.getTemplateDefinition(content['mgnl:template']));
         this.closeComment = '/cms:area';
       }
     }
