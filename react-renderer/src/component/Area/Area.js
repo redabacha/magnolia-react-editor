@@ -1,5 +1,5 @@
 import React from 'react';
-import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
 import { RendererContext, constants } from '../../util';

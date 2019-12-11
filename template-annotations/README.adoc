@@ -6,7 +6,7 @@ It does so by injecting annotations (HTML comments really) around your component
 == Installation
 
 ```
-npm install --save @magnolia/magnolia-template-annotations
+npm install --save @magnolia/template-annotations
 ```
 
 == Usage
@@ -17,7 +17,7 @@ To use *TemplateAnnotations*, you need to import it from *mgnl-service*:
 
 [source,javascript]
 ----
-import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 ----
 
 *TemplateAnnotations* module provides these functions:

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { RendererContextService } from '../services/renderer-context.service';
 
 @Component({

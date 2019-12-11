@@ -1,5 +1,5 @@
 {
-  "name": "@magnolia/magnolia-template-annotations",
+  "name": "@magnolia/template-annotations",
   "version": "1.0.0",
   "description": "Magnolia Template Annotations",
   "main": "index.js",

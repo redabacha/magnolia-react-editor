@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { TemplateAnnotations } from '@magnolia/magnolia-template-annotations';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { RendererProvider } from './RendererContext';
 
 export default function enableMgnlRenderer(WrappedComponent, componentMappings) {
