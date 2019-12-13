@@ -1,1 +1,1 @@
-export { default as templateAnnotations } from './TemplateAnnotations';
+export { default as TemplateAnnotations } from './TemplateAnnotations';

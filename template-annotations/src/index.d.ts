@@ -1,1 +1,1 @@
-export { templateAnnotations } from './service';
+export { TemplateAnnotations } from './service';

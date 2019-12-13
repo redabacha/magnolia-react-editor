@@ -1,1 +1,1 @@
-export { templateAnnotations } from './lib';
+export { TemplateAnnotations } from './lib';

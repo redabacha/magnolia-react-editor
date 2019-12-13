@@ -1,3 +1,3 @@
-import * as templateAnnotations from './TemplateAnnotations';
+import * as TemplateAnnotations from './TemplateAnnotations';
 
-export { templateAnnotations };
+export { TemplateAnnotations };

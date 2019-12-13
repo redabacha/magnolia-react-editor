@@ -1,5 +1,5 @@
 {
-  "name": "@magnolia/magnolia-react-renderer",
+  "name": "@magnolia/react-renderer",
   "version": "0.0.1",
   "description": "Provide wrappers to help SPA page can be editable in Magnolia CMS.",
   "main": "build/mgnl-react-renderer.js",
@@ -15,7 +15,7 @@
     "react-dom": "16.12.0"
   },
   "dependencies": {
-    "@magnolia/magnolia-template-annotations": "../template-annotations",
+    "@magnolia/template-annotations": "^1.0.0",
     "prop-types": "15.7.2"
   },
   "devDependencies": {

@@ -1,12 +1,12 @@
 {
-  "name": "@magnolia/magnolia-template-annotations",
+  "name": "@magnolia/template-annotations",
   "version": "1.0.0",
   "description": "Magnolia Template Annotations",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build && rimraf lib",
     "build": "npm run clean && npm run build-tsc && webpack --config webpack.dev.js && webpack --config webpack.prod.js",
-    "test": "karma start",
+    "test": "jest",
     "build-tsc": "tsc && copyfiles -u 1 \"src/**/*.d.ts\" lib"
   },
   "repository": {
@@ -16,25 +16,20 @@
   },
   "author": "Magnolia",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.6.4",
     "@babel/preset-env": "7.6.3",
+    "@types/node": "^12.12.17",
     "babel-loader": "8.0.6",
     "copyfiles": "2.1.1",
     "eslint": "6.1.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jasmine": "2.10.1",
-    "jasmine": "3.5.0",
-    "karma": "4.4.1",
-    "karma-chrome-launcher": "3.1.0",
-    "karma-jasmine": "2.0.1",
-    "karma-webpack": "4.0.2",
-    "puppeteer": "2.0.0",
-    "rimraf": "3.0.0",
+    "jest": "^24.9.0",
+    "tslint": "^5.11.0",
     "typescript": "3.6.4",
+    "rimraf": "3.0.0",
     "webpack": "4.41.2",
     "webpack-cli": "3.3.9",
     "webpack-merge": "4.2.2"
