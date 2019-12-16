@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, Input } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { RendererContextService } from '../services/renderer-context.service';
 import { WindowRefService } from '../services/windowref.service';
@@ -28,11 +28,12 @@ export class MagnoliaAreaComponent implements AfterViewInit {
 
   @Input() set content(content: object) {
     if (content) {
+      this.components = this.getAreaComponents(content, this.name);
+
       if (this.rendererContext.isEditMode()) {
         this.openComment = TemplateAnnotations.getAreaCommentString(content[this.name], this.rendererContext.getTemplateDefinition(content['mgnl:template']));
         this.closeComment = '/cms:area';
       }
-      this.components = this.getAreaComponents(content, this.name);
     }
   }
 

@@ -26,7 +26,7 @@ describe('MagnoliaPageComponent', () => {
 
   it('should generate page greenbar', () => {
     jest.spyOn(service, 'isEditMode').mockReturnValue(true);
-    component.content = {};
+    component.ngOnChanges({content: new SimpleChange(null, {}, true)});
     expect(service.isEditMode).toHaveBeenCalledTimes(1);
     expect(component.closeComment).toBe('/cms:page');
   });

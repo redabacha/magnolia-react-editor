@@ -1,4 +1,5 @@
 import { Injectable, Type } from '@angular/core';
+import { WindowRefService } from './windowref.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +9,11 @@ export class RendererContextService {
   componentMapping = {};
   /** Template definitions */
   templateDefinitions = {};
-  /** Switch for render html comments for page editor */
-  editMode = false;
 
-  public setEditMode(editMode: boolean): void {
-    this.editMode = editMode;
-  }
+  constructor(private winRef: WindowRefService) { }
 
   public isEditMode(): boolean {
-    return this.editMode;
+    return this.winRef.nativeWindow.parent.mgnlRefresh !== undefined;
   }
 
   public setComponentMapping(componentMapping: object): void {
