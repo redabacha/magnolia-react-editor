@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TitleComponent } from './title/title.component';
 import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ComponentWithAreaComponent } from './componentWithArea/componentWithAre
     AppComponent,
     HomeComponent,
     TitleComponent,
+    AboutComponent,
     ComponentWithAreaComponent
   ],
   entryComponents: [

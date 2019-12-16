@@ -1,16 +1,22 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent
+    component: HomeComponent
   },
   {
-    path: '**', redirectTo: ''
-  }
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {

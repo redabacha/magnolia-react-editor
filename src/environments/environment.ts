@@ -7,8 +7,4 @@ export const environment = {
   templateDefinitionBase: SERVER + SERVER_PATH + '/.rest/templateDefinition/v1',
   serverPath: SERVER_PATH,
   rootCmsPath: '/angular-minimal',
-
-  damUrl: SERVER + SERVER_PATH,
-  staticFilePath:
-    SERVER + SERVER_PATH + '/.resources/webresources/static'
 };
