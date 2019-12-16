@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, Input } from '@angular/core';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { RendererContextService } from '../services/renderer-context.service';
+import { WindowRefService } from '../services/windowref.service';
 
 @Component({
   selector: '[mgnl-area]',
@@ -16,8 +17,8 @@ import { RendererContextService } from '../services/renderer-context.service';
     </ng-template>
   `
 })
-export class MagnoliaAreaComponent {
-  constructor(private rendererContext: RendererContextService) { }
+export class MagnoliaAreaComponent implements AfterViewInit {
+  constructor(public rendererContext: RendererContextService, public winRef: WindowRefService) { }
 
   components: object[];
   openComment: string;
@@ -27,12 +28,11 @@ export class MagnoliaAreaComponent {
 
   @Input() set content(content: object) {
     if (content) {
-      this.components = this.getAreaComponents(content, this.name);
-
       if (this.rendererContext.isEditMode()) {
         this.openComment = TemplateAnnotations.getAreaCommentString(content[this.name], this.rendererContext.getTemplateDefinition(content['mgnl:template']));
         this.closeComment = '/cms:area';
       }
+      this.components = this.getAreaComponents(content, this.name);
     }
   }
 
@@ -53,5 +53,11 @@ export class MagnoliaAreaComponent {
       });
     }
     return results;
+  }
+
+  ngAfterViewInit(): void {
+    if (this.rendererContext.isEditMode()) {
+      this.winRef.nativeWindow.parent.mgnlRefresh();
+    }
   }
 }
