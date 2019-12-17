@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { TitleComponent } from './title/title.component';
 import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
 import { AboutComponent } from './about/about.component';
+import { RootComponent } from './root.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { AboutComponent } from './about/about.component';
   ],
   declarations: [
     AppComponent,
+    RootComponent,
     HomeComponent,
     TitleComponent,
     AboutComponent,
@@ -28,6 +30,7 @@ import { AboutComponent } from './about/about.component';
   ],
   entryComponents: [
     HomeComponent,
+    AboutComponent,
     TitleComponent,
     ComponentWithAreaComponent
   ],

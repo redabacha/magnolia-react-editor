@@ -1,21 +1,21 @@
-<mgnl-page [content]="content">
-    <div class="content-background">
-        <main class="container">
-            <h1>{{content?.title}}</h1>
-            <div>
-                <h2>Primary Area</h2>
-                <div class="col-12">
-                    <div mgnl-area [name]="'main-area'" [content]="content"></div>
-                </div>
+<div class="content-background">
+    <main class="container">
+        <h1>{{content?.title}}</h1>
+        <div>
+            <h2>Primary Area</h2>
+            <div class="col-12">
+                <div mgnl-area [name]="'main-area'" [content]="content"></div>
             </div>
+        </div>
 
-            <div *ngIf="secondaryAreaVisible">
-                <h2>Secondary Area</h2>
-                <div class="col-12">
-                    <div mgnl-area [name]="'secondary-area'" [content]="content"></div>
-                </div>
+        <div *ngIf="secondaryAreaVisible">
+            <h2>Secondary Area</h2>
+            <div class="col-12">
+                <div mgnl-area [name]="'secondary-area'" [content]="content"></div>
             </div>
-            <button class="btn btn-danger" (click)="toggleArea()">Click me</button>
-        </main>
-    </div>
-</mgnl-page>
+        </div>
+
+        <button class="btn btn-danger" (click)="toggleArea()">Click me</button>
+        <button class="btn btn-primary" routerLink="/about">About</button>
+    </main>
+</div>

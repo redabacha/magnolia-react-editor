@@ -1,1 +1,12 @@
-<p>About</p>
+<div class="container">
+    <h1>{{ content?.title }}</h1>
+
+    <div>
+        <h2>Primary Area</h2>
+        <div class="col-12">
+            <div mgnl-area [name]="'main-area'" [content]="content"></div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" routerLink="/">Home</button>
+</div>

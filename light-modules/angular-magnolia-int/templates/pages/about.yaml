@@ -1,0 +1,20 @@
+templateScript: /angular-magnolia-int/webresources/index.html
+renderType: spa
+visible: true
+title: Angular-minimal About
+class: info.magnolia.rendering.spa.renderer.ConfiguredSpaRenderableDefinition
+jsPaths:
+  - /.resources/angular-magnolia-int/webresources/main.js
+  - /.resources/angular-magnolia-int/webresources/runtime.js
+  - /.resources/angular-magnolia-int/webresources/polyfills-es5.js
+  - /.resources/angular-magnolia-int/webresources/polyfills.js
+  - /.resources/angular-magnolia-int/webresources/vendor.js
+  - /.resources/angular-magnolia-int/webresources/styles.js
+cssPaths:
+  - /.resources/angular-magnolia-int/webresources/styles.css
+areas:
+  main-area:
+    title: Main Area
+    availableComponents:
+      title:
+        id: angular-magnolia-int:components/title
