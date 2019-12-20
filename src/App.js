@@ -89,7 +89,7 @@ class App extends Component {
     async loadPageContent() {
         this.setState({ init: false });
 
-        const fullURL = ENVIRONMENT.restUrlBase + ENVIRONMENT.rootCmsPath;
+        const fullURL = `${ENVIRONMENT.restUrlBase}${removeExtension(window.location.pathname)}`;
         dlog(`Request content from: ${fullURL}`);
 
         const response = await fetch(fullURL);
