@@ -16,7 +16,11 @@ function Page(props) {
     dlog('page context', context);
     const { content } = props;
     const {
-        main: mainAreaContent, secondary: secondaryAreaContent, title, single
+        header: headerContent,
+        main: mainAreaContent,
+        secondary: secondaryAreaContent,
+        title,
+        single
     } = content;
 
     function toggleArea() {
@@ -25,6 +29,9 @@ function Page(props) {
 
     return (
         <div className="content-background">
+            <div>
+                <Area key="header" content={headerContent} />
+            </div>
             <div className="container">
                 <h1 className="bd-title">{title}</h1>
                 <div>

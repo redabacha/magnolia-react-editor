@@ -56,3 +56,11 @@ export function removeExtension(path) {
     }
     return newPath;
 }
+
+export function getRootPath(path) {
+    const paths = removeExtension(path).split('/');
+    if (paths.length < 2) {
+        return path;
+    }
+    return `/${paths[1]}`;
+}

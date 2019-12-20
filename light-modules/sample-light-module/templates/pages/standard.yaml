@@ -10,6 +10,12 @@ cssPaths:
   - /.resources/sample-light-module/webresources/static/css/main.css
 
 areas:
+  header:
+    renderType: spa
+    title: Header
+    availableComponents:
+      navigation:
+        id: sample-light-module:components/navigation
   main:
     renderType: spa
     title: Main
