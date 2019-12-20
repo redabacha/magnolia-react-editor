@@ -41,6 +41,16 @@ export default function enableMgnlRenderer(WrappedComponent, componentMappings) 
             const pageOpenCommentString = TemplateAnnotations.getPageCommentString(content, templateDefinitions[pageTemplateId]);
             const pageCloseCommentString = '/cms:page';
 
+            // NOTE: Remove old cms:page comments
+            const { childNodes } = document.head;
+            const comments = [];
+            childNodes.forEach((node) => {
+                if (node.nodeType === 8 && node.textContent.includes('cms:page')) {
+                    comments.push(node);
+                }
+            });
+            comments.forEach((item) => item.remove());
+
             document.head.appendChild(document.createComment(pageOpenCommentString));
             document.head.appendChild(document.createComment(pageCloseCommentString));
         }
