@@ -18,7 +18,8 @@ class Area extends React.Component {
 
     getParentTemplateId() {
         const { content } = this.props;
-        const areaPath = content['@path'];
+        let areaPath = content['@path'];
+        areaPath = areaPath.substr(areaPath.indexOf(`/${content['@name']}`));
         const paths = areaPath.split('/');
 
         let { content: parentContent } = this.context;
