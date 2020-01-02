@@ -13,6 +13,11 @@ jsPaths:
 cssPaths:
   - /.resources/angular-magnolia-int/webresources/styles.css
 areas:
+  header:
+    title: Header
+    availableComponents:
+      navigation:
+        id: angular-magnolia-int:components/navigation
   main-area:
     title: Main Area
     availableComponents:

@@ -1,0 +1,11 @@
+<div>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <ul class="navbar-nav">
+            <ng-template ngFor let-item [ngForOf]="navData">
+                <li class="nav-item" [ngClass]="{'active': isActive(item)}">
+                    <a class="nav-link" [routerLink]="getLink(item)">{{item.title || item['@name']}}</a>
+                </li>
+            </ng-template>
+        </ul>
+    </nav>
+</div>
