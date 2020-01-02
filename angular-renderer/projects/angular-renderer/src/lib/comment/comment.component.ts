@@ -8,7 +8,7 @@ export class CommentComponent {
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   @Input() set text(text: string) {
-    if (text) {
+    if (text && this.elementRef.nativeElement.parentElement) {
       this.renderer.setProperty(this.elementRef.nativeElement, 'outerHTML', `<!-- ${text} -->`);
     }
   }
