@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@magnolia/magnolia-react-renderer": "/Users/dominicnguyen/wksp/spa/mgnl-sdk/frontend-helpers/react-renderer",
+    "@magnolia/react-renderer": "0.0.1",
     "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",

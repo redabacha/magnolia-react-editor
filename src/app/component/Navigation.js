@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RendererContext } from '@magnolia/magnolia-react-renderer';
+import { RendererContext } from '@magnolia/react-renderer';
 import { getRootPath } from '../AppHelpers';
 import ENVIRONMENT from '../../environments/environment';
 
@@ -34,11 +34,15 @@ function Navigation() {
             <nav className="navbar navbar-expand-sm bg-primary navbar-dark">
                 <ul className="navbar-nav">
                     {
-                        contentList.map(item => (
-                            <li className={`nav-item ${`${item['@path']}.html` === window.location.pathname ? 'active' : ''}`}>
-                                <Link className="nav-link" to={`${item['@path']}.html`}>{item.title || item['@name']}</Link>
-                            </li>
-                        ))
+                        contentList.map(item => {
+                            const { pathname } = window.location;
+                            const path = `${ENVIRONMENT.serverPath}${item['@path']}.html`;
+                            return (
+                                <li className={`nav-item ${path === pathname ? 'active' : ''}`}>
+                                    <Link className="nav-link" to={path}>{item.title || item['@name']}</Link>
+                                </li>
+                            );
+                        })
                     }
                 </ul>
             </nav>

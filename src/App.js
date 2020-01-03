@@ -5,7 +5,7 @@ import {
     dlog, isInPageEditor, getEditorPath, removeExtension
 } from './app/AppHelpers';
 import ENVIRONMENT from './environments/environment';
-import Page from './app/component/Page';
+import HomePage from './app/component/Page';
 
 class App extends Component {
     static propTypes = {
@@ -88,8 +88,10 @@ class App extends Component {
 
     async loadPageContent() {
         this.setState({ init: false });
+        const { pathname } = window.location;
+        const path = ENVIRONMENT.serverPath ? pathname.substr(ENVIRONMENT.serverPath.length) : pathname;
 
-        const fullURL = `${ENVIRONMENT.restUrlBase}${removeExtension(window.location.pathname)}`;
+        const fullURL = `${ENVIRONMENT.restUrlBase}${removeExtension(path)}`;
         dlog(`Request content from: ${fullURL}`);
 
         const response = await fetch(fullURL);
@@ -107,13 +109,13 @@ class App extends Component {
         const { content, templateDefinitions, init } = this.state;
         console.log('The state', this.state);
         console.log('The state', content);
-        console.log(Page);
+        console.log(HomePage);
 
         if (init) {
             dlog('***');
             dlog('App Render.');
             return (
-                <Page key="mainPage" content={content} templateDefinitions={templateDefinitions} />
+                <HomePage key="mainPage" content={content} templateDefinitions={templateDefinitions} />
             );
         }
         return (
