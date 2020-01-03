@@ -1,2 +1,2 @@
-export { Area, Comment } from './component';
+export { Area, Comment, Page } from './component';
 export { RendererContext, enableMgnlRenderer } from './util';

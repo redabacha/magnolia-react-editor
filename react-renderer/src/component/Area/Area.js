@@ -87,10 +87,10 @@ class Area extends React.Component {
 
         if (componentClass != null) {
             let passingProps = componentContent;
-            const defaultProps = componentClass.propTypes || componentClass.defaultProps
+            const defaultProps = componentClass.propTypes || componentClass.defaultProps;
             if (defaultProps && componentContent) {
                 passingProps = Object.keys(defaultProps).reduce((pre, cur) => {
-                    pre[cur] = componentContent[cur];
+                    pre[cur] = componentContent[cur]; // eslint-disable-line no-param-reassign
                     return pre;
                 }, {});
             }
