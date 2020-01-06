@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Area, enableMgnlRenderer, RendererContext, Page
+    Area, RendererContext, Page
 } from '@magnolia/react-renderer';
 import PropTypes from 'prop-types';
 import { dlog } from '../AppHelpers';
@@ -16,7 +16,7 @@ function HomePage(props) {
     });
     dlog('render PageStandard.');
     dlog('page context', context);
-    const { content } = props;
+    const { content, templateDefinitions } = props;
     const {
         header: headerContent,
         main: mainAreaContent,
@@ -30,7 +30,7 @@ function HomePage(props) {
     }
 
     return (
-        <Page>
+        <Page templateDefinitions={templateDefinitions} content={content} componentMappings={COMPONENTS}>
             <div className="content-background">
                 <div>
                     <Area key="header" content={headerContent} />
@@ -70,11 +70,12 @@ function HomePage(props) {
 }
 
 HomePage.propTypes = {
-    content: PropTypes.object
+    content: PropTypes.object,
+    templateDefinitions: PropTypes.object.isRequired
 };
 
 HomePage.defaultProps = {
     content: null
 };
 
-export default enableMgnlRenderer(HomePage, COMPONENTS);
+export default HomePage;

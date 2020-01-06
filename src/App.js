@@ -5,7 +5,7 @@ import {
     dlog, isInPageEditor, getEditorPath, removeExtension
 } from './app/AppHelpers';
 import ENVIRONMENT from './environments/environment';
-import HomePage from './app/component/Page';
+import HomePage from './app/component/HomePage';
 
 class App extends Component {
     static propTypes = {
