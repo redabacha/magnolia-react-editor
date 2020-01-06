@@ -6,5 +6,4 @@ export const environment = {
   restUrlBase: SERVER + SERVER_PATH + '/.rest/delivery/pages/v1',
   templateDefinitionBase: SERVER + SERVER_PATH + '/.rest/templateDefinition/v1',
   serverPath: SERVER_PATH,
-  rootCmsPath: '/angular-minimal',
 };

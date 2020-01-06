@@ -1,78 +1,104 @@
 'angular-minimal':
   'jcr:primaryType': mgnl:page
-  'mgnl:created': 2019-03-26T23:06:14.834+01:00
+  'mgnl:created': 2019-03-27T05:06:14.834+07:00
   'mgnl:createdBy': superuser
-  'mgnl:lastModified': 2019-12-13T14:19:54.348+01:00
+  'mgnl:lastModified': 2020-01-06T09:04:15.810+07:00
   'mgnl:lastModifiedBy': superuser
   'mgnl:template': angular-magnolia-int:pages/home
   'title': Angular Minimal App
   'main-area':
     'jcr:primaryType': mgnl:area
     'mgnl:activationStatus': false
-    'mgnl:created': 2019-03-26T23:14:52.538+01:00
+    'mgnl:created': 2019-03-27T05:14:52.538+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastActivated': 2019-03-26T23:14:52.541+01:00
+    'mgnl:lastActivated': 2019-03-27T05:14:52.541+07:00
     'mgnl:lastActivatedBy': superuser
-    'mgnl:lastModified': 2019-12-13T14:18:01.689+01:00
+    'mgnl:lastModified': 2019-12-13T20:18:01.689+07:00
     'mgnl:lastModifiedBy': superuser
     '0':
       'jcr:primaryType': mgnl:component
-      'mgnl:created': 2019-07-24T10:40:14.253+02:00
+      'mgnl:created': 2019-07-24T15:40:14.253+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2019-12-12T14:09:36.946+01:00
+      'mgnl:lastModified': 2019-12-12T20:09:36.946+07:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': angular-magnolia-int:components/title
       'title': First component
     '00':
       'jcr:primaryType': mgnl:component
-      'mgnl:created': 2019-07-24T10:40:14.253+02:00
+      'mgnl:created': 2019-07-24T15:40:14.253+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2019-12-13T14:14:20.086+01:00
+      'mgnl:lastModified': 2019-12-13T20:14:20.086+07:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': angular-magnolia-int:components/componentWithArea
       'title': Component With Area
       'nested-area':
         'jcr:primaryType': mgnl:area
         'mgnl:activationStatus': false
-        'mgnl:created': 2019-03-26T23:14:52.538+01:00
+        'mgnl:created': 2019-03-27T05:14:52.538+07:00
         'mgnl:createdBy': superuser
-        'mgnl:lastActivated': 2019-03-26T23:14:52.541+01:00
+        'mgnl:lastActivated': 2019-03-27T05:14:52.541+07:00
         'mgnl:lastActivatedBy': superuser
-        'mgnl:lastModified': 2019-12-13T14:14:20.086+01:00
+        'mgnl:lastModified': 2019-12-13T20:14:20.086+07:00
         'mgnl:lastModifiedBy': superuser
         '0':
           'jcr:primaryType': mgnl:component
-          'mgnl:created': 2019-07-24T10:40:14.253+02:00
+          'mgnl:created': 2019-07-24T15:40:14.253+07:00
           'mgnl:createdBy': superuser
-          'mgnl:lastModified': 2019-12-12T11:26:30.119+01:00
+          'mgnl:lastModified': 2019-12-12T17:26:30.119+07:00
           'mgnl:lastModifiedBy': superuser
           'mgnl:template': angular-magnolia-int:components/title
           'title': First component of nested area
         '01':
           'jcr:primaryType': mgnl:component
-          'mgnl:created': 2019-12-11T15:45:12.135+01:00
+          'mgnl:created': 2019-12-11T21:45:12.135+07:00
           'mgnl:createdBy': superuser
-          'mgnl:lastModified': 2019-12-12T11:29:09.115+01:00
+          'mgnl:lastModified': 2019-12-12T17:29:09.115+07:00
           'mgnl:lastModifiedBy': superuser
           'mgnl:template': angular-magnolia-int:components/title
           'title': Second component of nested area
   'secondary-area':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2019-12-12T11:29:36.752+01:00
+    'mgnl:created': 2019-12-12T17:29:36.752+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2019-12-13T14:19:54.348+01:00
+    'mgnl:lastModified': 2019-12-13T20:19:54.348+07:00
     'mgnl:lastModifiedBy': superuser
   'about':
     'jcr:primaryType': mgnl:page
-    'mgnl:created': 2019-12-16T20:38:11.809+01:00
+    'mgnl:created': 2019-12-17T02:38:11.809+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2019-12-17T10:55:33.140+01:00
+    'mgnl:lastModified': 2020-01-06T09:04:28.975+07:00
     'mgnl:lastModifiedBy': superuser
     'mgnl:template': angular-magnolia-int:pages/about
     'title': About page
     'main-area':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2019-12-17T10:55:33.141+01:00
+      'mgnl:created': 2019-12-17T16:55:33.141+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2019-12-17T10:55:33.141+01:00
+      'mgnl:lastModified': 2019-12-17T16:55:33.141+07:00
       'mgnl:lastModifiedBy': superuser
+    'header':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-01-06T08:59:06.061+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-01-06T09:04:28.975+07:00
+      'mgnl:lastModifiedBy': superuser
+      '0':
+        'jcr:primaryType': mgnl:component
+        'mgnl:created': 2020-01-06T09:04:28.975+07:00
+        'mgnl:createdBy': superuser
+        'mgnl:lastModified': 2020-01-06T09:04:28.975+07:00
+        'mgnl:lastModifiedBy': superuser
+        'mgnl:template': angular-magnolia-int:components/navigation
+  'header':
+    'jcr:primaryType': mgnl:area
+    'mgnl:created': 2020-01-06T08:59:06.025+07:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-01-06T09:04:15.810+07:00
+    'mgnl:lastModifiedBy': superuser
+    '0':
+      'jcr:primaryType': mgnl:component
+      'mgnl:created': 2020-01-06T09:04:15.810+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-01-06T09:04:15.810+07:00
+      'mgnl:lastModifiedBy': superuser
+      'mgnl:template': angular-magnolia-int:components/navigation

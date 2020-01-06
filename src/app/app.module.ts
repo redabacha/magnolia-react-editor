@@ -12,6 +12,7 @@ import { TitleComponent } from './title/title.component';
 import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
 import { AboutComponent } from './about/about.component';
 import { RootComponent } from './root.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   imports: [
@@ -26,13 +27,15 @@ import { RootComponent } from './root.component';
     HomeComponent,
     TitleComponent,
     AboutComponent,
-    ComponentWithAreaComponent
+    ComponentWithAreaComponent,
+    NavigationComponent,
   ],
   entryComponents: [
     HomeComponent,
     AboutComponent,
     TitleComponent,
-    ComponentWithAreaComponent
+    ComponentWithAreaComponent,
+    NavigationComponent,
   ],
   bootstrap: [AppComponent]
 })

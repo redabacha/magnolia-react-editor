@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavigationStart, Router} from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RendererContextService } from '@magnolia/angular-renderer';
 import { TitleComponent } from './title/title.component';
@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @Component({
   template: '<mgnl-page [content]="content"></mgnl-page>',
@@ -21,6 +22,7 @@ export class RootComponent {
       'angular-magnolia-int:pages/about': AboutComponent,
       'angular-magnolia-int:components/title': TitleComponent,
       'angular-magnolia-int:components/componentWithArea': ComponentWithAreaComponent,
+      'angular-magnolia-int:components/navigation': NavigationComponent,
     });
 
     // get the content from current slug
@@ -28,23 +30,25 @@ export class RootComponent {
 
     // refresh the content on navigation event
     this.router.events.subscribe((event) => {
-        if (event instanceof NavigationStart) {
-            this.getContent(event.url);
-        }
+      if (event instanceof NavigationStart) {
+        this.getContent(event.url);
+      }
     });
   }
 
   private getContent(url: string): void {
     // string everything after '.html'
+    const baseElement = document.querySelector('base');
     url = url.replace(/\.html.*$/, '');
+    const baseUrl = baseElement.getAttribute('href');
+    const rootPath = environment.serverPath ? baseUrl.substr(environment.serverPath.length) : baseUrl;
     // request the content
-    this.http.get(environment.restUrlBase + environment.rootCmsPath + url).subscribe(content => {
-        // request the template definitions for given page
-        this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
-            this.rendererContext.setTemplateDefinitions(definitions);
-
-            this.content = content;
-        });
+    this.http.get(`${environment.restUrlBase}${rootPath}${url}`).subscribe(content => {
+      // request the template definitions for given page
+      this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
+        this.rendererContext.setTemplateDefinitions(definitions);
+        this.content = content;
+      });
     });
   }
 }
