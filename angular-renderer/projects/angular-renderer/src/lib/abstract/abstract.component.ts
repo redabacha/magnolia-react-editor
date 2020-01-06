@@ -6,9 +6,11 @@ import { WindowRefService } from '../services/windowref.service';
   template: ''
 })
 export class AbstractComponent implements AfterViewInit {
-  constructor(public resolver: ComponentFactoryResolver, public rendererContext: RendererContextService, public winRef: WindowRefService) { }
+  constructor(
+    public resolver: ComponentFactoryResolver, public rendererContext: RendererContextService, public winRef: WindowRefService
+  ) { }
 
-  @ViewChild('child', {static: false, read: ViewContainerRef}) child: ViewContainerRef;
+  @ViewChild('child', { static: false, read: ViewContainerRef }) child: ViewContainerRef;
 
   openComment: string;
   closeComment: string;
@@ -36,7 +38,7 @@ export class AbstractComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.rendererContext.isEditMode()) {
-      this.winRef.nativeWindow.parent.mgnlRefresh();
+      setTimeout(() => this.winRef.nativeWindow.parent.mgnlRefresh());
     }
   }
 }
