@@ -14,11 +14,18 @@ class Area extends React.Component {
         this.constants = constants;
     }
 
+    componentDidMount() {
+        if (!this.context) {
+            throw new Error('Area component must be wrapped inside Page component.');
+        }
+    }
+
     static contextType = RendererContext;
 
     getParentTemplateId() {
         const { content } = this.props;
-        const areaPath = content['@path'];
+        let areaPath = content['@path'];
+        areaPath = areaPath.substr(areaPath.indexOf(`/${content['@name']}`));
         const paths = areaPath.split('/');
 
         let { content: parentContent } = this.context;
@@ -86,10 +93,10 @@ class Area extends React.Component {
 
         if (componentClass != null) {
             let passingProps = componentContent;
-            const defaultProps = componentClass.propTypes || componentClass.defaultProps
+            const defaultProps = componentClass.propTypes || componentClass.defaultProps;
             if (defaultProps && componentContent) {
                 passingProps = Object.keys(defaultProps).reduce((pre, cur) => {
-                    pre[cur] = componentContent[cur];
+                    pre[cur] = componentContent[cur]; // eslint-disable-line no-param-reassign
                     return pre;
                 }, {});
             }
