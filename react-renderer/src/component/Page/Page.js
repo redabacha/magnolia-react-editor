@@ -38,6 +38,8 @@ class Page extends Component {
         const { content, templateDefinitions } = this.state;
         const { children } = this.props;
         const openComment = TemplateAnnotations.getPageCommentString(content, templateDefinitions);
+        // NOTE: We need a div tag as a parent node for Page's child HTML. It will cause an issue if we
+        // don't have a parent node.
         if (inPageEditor) {
             return (
                 <RendererProvider value={this.state}>

@@ -14,6 +14,12 @@ class Area extends React.Component {
         this.constants = constants;
     }
 
+    componentDidMount() {
+        if (!this.context) {
+            throw new Error('Area component must be wrapped inside Page component.');
+        }
+    }
+
     static contextType = RendererContext;
 
     getParentTemplateId() {
