@@ -1,3 +1,2 @@
 title: Title component
 dialog: angular-magnolia-int:components/title
-class: info.magnolia.rendering.spa.renderer.ConfiguredSpaRenderableDefinition

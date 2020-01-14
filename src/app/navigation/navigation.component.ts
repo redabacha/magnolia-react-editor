@@ -12,22 +12,15 @@ export class NavigationComponent implements AfterContentInit {
     constructor(private router: Router) {}
 
     async fetchContent(): Promise<Array<Object>> {
-        const rootPath = this.getRootPath();
-        const url = `${environment.restUrlBase}${rootPath}`;
-        const childUrl = `${environment.restUrlBase}${rootPath}/@nodes`;
+        const url = `${environment.restUrlBase}${environment.rootPath}`;
+        const childUrl = `${environment.restUrlBase}${environment.rootPath}/@nodes`;
         const parentRes = fetch(url);
         const childRes = fetch(childUrl);
         await parentRes;
         await childRes;
         const parentData = await (await parentRes).json();
         const childData = await (await childRes).json();
-        const contents = [parentData, ...childData];
-        return contents;
-    }
-
-    getRootPath(): string {
-        const paths = this.content['@path'].split('/');
-        return paths.length > 2 ? `/${paths[1]}` : '/';
+        return [parentData, ...childData];
     }
 
     ngAfterContentInit(): void {

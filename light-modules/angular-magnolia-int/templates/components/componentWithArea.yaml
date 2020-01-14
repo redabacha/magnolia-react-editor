@@ -1,6 +1,5 @@
 title: Component with area
 dialog: angular-magnolia-int:components/title
-class: info.magnolia.rendering.spa.renderer.ConfiguredSpaRenderableDefinition
 areas:
   nested-area:
     title: Nested Area

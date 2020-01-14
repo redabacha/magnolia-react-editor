@@ -37,13 +37,9 @@ export class RootComponent {
   }
 
   private getContent(url: string): void {
-    // string everything after '.html'
-    const baseElement = document.querySelector('base');
+    // strip everything after '.html'
     url = url.replace(/\.html.*$/, '');
-    const baseUrl = baseElement.getAttribute('href');
-    const rootPath = environment.serverPath ? baseUrl.substr(environment.serverPath.length) : baseUrl;
-    // request the content
-    this.http.get(`${environment.restUrlBase}${rootPath}${url}`).subscribe(content => {
+    this.http.get(`${environment.restUrlBase}${environment.rootPath}${url}`).subscribe(content => {
       // request the template definitions for given page
       this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
         this.rendererContext.setTemplateDefinitions(definitions);
