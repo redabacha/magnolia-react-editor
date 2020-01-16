@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RendererContextService } from '@magnolia/angular-renderer';
 import { TitleComponent } from './title/title.component';
@@ -25,12 +25,9 @@ export class RootComponent {
       'angular-magnolia-int:components/navigation': NavigationComponent,
     });
 
-    // get the content from current slug
-    this.getContent(this.router.url);
-
     // refresh the content on navigation event
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
+      if (event instanceof NavigationEnd) {
         this.getContent(event.url);
       }
     });
