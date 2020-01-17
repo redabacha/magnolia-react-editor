@@ -45,10 +45,10 @@ class Area extends React.Component {
     renderComponentWithComment(componentName) {
         const { content } = this.props;
         const componentContent = content[componentName];
-        const { inPageEditor } = this.context;
+        const { inEditor, isDevMode } = this.context;
         if (componentContent) {
             const component = this.getRenderedComponent(componentContent);
-            if (!inPageEditor) {
+            if (!isDevMode && !inEditor) {
                 return (
                     <React.Fragment key={componentContent['@id']}>
                         {component}
@@ -108,9 +108,9 @@ class Area extends React.Component {
 
     render() {
         const { content } = this.props;
-        const { inPageEditor } = this.context;
+        const { inEditor, isDevMode } = this.context;
         const componentNames = content['@nodes'];
-        if (!inPageEditor) {
+        if (!isDevMode && !inEditor) {
             return (
                 <>
                     {

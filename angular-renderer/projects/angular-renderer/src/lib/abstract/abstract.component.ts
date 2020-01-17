@@ -37,7 +37,7 @@ export class AbstractComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.rendererContext.isEditMode()) {
+    if (this.rendererContext.inEditor()) {
       setTimeout(() => this.winRef.nativeWindow.parent.mgnlRefresh());
     }
   }
