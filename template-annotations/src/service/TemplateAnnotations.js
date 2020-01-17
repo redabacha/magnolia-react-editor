@@ -1,8 +1,13 @@
 function TemplateAnnotations() {
+    const ACTIVATION_STATUS_NOT_ACTIVATED = 0;
+    const ACTIVATION_STATUS_MODIFIED = 1;
+    const ACTIVATION_STATUS_ACTIVATED = 2;
+
     const VALUE_PROCESSORS = {
         content: getContentPath,
         availableComponents: getAvailableComponents,
-        showAddButton: canAddMoreComponents
+        showAddButton: canAddMoreComponents,
+        activationStatus: getActivationStatus
     };
     const PAGE_MAP = {
         content: ['@path', ''],
@@ -96,6 +101,17 @@ function TemplateAnnotations() {
         const value = data ? data[key] : null;
         // NOTE: Empty string is acceptable. So we need check value != null
         return value != null ? `website:${value}` : '';
+    }
+
+    function getActivationStatus(data) {
+        if (!data || !data['mgnl:activationStatus'] || data['mgnl:activationStatus'] === 'false') {
+            return ACTIVATION_STATUS_NOT_ACTIVATED;
+        }
+
+        const lastModified = data['mgnl:lastModified'] ? new Date(data['mgnl:lastModified']) : null;
+        const lastActivated = data['mgnl:lastActivated'] ? new Date(data['mgnl:lastActivated']) : null;
+
+        return lastModified && lastActivated && lastModified.getTime() > lastActivated.getTime() ? ACTIVATION_STATUS_MODIFIED : ACTIVATION_STATUS_ACTIVATED;
     }
 }
 

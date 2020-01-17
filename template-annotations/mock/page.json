@@ -34,6 +34,9 @@
             "jcr:created": "2019-10-10T15:51:01.042+07:00",
             "mgnl:lastModifiedBy": "superuser",
             "mgnl:created": "2019-10-10T15:51:01.042+07:00",
+            "mgnl:lastActivated": "2019-10-10T15:51:01.042+02:00",
+            "mgnl:lastActivatedBy": "superuser",
+            "mgnl:activationStatus": "false",
             "@nodes": []
         },
         "00": {
@@ -49,9 +52,45 @@
             "jcr:created": "2019-10-10T17:48:27.423+07:00",
             "mgnl:lastModifiedBy": "superuser",
             "mgnl:created": "2019-10-10T17:48:27.423+07:00",
+            "mgnl:lastActivated": "2019-10-10T15:51:01.042+02:00",
+            "mgnl:lastActivatedBy": "superuser",
+            "mgnl:activationStatus": "true",
             "@nodes": []
         },
-        "@nodes": ["0", "00"]
+        "000": {
+            "@name": "000",
+            "@path": "/react-minimal/main-area/000",
+            "@id": "c146dd2f-6d3e-4fdc-97a4-6aa0ecf5d242",
+            "@nodeType": "mgnl:component",
+            "mgnl:createdBy": "superuser",
+            "jcr:createdBy": "admin",
+            "title": "test 2",
+            "mgnl:lastModified": "2019-10-10T17:48:27.423+07:00",
+            "mgnl:template": "spa-react-app:components/title",
+            "jcr:created": "2019-10-10T17:48:27.423+07:00",
+            "mgnl:lastModifiedBy": "superuser",
+            "mgnl:created": "2019-10-10T17:48:27.423+07:00",
+            "@nodes": []
+        },
+        "01": {
+            "@name": "01",
+            "@path": "/react-minimal/main-area/01",
+            "@id": "5ed5d632-850b-44b2-9969-d071ca8ef022",
+            "@nodeType": "mgnl:component",
+            "mgnl:createdBy": "superuser",
+            "jcr:createdBy": "admin",
+            "title": "test 4",
+            "mgnl:lastModified": "2019-10-10T15:51:01.042+07:00",
+            "mgnl:template": "spa-react-app:components/title",
+            "jcr:created": "2019-10-10T15:51:01.042+07:00",
+            "mgnl:lastModifiedBy": "superuser",
+            "mgnl:created": "2019-10-10T15:51:01.042+07:00",
+            "mgnl:lastActivated": "2019-10-10T15:51:00.042+07:00",
+            "mgnl:lastActivatedBy": "superuser",
+            "mgnl:activationStatus": "true",
+            "@nodes": []
+        },
+        "@nodes": ["0", "00", "000", "01"]
     },
     "secondary-area": {
         "@name": "secondary-area",

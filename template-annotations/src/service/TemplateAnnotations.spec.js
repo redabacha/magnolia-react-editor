@@ -107,6 +107,50 @@ describe('Test Magnolia SPA Service', () => {
         expect(result).toEqual(expectedResult);
     });
 
+    it('Test getComponentCommentString with activationStatus', () => {
+        // GIVEN
+        const expectedResult = "cms:component content=\"website:/react-minimal/main-area/0\" dialog=\"spa-react-app:components/title\" label=\"Standard Minimal Page\" description=\"\" activationStatus=\"0\"";
+
+        // WHEN
+        const result = TemplateAnnotations.getComponentCommentString(page['main-area']['0'], pageDefinition);
+
+        // THEN
+        expect(result).toEqual(expectedResult);
+    });
+
+    it('Test getComponentCommentString with activationStatus', () => {
+        // GIVEN
+        const expectedResult = "cms:component content=\"website:/react-minimal/main-area/00\" dialog=\"spa-react-app:components/title\" label=\"Standard Minimal Page\" description=\"\" activationStatus=\"2\"";
+
+        // WHEN
+        const result = TemplateAnnotations.getComponentCommentString(page['main-area']['00'], pageDefinition);
+
+        // THEN
+        expect(result).toEqual(expectedResult);
+    });
+
+    it('Test getComponentCommentString with activationStatus', () => {
+        // GIVEN
+        const expectedResult = "cms:component content=\"website:/react-minimal/main-area/000\" dialog=\"spa-react-app:components/title\" label=\"Standard Minimal Page\" description=\"\" activationStatus=\"0\"";
+
+        // WHEN
+        const result = TemplateAnnotations.getComponentCommentString(page['main-area']['000'], pageDefinition);
+
+        // THEN
+        expect(result).toEqual(expectedResult);
+    });
+
+    it('Test getComponentCommentString with activationStatus', () => {
+        // GIVEN
+        const expectedResult = "cms:component content=\"website:/react-minimal/main-area/01\" dialog=\"spa-react-app:components/title\" label=\"Standard Minimal Page\" description=\"\" activationStatus=\"1\"";
+
+        // WHEN
+        const result = TemplateAnnotations.getComponentCommentString(page['main-area']['01'], pageDefinition);
+
+        // THEN
+        expect(result).toEqual(expectedResult);
+    });
+
     function cleanString(str) {
         return str.replace(/\n/g, ' ').replace(/\s+/g, ' ');
     }
