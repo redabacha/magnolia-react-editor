@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { RendererContextService } from '@magnolia/angular-renderer';
+import { RendererContextService } from '@robsis/angular-renderer';
 import { TitleComponent } from './title/title.component';
 import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
 import { AboutComponent } from './about/about.component';
