@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Area } from '@magnolia/react-renderer';
+import { Area } from '@robsis/react-renderer';
 
 function Title(props) {
     const { title, nestedArea } = props;

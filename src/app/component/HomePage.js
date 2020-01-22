@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Area, RendererContext, Page
-} from '@magnolia/react-renderer';
+} from '@robsis/react-renderer';
 import PropTypes from 'prop-types';
 import { dlog } from '../AppHelpers';
 import COMPONENTS from '../../environments/mapping';

@@ -1,7 +1,7 @@
 // In this sample code, we use this file to configure server URLs
 
 const SERVER = 'http://localhost:8080';
-const SERVER_PATH = '';
+const SERVER_PATH = '/magnoliaAuthor';
 
 const ENVIRONMENT = {
     server: SERVER,
