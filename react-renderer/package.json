@@ -1,7 +1,7 @@
 {
   "name": "@magnolia/react-renderer",
   "version": "0.0.1",
-  "description": "Provide wrappers to help SPA page can be editable in Magnolia CMS.",
+  "description": "Magnolia React Renderer",
   "main": "build/mgnl-react-renderer.js",
   "scripts": {
     "clean": "rimraf build && rimraf lib",
