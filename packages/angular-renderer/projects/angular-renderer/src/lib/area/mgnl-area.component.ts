@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
-import { TemplateAnnotations } from '@magnolia/template-annotations';
+import { TemplateAnnotations } from '@robsis/template-annotations';
 import { RendererContextService } from '../services/renderer-context.service';
 import { WindowRefService } from '../services/windowref.service';
 

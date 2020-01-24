@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TemplateAnnotations } from '@magnolia/template-annotations';
+import { TemplateAnnotations } from '@robsis/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
 import { RendererProvider } from '../../util';

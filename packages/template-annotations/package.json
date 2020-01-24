@@ -1,6 +1,6 @@
 {
-  "name": "@magnolia/template-annotations",
-  "version": "1.0.0",
+  "name": "@robsis/template-annotations",
+  "version": "1.0.0-beta1",
   "description": "Magnolia Template Annotations",
   "main": "index.js",
   "scripts": {

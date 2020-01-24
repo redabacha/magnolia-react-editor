@@ -1,6 +1,6 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
 
-import { TemplateAnnotations } from '@magnolia/template-annotations';
+import { TemplateAnnotations } from '@robsis/template-annotations';
 import { AbstractComponent } from '../abstract/abstract.component';
 
 @Component({
