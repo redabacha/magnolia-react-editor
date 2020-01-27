@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf build && rimraf lib",
     "build": "npm run clean &&  webpack --config webpack.dev.js && webpack --config webpack.prod.js",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "author": "Magnolia",
   "license": "MIT",
