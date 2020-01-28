@@ -25,9 +25,9 @@ describe('MagnoliaPageComponent', () => {
   });
 
   it('should generate page greenbar', () => {
-    jest.spyOn(service, 'isEditMode').mockReturnValue(true);
+    jest.spyOn(service, 'inEditor').mockReturnValue(true);
     component.ngOnChanges({content: new SimpleChange(null, {}, true)});
-    expect(service.isEditMode).toHaveBeenCalledTimes(1);
+    expect(service.inEditor).toHaveBeenCalledTimes(1);
     expect(component.closeComment).toBe('/cms:page');
   });
 });

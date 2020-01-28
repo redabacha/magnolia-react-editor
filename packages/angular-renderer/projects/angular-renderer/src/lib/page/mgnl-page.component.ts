@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, isDevMode } from '@angular/core';
 
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { AbstractComponent } from '../abstract/abstract.component';
@@ -18,7 +18,7 @@ import { AbstractComponent } from '../abstract/abstract.component';
 export class MgnlPageComponent extends AbstractComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     const content = changes.content.currentValue;
-    if (this.rendererContext.isEditMode() && content) {
+    if ((this.rendererContext.inEditor() || isDevMode()) && content) {
       this.openComment = TemplateAnnotations.getPageCommentString(content, this.rendererContext.getTemplateDefinition(content['mgnl:template']));
       this.closeComment = '/cms:page';
     }
