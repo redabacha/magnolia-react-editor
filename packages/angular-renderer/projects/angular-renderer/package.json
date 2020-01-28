@@ -1,6 +1,6 @@
 {
   "name": "@magnolia/angular-renderer",
-  "version": "1.0.0",
+  "version": "1.0.0-beta1",
   "description": "Magnolia Angular Renderer",
   "author": "Magnolia",
   "license": "MIT",
@@ -14,6 +14,6 @@
     "@angular/core": "^8.2.13"
   },
   "dependencies": {
-    "@magnolia/template-annotations": "~1.0.0"
+    "@magnolia/template-annotations": "1.0.0-beta1"
   }
 }

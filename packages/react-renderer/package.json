@@ -1,6 +1,6 @@
 {
   "name": "@magnolia/react-renderer",
-  "version": "0.0.1",
+  "version": "1.0.0-beta1",
   "description": "Magnolia React Renderer",
   "main": "build/mgnl-react-renderer.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "react-dom": "16.12.0"
   },
   "dependencies": {
-    "@magnolia/template-annotations": "^1.0.0",
+    "@magnolia/template-annotations": "1.0.0-beta1",
     "prop-types": "15.7.2"
   },
   "devDependencies": {
