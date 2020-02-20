@@ -48,19 +48,3 @@ areas:
   noComponentNoCreatedNode:
     createAreaNode: false
     type: noComponent
-  nestedAreas:
-    areas:
-      navigation1:
-        type: single
-        availableComponents:
-          title:
-            id: sample-light-module:components/title
-          text-image:
-            id: sample-light-module:components/text-image
-      navigation2:
-        type: single
-        availableComponents:
-          title:
-            id: sample-light-module:components/title
-          text-image:
-            id: sample-light-module:components/text-image

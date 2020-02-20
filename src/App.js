@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { Page } from '@magnolia/react-renderer';
 import {
     dlog, isInPageEditor, getEditorPath, removeExtension
 } from './app/AppHelpers';
 import ENVIRONMENT from './environments/environment';
-import HomePage from './app/component/HomePage';
+import COMPONENTS from './environments/mapping';
 
 class App extends Component {
     static propTypes = {
@@ -109,13 +110,12 @@ class App extends Component {
         const { content, templateDefinitions, init } = this.state;
         console.log('The state', this.state);
         console.log('The state', content);
-        console.log(HomePage);
 
         if (init) {
             dlog('***');
             dlog('App Render.');
             return (
-                <HomePage key="mainPage" content={content} templateDefinitions={templateDefinitions} />
+                <Page templateDefinitions={templateDefinitions} content={content} componentMappings={COMPONENTS} />
             );
         }
         return (

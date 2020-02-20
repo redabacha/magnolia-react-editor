@@ -1,24 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Area } from '@robsis/react-renderer';
+import { Area } from '@magnolia/react-renderer';
 
-function Title(props) {
-    const { title, nestedArea } = props;
+function NestedComponent(props) {
+    const { content } = props;
+    const { title, nestedArea } = content;
 
     return (
         <div>
             <h2>{title}</h2>
-            <Area key="nestedArea" content={nestedArea} />
+            <Area key="nestedArea" content={nestedArea} parentContent={content} />
         </div>
     );
 }
-Title.propTypes = {
-    title: PropTypes.string,
-    nestedArea: PropTypes.object
-};
-Title.defaultProps = {
-    title: '',
-    nestedArea: null
+NestedComponent.propTypes = {
+    content: PropTypes.object.isRequired
 };
 
-export default Title;
+export default NestedComponent;
