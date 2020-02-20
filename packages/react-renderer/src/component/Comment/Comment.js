@@ -14,6 +14,9 @@ class Comment extends Component {
     };
 
     componentDidMount() {
+        if (!this.node) {
+            return;
+        }
         ReactDOM.unmountComponentAtNode(this.node);
         this.node.outerHTML = this.createComment();
     }
