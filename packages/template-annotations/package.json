@@ -2,6 +2,7 @@
   "name": "@magnolia/template-annotations",
   "version": "1.0.0-beta1",
   "description": "Magnolia Template Annotations",
+  "author": "Magnolia International Ltd.",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build && rimraf lib",
@@ -14,8 +15,6 @@
     "url": "https://git.magnolia-cms.com/scm/modules/frontend-helpers.git",
     "directory": "template-annotations"
   },
-  "author": "Magnolia",
-  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.6.4",

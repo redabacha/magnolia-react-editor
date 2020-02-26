@@ -1,5 +1,6 @@
 {
   "name": "root",
+  "author": "Magnolia International Ltd.",
   "private": true,
   "scripts": {
     "lerna": "lerna"

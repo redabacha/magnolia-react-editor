@@ -2,8 +2,7 @@
   "name": "@magnolia/angular-renderer",
   "version": "1.0.0-beta1",
   "description": "Magnolia Angular Renderer",
-  "author": "Magnolia",
-  "license": "MIT",
+  "author": "Magnolia International Ltd.",
   "repository": {
     "type": "git",
     "url": "https://git.magnolia-cms.com/scm/modules/frontend-helpers.git",

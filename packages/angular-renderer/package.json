@@ -1,6 +1,7 @@
 {
   "name": "angular-renderer-source",
   "version": "1.0.0",
+  "author": "Magnolia International Ltd.",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
