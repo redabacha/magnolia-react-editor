@@ -5,6 +5,6 @@ module.exports = merge(common, {
     mode: 'production',
     devtool: 'source-map',
     output: {
-        filename: 'mgnl-react-renderer.min.js'
+        filename: 'mgnl-react-editor.min.js'
     }
 });

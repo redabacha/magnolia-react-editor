@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "angular-renderer": [
-        "dist/angular-renderer"
+      "angular-editor": [
+        "dist/angular-editor"
       ],
-      "angular-renderer/*": [
-        "dist/angular-renderer/*"
+      "angular-editor/*": [
+        "dist/angular-editor/*"
       ]
     }
   },

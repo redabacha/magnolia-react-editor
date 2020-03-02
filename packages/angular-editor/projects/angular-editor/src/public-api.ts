@@ -1,5 +1,5 @@
 /*
- * Public API Surface of angular-renderer
+ * Public API Surface of angular-editor
  */
 
 export * from './lib/magnolia.module';

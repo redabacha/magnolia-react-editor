@@ -1,12 +1,12 @@
 {
-  "name": "@magnolia/angular-renderer",
+  "name": "@magnolia/angular-editor",
   "version": "1.0.0-beta1",
-  "description": "Magnolia Angular Renderer",
+  "description": "Magnolia Angular Editor",
   "author": "Magnolia International Ltd.",
   "repository": {
     "type": "git",
     "url": "https://git.magnolia-cms.com/scm/modules/frontend-helpers.git",
-    "directory": "angular-renderer"
+    "directory": "angular-editor"
   },
   "peerDependencies": {
     "@angular/common": "^8.2.13",

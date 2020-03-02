@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-renderer": {
+    "angular-editor": {
       "projectType": "library",
-      "root": "projects/angular-renderer",
-      "sourceRoot": "projects/angular-renderer/src",
+      "root": "projects/angular-editor",
+      "sourceRoot": "projects/angular-editor/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/angular-renderer/tsconfig.lib.json",
-            "project": "projects/angular-renderer/ng-package.json"
+            "tsConfig": "projects/angular-editor/tsconfig.lib.json",
+            "project": "projects/angular-editor/ng-package.json"
           }
         },
         "test": {
@@ -23,8 +23,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/angular-renderer/tsconfig.lib.json",
-              "projects/angular-renderer/tsconfig.spec.json"
+              "projects/angular-editor/tsconfig.lib.json",
+              "projects/angular-editor/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -33,6 +33,6 @@
         }
       }
     }},
-  "defaultProject": "angular-renderer"
+  "defaultProject": "angular-editor"
 }
 

@@ -19,7 +19,7 @@ module.exports = {
         }]
     },
     output: {
-        filename: 'mgnl-react-renderer.js',
+        filename: 'mgnl-react-editor.js',
         path: path.resolve(__dirname, 'build'),
         libraryTarget: 'umd'
     }
