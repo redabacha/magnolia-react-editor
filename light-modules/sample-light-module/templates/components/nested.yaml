@@ -3,6 +3,8 @@ title: The nested area in component
 dialog: sample-light-module:components/title
 areas:
   nestedArea:
+    title: Nested Area
+    renderType: spa
     type: list
     availableComponents:
       title:
