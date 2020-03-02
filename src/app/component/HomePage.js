@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Area, RendererContext } from '@magnolia/react-renderer';
+import { Area, RendererContext } from '@magnolia/react-editor';
 import { dlog } from '../AppHelpers';
 
 function HomePage() {

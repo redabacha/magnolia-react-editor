@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RendererContext } from '@magnolia/react-renderer';
+import { RendererContext } from '@magnolia/react-editor';
 import { getRootPath } from '../AppHelpers';
 import ENVIRONMENT from '../../environments/environment';
 
