@@ -55,56 +55,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.js",
-                  "with": "src/environments/environment.prod.js"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            },
-            "productionMagnolia": {
-              "fileReplacements": [
-                {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.magnolia.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            },
-            "magnolia": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.magnolia.ts"
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
