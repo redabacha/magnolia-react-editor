@@ -1,4 +1,4 @@
-const SERVER = 'http://localhost:8080';
+const SERVER = 'http://localhost:8080/magnoliaAuthor';
 
 export const environment = {
   server: SERVER,

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { routing } from './app.routing';
 
-import { MagnoliaModule } from '@robsis/angular-renderer';
+import { MagnoliaModule } from '@magnolia/angular-editor';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
