@@ -1,139 +1,204 @@
 'react-minimal':
   'jcr:primaryType': mgnl:page
-  'mgnl:created': 2020-01-22T14:45:29.979+01:00
+  'mgnl:created': 2020-01-22T20:45:29.979+07:00
   'mgnl:createdBy': superuser
-  'mgnl:lastModified': 2020-01-22T14:48:51.424+01:00
+  'mgnl:lastModified': 2020-01-22T20:48:51.424+07:00
   'mgnl:lastModifiedBy': superuser
   'mgnl:template': sample-light-module:pages/standard
   'title': React Renderer Demo
   'header':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2020-01-22T14:45:51.108+01:00
+    'mgnl:created': 2020-01-22T20:45:51.108+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:47:49.562+01:00
+    'mgnl:lastModified': 2020-01-22T20:47:49.562+07:00
     'mgnl:lastModifiedBy': superuser
     '0':
       'jcr:primaryType': mgnl:component
-      'mgnl:created': 2020-01-22T14:47:49.563+01:00
+      'mgnl:created': 2020-01-22T20:47:49.563+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:47:49.563+01:00
+      'mgnl:lastModified': 2020-01-22T20:47:49.563+07:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': sample-light-module:components/navigation
   'main':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2020-01-22T14:45:51.110+01:00
+    'mgnl:created': 2020-01-22T20:45:51.110+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:48:05.489+01:00
+    'mgnl:lastModified': 2020-01-22T20:48:05.489+07:00
     'mgnl:lastModifiedBy': superuser
     '0':
       'jcr:primaryType': mgnl:component
-      'mgnl:created': 2020-01-22T14:48:05.490+01:00
+      'mgnl:created': 2020-01-22T20:48:05.490+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:48:05.490+01:00
+      'mgnl:lastModified': 2020-01-22T20:48:05.490+07:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': sample-light-module:components/title
       'title': First component
   'secondary':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2020-01-22T14:45:51.110+01:00
+    'mgnl:created': 2020-01-22T20:45:51.110+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:48:51.424+01:00
+    'mgnl:lastModified': 2020-01-22T20:48:51.424+07:00
     'mgnl:lastModifiedBy': superuser
     '0':
       'image': jcr:795449d2-6c16-402e-9e8a-bbb101fe22bb
       'jcr:primaryType': mgnl:component
-      'mgnl:created': 2020-01-22T14:48:37.892+01:00
+      'mgnl:created': 2020-01-22T20:48:37.892+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:48:51.424+01:00
+      'mgnl:lastModified': 2020-01-22T20:48:51.424+07:00
       'mgnl:lastModifiedBy': superuser
       'mgnl:template': sample-light-module:components/text-image
       'title': Text and image
   'single':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2020-01-22T14:45:51.116+01:00
+    'mgnl:created': 2020-01-22T20:45:51.116+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:45:51.116+01:00
+    'mgnl:lastModified': 2020-01-22T20:45:51.116+07:00
     'mgnl:lastModifiedBy': superuser
   'noComponent':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2020-01-22T14:45:51.116+01:00
+    'mgnl:created': 2020-01-22T20:45:51.116+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:45:51.116+01:00
+    'mgnl:lastModified': 2020-01-22T20:45:51.116+07:00
     'mgnl:lastModifiedBy': superuser
   'noComponentNoCreatedNode':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2020-01-22T14:45:51.116+01:00
+    'mgnl:created': 2020-01-22T20:45:51.116+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:45:51.116+01:00
+    'mgnl:lastModified': 2020-01-22T20:45:51.116+07:00
     'mgnl:lastModifiedBy': superuser
   'nestedAreas':
     'jcr:primaryType': mgnl:area
-    'mgnl:created': 2020-01-22T14:45:51.117+01:00
+    'mgnl:created': 2020-01-22T20:45:51.117+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:45:51.117+01:00
+    'mgnl:lastModified': 2020-01-22T20:45:51.117+07:00
     'mgnl:lastModifiedBy': superuser
   'subpage':
     'jcr:primaryType': mgnl:page
-    'mgnl:created': 2020-01-22T14:49:10.366+01:00
+    'mgnl:created': 2020-01-22T20:49:10.366+07:00
     'mgnl:createdBy': superuser
-    'mgnl:lastModified': 2020-01-22T14:50:04.213+01:00
+    'mgnl:lastModified': 2020-01-22T20:50:04.213+07:00
     'mgnl:lastModifiedBy': superuser
     'mgnl:template': sample-light-module:pages/standard
     'title': Sub-page
     'header':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2020-01-22T14:49:35.118+01:00
+      'mgnl:created': 2020-01-22T20:49:35.118+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:50:04.213+01:00
+      'mgnl:lastModified': 2020-01-22T20:50:04.213+07:00
       'mgnl:lastModifiedBy': superuser
       '0':
         'jcr:primaryType': mgnl:component
-        'mgnl:created': 2020-01-22T14:50:04.213+01:00
+        'mgnl:created': 2020-01-22T20:50:04.213+07:00
         'mgnl:createdBy': superuser
-        'mgnl:lastModified': 2020-01-22T14:50:04.213+01:00
+        'mgnl:lastModified': 2020-01-22T20:50:04.213+07:00
         'mgnl:lastModifiedBy': superuser
         'mgnl:template': sample-light-module:components/navigation
     'main':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2020-01-22T14:49:35.120+01:00
+      'mgnl:created': 2020-01-22T20:49:35.120+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:49:56.032+01:00
+      'mgnl:lastModified': 2020-01-22T20:49:56.032+07:00
       'mgnl:lastModifiedBy': superuser
       '0':
         'jcr:primaryType': mgnl:component
-        'mgnl:created': 2020-01-22T14:49:56.033+01:00
+        'mgnl:created': 2020-01-22T20:49:56.033+07:00
         'mgnl:createdBy': superuser
-        'mgnl:lastModified': 2020-01-22T14:49:56.033+01:00
+        'mgnl:lastModified': 2020-01-22T20:49:56.033+07:00
         'mgnl:lastModifiedBy': superuser
         'mgnl:template': sample-light-module:components/text-image
         'title': Sub-page component
     'secondary':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2020-01-22T14:49:35.121+01:00
+      'mgnl:created': 2020-01-22T20:49:35.121+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:49:35.121+01:00
+      'mgnl:lastModified': 2020-01-22T20:49:35.121+07:00
       'mgnl:lastModifiedBy': superuser
     'single':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2020-01-22T14:49:35.121+01:00
+      'mgnl:created': 2020-01-22T20:49:35.121+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:49:35.121+01:00
+      'mgnl:lastModified': 2020-01-22T20:49:35.121+07:00
       'mgnl:lastModifiedBy': superuser
     'noComponent':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2020-01-22T14:49:35.122+01:00
+      'mgnl:created': 2020-01-22T20:49:35.122+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:49:35.122+01:00
+      'mgnl:lastModified': 2020-01-22T20:49:35.122+07:00
       'mgnl:lastModifiedBy': superuser
     'noComponentNoCreatedNode':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2020-01-22T14:49:35.122+01:00
+      'mgnl:created': 2020-01-22T20:49:35.122+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:49:35.122+01:00
+      'mgnl:lastModified': 2020-01-22T20:49:35.122+07:00
       'mgnl:lastModifiedBy': superuser
     'nestedAreas':
       'jcr:primaryType': mgnl:area
-      'mgnl:created': 2020-01-22T14:49:35.123+01:00
+      'mgnl:created': 2020-01-22T20:49:35.123+07:00
       'mgnl:createdBy': superuser
-      'mgnl:lastModified': 2020-01-22T14:49:35.123+01:00
+      'mgnl:lastModified': 2020-01-22T20:49:35.123+07:00
+      'mgnl:lastModifiedBy': superuser
+  'two-columns':
+    'hideInNav': false
+    'jcr:primaryType': mgnl:page
+    'jcrName': two-columns
+    'mgnl:created': 2020-03-02T14:32:07.573+07:00
+    'mgnl:createdBy': superuser
+    'mgnl:lastModified': 2020-03-02T14:53:13.627+07:00
+    'mgnl:lastModifiedBy': superuser
+    'mgnl:template': sample-light-module:pages/twoColumns
+    'title': Two columns
+    'header':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.974+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:53:13.627+07:00
+      'mgnl:lastModifiedBy': superuser
+      '0':
+        'jcr:primaryType': mgnl:component
+        'mgnl:created': 2020-03-02T14:53:13.628+07:00
+        'mgnl:createdBy': superuser
+        'mgnl:lastModified': 2020-03-02T14:53:13.628+07:00
+        'mgnl:lastModifiedBy': superuser
+        'mgnl:template': sample-light-module:components/navigation
+    'main':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.975+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:32:56.975+07:00
+      'mgnl:lastModifiedBy': superuser
+    'secondary':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.975+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:32:56.975+07:00
+      'mgnl:lastModifiedBy': superuser
+    'single':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.975+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:32:56.975+07:00
+      'mgnl:lastModifiedBy': superuser
+    'noComponent':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.976+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:32:56.976+07:00
+      'mgnl:lastModifiedBy': superuser
+    'noComponentNoCreatedNode':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.976+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:32:56.976+07:00
+      'mgnl:lastModifiedBy': superuser
+    'left':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.976+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:32:56.976+07:00
+      'mgnl:lastModifiedBy': superuser
+    'right':
+      'jcr:primaryType': mgnl:area
+      'mgnl:created': 2020-03-02T14:32:56.976+07:00
+      'mgnl:createdBy': superuser
+      'mgnl:lastModified': 2020-03-02T14:32:56.976+07:00
       'mgnl:lastModifiedBy': superuser

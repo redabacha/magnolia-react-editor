@@ -8,7 +8,6 @@ const ENVIRONMENT = {
     restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages/v1`,
     templateDefinitionBase: `${SERVER + SERVER_PATH}/.rest/templateDefinition/v1`,
     serverPath: SERVER_PATH,
-    rootCmsPath: '/react-sample',
 
     damUrl: SERVER + SERVER_PATH,
     staticFilePath: `${SERVER + SERVER_PATH}/.resources/webresources/static`

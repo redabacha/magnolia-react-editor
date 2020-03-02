@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Page } from '@magnolia/react-renderer';
 import {
-    dlog, isInPageEditor, getEditorPath, removeExtension
+    dlog, isInPageEditor, removeExtension
 } from './app/AppHelpers';
 import ENVIRONMENT from './environments/environment';
 import COMPONENTS from './environments/mapping';
@@ -32,7 +32,6 @@ class App extends Component {
         this.state = {
             init: false,
             inPageEditor: isInPageEditor(),
-            rootCmsPath: ENVIRONMENT.rootCmsPath,
             serverPath: ENVIRONMENT.serverPath,
             content: {},
             templateDefinitions: {}
@@ -44,20 +43,8 @@ class App extends Component {
     UNSAFE_componentWillMount() {
         // Use ReactRouter to handle route events when the browser URL changes.
         const { history } = this.props;
-        const { inPageEditor } = this.state;
-        this.unlisten = history.listen((location, action) => {
-            let relativePath = location.pathname;
-
-            if (inPageEditor) {
-                relativePath = getEditorPath(relativePath);
-            }
-
-            relativePath = removeExtension(relativePath);
-
-            dlog('***');
-            dlog(`Route Change. RelativePath: ${relativePath}`);
-
-            this.loadPageContent(relativePath);
+        this.unlisten = history.listen(() => {
+            this.loadPageContent();
         });
     }
 
