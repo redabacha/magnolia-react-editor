@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
-import { RendererProvider } from '../../util';
+import { RendererProvider, ComponentHelper, constants } from '../../util';
 
 class Page extends Component {
     static propTypes = {
@@ -39,12 +39,18 @@ class Page extends Component {
         };
     }
 
+    hasPageComponent() {
+        const { content, templateDefinitions } = this.state;
+        return content && templateDefinitions && templateDefinitions[content[constants.TEMPLATE_ID_PROP]];
+    }
+
     render() {
-        const { inEditor, isDevMode } = this.state;
+        const { inEditor, isDevMode, componentMappings } = this.state;
         const { content, templateDefinitions } = this.state;
         const { children } = this.props;
-        const pageTemplateDefinition = templateDefinitions && content ? templateDefinitions[content['mgnl:template']] : null;
+        const pageTemplateDefinition = content && templateDefinitions ? templateDefinitions[content[constants.TEMPLATE_ID_PROP]] : null;
         const openComment = TemplateAnnotations.getPageCommentString(content, pageTemplateDefinition);
+        const pageComponent = this.hasPageComponent() ? ComponentHelper.getRenderedComponent(content, componentMappings) : children;
         // NOTE: We need a div tag as a parent node for Page's child HTML. It will cause an issue if we
         // don't have a parent node.
         if (inEditor || isDevMode) {
@@ -53,7 +59,7 @@ class Page extends Component {
                     <div>
                         <Comment text={openComment} />
                         <Comment text="/cms:page" />
-                        {children}
+                        {pageComponent}
                     </div>
                 </RendererProvider>
             );
@@ -61,7 +67,7 @@ class Page extends Component {
         return (
             <RendererProvider value={this.state}>
                 <div>
-                    {children}
+                    {pageComponent}
                 </div>
             </RendererProvider>
         );

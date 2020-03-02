@@ -2,12 +2,17 @@ import React from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
-import { RendererContext, constants } from '../../util';
+import { RendererContext, constants, ComponentHelper } from '../../util';
 
 class Area extends React.Component {
     static propTypes = {
-        content: PropTypes.object.isRequired
+        content: PropTypes.object.isRequired,
+        parentContent: PropTypes.object
     };
+
+    static defaultProps = {
+        parentContent: null
+    }
 
     constructor(props) {
         super(props);
@@ -23,23 +28,14 @@ class Area extends React.Component {
     static contextType = RendererContext;
 
     getParentTemplateId() {
-        const { content } = this.props;
-        let areaPath = content['@path'];
-        areaPath = areaPath.substr(areaPath.indexOf(`/${content['@name']}`));
-        const paths = areaPath.split('/');
+        let { parentContent } = this.props;
+        const { content } = this.context;
 
-        let { content: parentContent } = this.context;
-
-        if (paths.length > 2) {
-            paths.forEach((p, idx) => {
-                if (idx < 2 || idx >= paths.length - 1) {
-                    return;
-                }
-                parentContent = parentContent[p];
-            });
+        if (!parentContent) {
+            parentContent = content;
         }
 
-        return parentContent['mgnl:template'];
+        return parentContent[constants.TEMPLATE_ID_PROP];
     }
 
     renderComponentWithComment(componentName) {
@@ -56,7 +52,7 @@ class Area extends React.Component {
                 );
             }
 
-            const templateId = componentContent['mgnl:template'];
+            const templateId = componentContent[constants.TEMPLATE_ID_PROP];
             const { templateDefinitions: allDefinitions } = this.context;
             const templateDefinitions = allDefinitions[templateId];
             const openComponentComment = TemplateAnnotations.getComponentCommentString(componentContent, templateDefinitions);
@@ -83,27 +79,8 @@ class Area extends React.Component {
     }
 
     getRenderedComponent(componentContent) {
-        const componentTemplateId = componentContent['mgnl:template'];
-
-        let componentClass;
-        if (componentTemplateId) {
-            const { componentMappings } = this.context;
-            componentClass = componentMappings[componentTemplateId];
-        }
-
-        if (componentClass != null) {
-            let passingProps = componentContent;
-            const defaultProps = componentClass.propTypes || componentClass.defaultProps;
-            if (defaultProps && componentContent) {
-                passingProps = Object.keys(defaultProps).reduce((pre, cur) => {
-                    pre[cur] = componentContent[cur]; // eslint-disable-line no-param-reassign
-                    return pre;
-                }, {});
-            }
-            return React.createElement(componentClass, passingProps);
-        }
-        // Fallback to creating a div.
-        return React.createElement('div');
+        const { componentMappings } = this.context;
+        return ComponentHelper.getRenderedComponent(componentContent, componentMappings);
     }
 
     render() {
