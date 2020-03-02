@@ -11,7 +11,7 @@ function TemplateAnnotations() {
     };
     const PAGE_MAP = {
         content: ['@path', ''],
-        dialog: ['mgnl:template', '']
+        dialog: ['dialog', '', getValueFromObject]
     };
     const AREA_MAP = {
         name: ['@name', ''],

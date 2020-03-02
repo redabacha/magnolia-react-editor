@@ -43,7 +43,8 @@ class Page extends Component {
         const { inEditor, isDevMode } = this.state;
         const { content, templateDefinitions } = this.state;
         const { children } = this.props;
-        const openComment = TemplateAnnotations.getPageCommentString(content, templateDefinitions);
+        const pageTemplateDefinition = templateDefinitions && content ? templateDefinitions[content['mgnl:template']] : null;
+        const openComment = TemplateAnnotations.getPageCommentString(content, pageTemplateDefinition);
         // NOTE: We need a div tag as a parent node for Page's child HTML. It will cause an issue if we
         // don't have a parent node.
         if (inEditor || isDevMode) {
