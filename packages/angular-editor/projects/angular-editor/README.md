@@ -1,10 +1,10 @@
-# Angular Renderer
+# Magnolia Angular Editor
 
 Angular library for easy integration with Magnolia CMS.
 
 ## Usage
 
- 1. Add `@magnolia/angular-renderer` to your dependencies.
+ 1. Add `@magnolia/angular-editor` to your dependencies.
 
  2. Add `MagnoliaModule` into imports of your `app.module.ts`.
 

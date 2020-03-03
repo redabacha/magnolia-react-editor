@@ -1,8 +1,8 @@
 {
-  "name": "@magnolia/react-renderer",
+  "name": "@magnolia/react-editor",
   "version": "1.0.0-beta1",
-  "description": "Magnolia React Renderer",
-  "main": "build/mgnl-react-renderer.js",
+  "description": "Magnolia React Editor",
+  "main": "build/mgnl-react-editor.js",
   "author": "Magnolia International Ltd.",
   "scripts": {
     "clean": "rimraf build && rimraf lib",
@@ -43,6 +43,6 @@
   "repository": {
     "type": "git",
     "url": "https://git.magnolia-cms.com/scm/modules/frontend-helpers.git",
-    "directory": "react-renderer"
+    "directory": "react-editor"
   }
 }
