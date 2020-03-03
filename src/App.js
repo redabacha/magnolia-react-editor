@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Page } from '@magnolia/react-renderer';
+import { Page } from '@magnolia/react-editor';
 import {
     dlog, isInPageEditor, removeExtension
 } from './app/AppHelpers';
