@@ -2,7 +2,7 @@
 
 ## Features
 
-Demonstrates the [angular-editor](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/angular-editor/projects/angular-editor) library in a simple application.
+Demonstrates the [angular-editor](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/angular-editor/projects/angular-editor) library in a simple application.
 
 ## Build the app
 
