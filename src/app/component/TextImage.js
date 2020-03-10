@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import ENVIRONMENT from '../../environments/environment';
 
 function TextImage(props) {
-    const { content } = props;
-    const { title, image, text } = content;
+    const { title, image, text } = props;
 
     function CleanImage(properties) {
         const { image: img } = properties;
@@ -36,11 +35,15 @@ function TextImage(props) {
 }
 
 TextImage.propTypes = {
-    content: PropTypes.object
+    title: PropTypes.string,
+    image: PropTypes.object,
+    text: PropTypes.string
 };
 
 TextImage.defaultProps = {
-    content: null
+    title: null,
+    image: null,
+    text: null
 };
 
 export default TextImage;

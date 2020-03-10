@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Area, RendererContext } from '@magnolia/react-editor';
-import { dlog } from '../AppHelpers';
 
 function HomePage() {
     const [areaVisible, setAreaVisible] = React.useState(true);
@@ -11,8 +10,6 @@ function HomePage() {
             window.parent.mgnlRefresh();
         }
     });
-    dlog('render PageStandard.');
-    dlog('page context', context);
     const { content } = context;
     const {
         header: headerContent,

@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Title(props) {
-    const { content } = props;
-    const { title } = content;
+    const { title } = props;
 
     return (
         <div>
@@ -13,7 +12,7 @@ function Title(props) {
 }
 
 Title.propTypes = {
-    content: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired
 };
 
 export default Title;
