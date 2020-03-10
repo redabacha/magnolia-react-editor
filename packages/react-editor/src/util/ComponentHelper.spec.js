@@ -1,7 +1,7 @@
 import React from 'react';
 import ComponentHelper from './ComponentHelper';
 import page from '../../mock/page';
-
+import getComponentPropertiesJsonResult from '../../mock/expected-result/getComponentProperties';
 // import definitions from '../../mock/template-definition';
 
 describe('Test ComponentHelper', () => {
@@ -26,5 +26,27 @@ describe('Test ComponentHelper', () => {
         // THEN
         expect(pageComponent).toBeDefined();
         expect(nestedComponent).toBeDefined();
+    });
+
+    it('getComponentProperties', () => {
+        // GIVEN
+        const expectedResult = getComponentPropertiesJsonResult;
+
+        // WHEN
+        const result = ComponentHelper.getComponentProperties(page);
+
+        // THEN
+        expect(result).toMatchObject(expectedResult);
+    });
+
+    it('getComponentProperties with null content', () => {
+        // GIVEN
+        const expectedResult = {};
+
+        // WHEN
+        const result = ComponentHelper.getComponentProperties(null);
+
+        // THEN
+        expect(result).toMatchObject(expectedResult);
     });
 });

@@ -7,11 +7,11 @@ import { RendererContext, constants, ComponentHelper } from '../../util';
 class Area extends React.Component {
     static propTypes = {
         content: PropTypes.object.isRequired,
-        parentContent: PropTypes.object
+        parentTemplateId: PropTypes.string
     };
 
     static defaultProps = {
-        parentContent: null
+        parentTemplateId: null
     }
 
     constructor(props) {
@@ -28,14 +28,10 @@ class Area extends React.Component {
     static contextType = RendererContext;
 
     getParentTemplateId() {
-        let { parentContent } = this.props;
+        const { parentTemplateId } = this.props;
         const { content } = this.context;
 
-        if (!parentContent) {
-            parentContent = content;
-        }
-
-        return parentContent[constants.TEMPLATE_ID_PROP];
+        return parentTemplateId || content[constants.TEMPLATE_ID_PROP];
     }
 
     renderComponentWithComment(componentName) {

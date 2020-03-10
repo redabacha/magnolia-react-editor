@@ -40,8 +40,8 @@ class Page extends Component {
     }
 
     hasPageComponent() {
-        const { content, templateDefinitions } = this.state;
-        return content && templateDefinitions && templateDefinitions[content[constants.TEMPLATE_ID_PROP]];
+        const { content, componentMappings } = this.state;
+        return content && componentMappings && componentMappings[content[constants.TEMPLATE_ID_PROP]];
     }
 
     render() {
