@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 import { Area } from '@magnolia/react-editor';
 
 function NestedComponent(props) {
-    const { content } = props;
-    const { title, nestedArea } = content;
+    const { title, nestedArea, metadata } = props;
 
     return (
         <div>
             <h2>{title}</h2>
-            <Area key="nestedArea" content={nestedArea} parentContent={content} />
+            <Area key="nestedArea" content={nestedArea} parentTemplateId={metadata['mgnl:template']} />
         </div>
     );
 }
 NestedComponent.propTypes = {
-    content: PropTypes.object.isRequired
+    title: PropTypes.object.isRequired,
+    nestedArea: PropTypes.object.isRequired,
+    metadata: PropTypes.object.isRequired
 };
 
 export default NestedComponent;

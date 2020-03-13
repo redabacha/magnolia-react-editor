@@ -38,7 +38,7 @@ function Navigation() {
                             const { pathname } = window.location;
                             const path = `${ENVIRONMENT.serverPath}${item['@path']}.html`;
                             return (
-                                <li className={`nav-item ${path === pathname ? 'active' : ''}`}>
+                                <li key={path} className={`nav-item ${path === pathname ? 'active' : ''}`}>
                                     <Link className="nav-link" to={path}>{item.title || item['@name']}</Link>
                                 </li>
                             );
