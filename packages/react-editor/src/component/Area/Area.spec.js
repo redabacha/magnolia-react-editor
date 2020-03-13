@@ -68,7 +68,7 @@ describe('Area component', () => {
         render(
             <RendererProvider value={state}>
                 <div>
-                    <Area content={pageContent.main['0'].nestedArea} parentContent={pageContent.main['0']} />
+                    <Area content={pageContent.main['0'].nestedArea} parentTemplateId={pageContent.main['0']['mgnl:template']} />
                 </div>
             </RendererProvider>,
             container
