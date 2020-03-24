@@ -1,18 +1,38 @@
 # Magnolia React Editor
 
-This library provides functions to wrap your Single Page Application which support editable in Magnolia's Page Editor
+This library facilitates integration of front-end projects with Magnolia Page Editor.
 
+## Usage
 
-## `enableMgnlRenderer`
-Use to wrap a `enableMgnlRenderer` components:
+ 1. Install the package:
+```
+npm install --save @magnolia/react-editor
+```
 
-* Provides the context to transfer data to children components
-* Generate comment for `page` in html `head`
+ 2. Connect to rest endpoints and use `<Page>` directive in your component:
+```
+render() {
+   const COMPONENTS = {
+      'sample-light-module:components/title': TitleComponent,
+      'sample-light-module:components/text-image': ImageComponent,
+      'sample-light-module:pages/standard': HomePage
+   };
 
+   let response = await fetch(environment.restUrlBase + environment.rootPath);
+   const content = await response.json();
+   response = await fetch(environment.templateDefinitionBase + '/' + content['mgnl:template']);
+   const templateDefinitions = response.json();
 
-## `MgnlArea.js`
+   return(
+      <Page templateDefinitions={templateDefinitions} content={content} componentMappings={COMPONENTS} />
+   );
+}
+```
 
-It helps to generate `MgnlArea` in Single Page Application:
-
-* Create React's components based on component mappings
-* In edit mode, it also wraps `area` and `components` with comments
+ 3. Render areas inside your components using `<Area>` directive:
+```
+<h2>Primary Area</h2>
+<div className="col-12">
+  <Area key="main" content={mainAreaContent} />
+</div>
+```
