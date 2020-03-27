@@ -12,7 +12,7 @@
   "dependencies": {
     "@angular/common": "~8.2.13",
     "@angular/core": "~8.2.13",
-    "@magnolia/template-annotations": "1.0.0-beta1"
+    "@magnolia/template-annotations": "1.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.18",

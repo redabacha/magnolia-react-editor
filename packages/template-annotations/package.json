@@ -1,6 +1,6 @@
 {
   "name": "@magnolia/template-annotations",
-  "version": "1.0.0-beta1",
+  "version": "1.0.0",
   "description": "Magnolia Template Annotations",
   "author": "Magnolia International Ltd.",
   "main": "index.js",
