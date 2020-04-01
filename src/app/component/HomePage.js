@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Area, RendererContext } from '@magnolia/react-editor';
+import { Area, EditorContext } from '@magnolia/react-editor';
 
 function HomePage() {
     const [areaVisible, setAreaVisible] = React.useState(true);
-    const context = React.useContext(RendererContext);
+    const context = React.useContext(EditorContext);
     React.useEffect(() => {
         if (window.parent.mgnlRefresh !== undefined) {
             window.parent.mgnlRefresh();
