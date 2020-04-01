@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
-import { RendererProvider, ComponentHelper, constants } from '../../util';
+import { EditorProvider, ComponentHelper, constants } from '../../util';
 
 class Page extends Component {
     static propTypes = {
@@ -55,21 +55,21 @@ class Page extends Component {
         // don't have a parent node.
         if (inEditor || isDevMode) {
             return (
-                <RendererProvider value={this.state}>
+                <EditorProvider value={this.state}>
                     <div>
                         <Comment text={openComment} />
                         <Comment text="/cms:page" />
                         {pageComponent}
                     </div>
-                </RendererProvider>
+                </EditorProvider>
             );
         }
         return (
-            <RendererProvider value={this.state}>
+            <EditorProvider value={this.state}>
                 <div>
                     {pageComponent}
                 </div>
-            </RendererProvider>
+            </EditorProvider>
         );
     }
 }

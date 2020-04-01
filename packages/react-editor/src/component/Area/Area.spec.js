@@ -2,7 +2,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import '../../../mock/mgnlRefresh.mock';
 import Area from './Area';
-import { RendererProvider } from '../../util';
+import { EditorProvider } from '../../util';
 import pageContent from '../../../mock/page';
 import templateDefinitions from '../../../mock/template-definition';
 
@@ -46,11 +46,11 @@ describe('Area component', () => {
 
         // WHEN
         render(
-            <RendererProvider value={state}>
+            <EditorProvider value={state}>
                 <div>
                     <Area content={pageContent.main} />
                 </div>
-            </RendererProvider>,
+            </EditorProvider>,
             container
         );
         // THEN
@@ -66,11 +66,11 @@ describe('Area component', () => {
 
         // WHEN
         render(
-            <RendererProvider value={state}>
+            <EditorProvider value={state}>
                 <div>
                     <Area content={pageContent.main['0'].nestedArea} parentTemplateId={pageContent.main['0']['mgnl:template']} />
                 </div>
-            </RendererProvider>,
+            </EditorProvider>,
             container
         );
         // THEN
@@ -85,11 +85,11 @@ describe('Area component', () => {
 
         // WHEN
         render(
-            <RendererProvider value={state}>
+            <EditorProvider value={state}>
                 <div>
                     <Area content={pageContent.main} />
                 </div>
-            </RendererProvider>,
+            </EditorProvider>,
             container
         );
         // THEN

@@ -3,24 +3,24 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MagnoliaAreaComponent } from './mgnl-area.component';
 import { CommentComponent } from '../comment/comment.component';
 import { MagnoliaComponent } from '../component/mgnl-component.component';
-import { RendererContextService } from '../services/renderer-context.service';
+import { EditorContextService } from '../services/editor-context.service';
 
 describe('MagnoliaAreaComponent', () => {
   let component: MagnoliaAreaComponent;
   let fixture: ComponentFixture<MagnoliaAreaComponent>;
-  let service: RendererContextService;
+  let service: EditorContextService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CommentComponent, MagnoliaComponent, MagnoliaAreaComponent ],
-      providers: [ RendererContextService ]
+      providers: [ EditorContextService ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MagnoliaAreaComponent);
     component = fixture.componentInstance;
-    service = fixture.debugElement.injector.get(RendererContextService);
+    service = fixture.debugElement.injector.get(EditorContextService);
     fixture.detectChanges();
   });
 

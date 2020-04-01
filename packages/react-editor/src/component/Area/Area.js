@@ -2,7 +2,7 @@ import React from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
-import { RendererContext, constants, ComponentHelper } from '../../util';
+import { EditorContext, constants, ComponentHelper } from '../../util';
 
 class Area extends React.Component {
     static propTypes = {
@@ -25,7 +25,7 @@ class Area extends React.Component {
         }
     }
 
-    static contextType = RendererContext;
+    static contextType = EditorContext;
 
     getParentTemplateId() {
         const { parentTemplateId } = this.props;

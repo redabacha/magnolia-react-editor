@@ -3,4 +3,5 @@
  */
 
 export * from './lib/magnolia.module';
+export * from './lib/services/editor-context.service';
 export * from './lib/services/renderer-context.service';

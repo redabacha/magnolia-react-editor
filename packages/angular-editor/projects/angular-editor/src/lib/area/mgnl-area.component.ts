@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, isDevMode } from '@angular/core';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
-import { RendererContextService } from '../services/renderer-context.service';
+import { EditorContextService } from '../services/editor-context.service';
 import { WindowRefService } from '../services/windowref.service';
 
 @Component({
@@ -18,7 +18,7 @@ import { WindowRefService } from '../services/windowref.service';
   `
 })
 export class MagnoliaAreaComponent implements AfterViewInit {
-  constructor(public rendererContext: RendererContextService, public winRef: WindowRefService) { }
+  constructor(public editorContext: EditorContextService, public winRef: WindowRefService) { }
 
   components: object[];
   openComment: string;
@@ -30,9 +30,9 @@ export class MagnoliaAreaComponent implements AfterViewInit {
     if (content) {
       this.components = this.getAreaComponents(content, this.name);
 
-      if (this.rendererContext.inEditor() || isDevMode()) {
+      if (this.editorContext.inEditor() || isDevMode()) {
         // tslint:disable-next-line:max-line-length
-        this.openComment = TemplateAnnotations.getAreaCommentString(content[this.name], this.rendererContext.getTemplateDefinition(content['mgnl:template']));
+        this.openComment = TemplateAnnotations.getAreaCommentString(content[this.name], this.editorContext.getTemplateDefinition(content['mgnl:template']));
         this.closeComment = '/cms:area';
       }
     }
@@ -58,7 +58,7 @@ export class MagnoliaAreaComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.rendererContext.inEditor()) {
+    if (this.editorContext.inEditor()) {
       this.winRef.nativeWindow.parent.mgnlRefresh();
     }
   }
