@@ -8,6 +8,7 @@ import templateDefinitions from '../../../mock/template-definition';
 describe('Page', () => {
     let componentMappings;
     let container = null;
+    let config;
     beforeEach(() => {
         componentMappings = {
             'sample-light-module:components/title': () => (<div />),
@@ -15,6 +16,9 @@ describe('Page', () => {
             'sample-light-module:components/nested': () => (<div />),
             'sample-light-module:components/navigation': () => (<div />),
             'sample-light-module:pages/standard': () => (<div />)
+        };
+        config = {
+            componentMappings
         };
         container = document.createElement('div');
         document.body.appendChild(container);
@@ -30,7 +34,7 @@ describe('Page', () => {
     it('Render Page', () => {
         // GIVEN
         // WHEN
-        render(<Page templateDefinitions={templateDefinitions} content={pageContent} componentMappings={componentMappings} />, container);
+        render(<Page templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
         // THEN
         expect(container.innerHTML.includes('cms:page content="website:/react-sample" dialog="mte:pages/pageProperties"')).toBe(true);
     });
@@ -39,7 +43,7 @@ describe('Page', () => {
         // GIVEN
         window.parent.mgnlRefresh = null;
         // WHEN
-        render(<Page templateDefinitions={templateDefinitions} content={pageContent} componentMappings={componentMappings} />, container);
+        render(<Page templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
         // THEN
         expect(container.innerHTML.includes('cms:page content="website:/react-sample" dialog="mte:pages/pageProperties"')).toBe(false);
     });

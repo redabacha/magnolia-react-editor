@@ -12,7 +12,7 @@ npm install --save @magnolia/react-editor
  2. Connect to rest endpoints and use `<Page>` directive in your component:
 ```
 render() {
-   const COMPONENTS = {
+   const COMPONENTS_MAPPING = {
       'sample-light-module:components/title': TitleComponent,
       'sample-light-module:components/text-image': ImageComponent,
       'sample-light-module:pages/standard': HomePage
@@ -22,9 +22,10 @@ render() {
    const content = await response.json();
    response = await fetch(environment.templateDefinitionBase + '/' + content['mgnl:template']);
    const templateDefinitions = response.json();
+   const pageConfig = {templateDefinitions: templateDefinitions, componentMappings: COMPONENTS_MAPPING}
 
    return(
-      <Page templateDefinitions={templateDefinitions} content={content} componentMappings={COMPONENTS} />
+      <Page content={content} config={pageConfig} />
    );
 }
 ```
