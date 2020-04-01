@@ -1,3 +1,3 @@
-export { Area } from './Area';
+export { EditableArea } from './Area';
 export { Comment } from './Comment';
-export { Page } from './Page';
+export { EditablePage } from './Page';

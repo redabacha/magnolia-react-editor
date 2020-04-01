@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import '../../../mock/mgnlRefresh.mock';
-import Area from './Area';
+import EditableArea from './EditableArea';
 import { EditorProvider } from '../../util';
 import pageContent from '../../../mock/page';
 import templateDefinitions from '../../../mock/template-definition';
 
-describe('Area component', () => {
+describe('EditableArea component', () => {
     let componentMappings;
     let state;
     let container = null;
@@ -37,7 +37,7 @@ describe('Area component', () => {
         container = null;
     });
 
-    it('Render area', () => {
+    it('Render EditableArea', () => {
         // GIVEN
         const areaCommentText = `cms:area name="main" content="website:/react-sample/main"
         availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
@@ -48,7 +48,7 @@ describe('Area component', () => {
         render(
             <EditorProvider value={state}>
                 <div>
-                    <Area content={pageContent.main} />
+                    <EditableArea content={pageContent.main} />
                 </div>
             </EditorProvider>,
             container
@@ -57,7 +57,7 @@ describe('Area component', () => {
         expect(container.innerHTML.includes(cleanString(areaCommentText))).toBe(true);
     });
 
-    it('Render nested area', () => {
+    it('Render nested EditableArea', () => {
         // GIVEN
         const areaCommentText = `cms:area name="nestedArea" content="website:/react-sample/main/0/nestedArea"
             availableComponents="sample-light-module:components/text-image,sample-light-module:components/title"
@@ -68,7 +68,7 @@ describe('Area component', () => {
         render(
             <EditorProvider value={state}>
                 <div>
-                    <Area content={pageContent.main['0'].nestedArea} parentTemplateId={pageContent.main['0']['mgnl:template']} />
+                    <EditableArea content={pageContent.main['0'].nestedArea} parentTemplateId={pageContent.main['0']['mgnl:template']} />
                 </div>
             </EditorProvider>,
             container
@@ -77,7 +77,7 @@ describe('Area component', () => {
         expect(container.innerHTML.includes(cleanString(areaCommentText))).toBe(true);
     });
 
-    it('Render area in public a site', () => {
+    it('Render EditableArea in public a site', () => {
         // GIVEN
         state.inEditor = false;
         state.isDevMode = false;
@@ -87,7 +87,7 @@ describe('Area component', () => {
         render(
             <EditorProvider value={state}>
                 <div>
-                    <Area content={pageContent.main} />
+                    <EditableArea content={pageContent.main} />
                 </div>
             </EditorProvider>,
             container

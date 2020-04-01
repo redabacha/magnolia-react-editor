@@ -4,20 +4,20 @@ import { EditorContextService } from '../services/editor-context.service';
 import { WindowRefService } from '../services/windowref.service';
 
 @Component({
-  selector: '[mgnl-area]',
+  selector: '[editable-area]',
   template: `
     <ng-template [ngIf]="openComment">
       <mgnl-comment [text]="openComment"></mgnl-comment>
     </ng-template>
     <ng-template ngFor let-component [ngForOf]="components">
-        <mgnl-component [content]="component"></mgnl-component>
+        <editable-component [content]="component"></editable-component>
     </ng-template>
     <ng-template [ngIf]="closeComment">
       <mgnl-comment [text]="closeComment"></mgnl-comment>
     </ng-template>
   `
 })
-export class MagnoliaAreaComponent implements AfterViewInit {
+export class EditableArea implements AfterViewInit {
   constructor(public editorContext: EditorContextService, public winRef: WindowRefService) { }
 
   components: object[];

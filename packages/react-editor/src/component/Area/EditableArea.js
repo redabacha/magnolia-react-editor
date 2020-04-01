@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
 import { EditorContext, constants, ComponentHelper } from '../../util';
 
-class Area extends React.Component {
+class EditableArea extends React.Component {
     static propTypes = {
         content: PropTypes.object.isRequired,
         parentTemplateId: PropTypes.string
@@ -21,7 +21,7 @@ class Area extends React.Component {
 
     componentDidMount() {
         if (!this.context) {
-            throw new Error('Area component must be wrapped inside Page component.');
+            throw new Error('EditableArea component must be wrapped inside EditablePage component.');
         }
     }
 
@@ -109,4 +109,4 @@ class Area extends React.Component {
     }
 }
 
-export default Area;
+export default EditableArea;

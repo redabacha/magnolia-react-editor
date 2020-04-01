@@ -12,10 +12,10 @@ npm install --save @magnolia/angular-editor
 
  2. Add `MagnoliaModule` into imports of your `app.module.ts`.
 
- 3. Connect to REST endpoint and use `mgnl-page` in your `app.component.ts` (or other host component):
+ 3. Connect to REST endpoint and use `editable-page` in your `app.component.ts` (or other host component):
 ```
 @Component({
-  template: '<mgnl-page [content]="content"></mgnl-page>'
+  template: '<editable-page [content]="content"></editable-page>'
 })
 export class AppComponent implements OnInit
   constructor(private http: HttpClient, private editorContext: EditorContextService) { }
@@ -42,8 +42,8 @@ export class AppComponent implements OnInit
 
  4. Because these components are not specified in any template, they need to be added to `entryComponents`. (See [documentation](https://angular.io/guide/entry-components))
 
- 5. Render areas inside your components using `mgnl-area` directive:
+ 5. Render areas inside your components using `editable-area` directive:
 ```
 <h2>{{ content.pageTitle }}</h3>
-<ul mgnl-area [content]="content" [name]="'area-name'"></ul>
+<ul editable-area [content]="content" [name]="'area-name'"></ul>
 ```

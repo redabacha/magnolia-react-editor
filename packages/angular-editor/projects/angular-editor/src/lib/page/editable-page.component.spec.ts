@@ -1,24 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SimpleChange } from '@angular/core';
 
-import { MgnlPageComponent } from './mgnl-page.component';
+import { EditablePage } from './editable-page.component';
 import { EditorContextService } from '../services/editor-context.service';
 import { CommentComponent } from '../comment/comment.component';
 
-describe('MagnoliaPageComponent', () => {
-  let component: MgnlPageComponent;
-  let fixture: ComponentFixture<MgnlPageComponent>;
+describe('EditablePage', () => {
+  let component: EditablePage;
+  let fixture: ComponentFixture<EditablePage>;
   let service: EditorContextService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommentComponent, MgnlPageComponent ],
+      declarations: [ CommentComponent, EditablePage ],
       providers: [ EditorContextService ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MgnlPageComponent);
+    fixture = TestBed.createComponent(EditablePage);
     component = fixture.componentInstance;
     service = fixture.debugElement.injector.get(EditorContextService);
     fixture.detectChanges();
