@@ -18,7 +18,7 @@ Configure javascript-models app and roles. These configurations you can import t
 Please refer to this document https://documentation.magnolia-cms.com/display/DOCS61/Importing+and+exporting+data
 
 ## Step 4
-Install `@magnolia/react-editor`, `copyfiles`, `rimraf`, and `renamer`. `@magnolia/react-editor` is a library that has `Page`, `Area`, and `Component` for rendering Magnolia edit bars in author mode. `copyfiles` and `rimraf` are helping to copy/remove files. It can be done by using OS's commands but we need to handle when it is run on MacOS, Windows, or Linux. `renamer` helps remove hash code on built files.
+Install `@magnolia/react-editor`, `copyfiles`, `rimraf`, and `renamer`. `@magnolia/react-editor` is a library that has `EditablePage`, `EditableArea`, and `Component` for rendering Magnolia edit bars in author mode. `copyfiles` and `rimraf` are helping to copy/remove files. It can be done by using OS's commands but we need to handle when it is run on MacOS, Windows, or Linux. `renamer` helps remove hash code on built files.
 ```
 npm install --save @magnolia/react-editor
 npm install --save-dev copyfiles

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Area, EditorContext } from '@magnolia/react-editor';
+import { EditableArea, EditorContext } from '@magnolia/react-editor';
 
 function HomePage() {
     const [areaVisible, setAreaVisible] = React.useState(true);
@@ -26,14 +26,14 @@ function HomePage() {
     return (
         <div className="content-background">
             <div>
-                <Area key="header" content={headerContent} />
+                <EditableArea key="header" content={headerContent} />
             </div>
             <div className="container">
                 <h1 className="bd-title">{title}</h1>
                 <div>
                     <h2>Primary Area</h2>
                     <div className="col-12">
-                        <Area key="main" content={mainAreaContent} />
+                        <EditableArea key="main" content={mainAreaContent} />
                     </div>
                 </div>
                 {
@@ -42,7 +42,7 @@ function HomePage() {
                             <div>
                                 <h2>Secondary Area</h2>
                                 <div className="col-12">
-                                    <Area key="secondary" content={secondaryAreaContent} />
+                                    <EditableArea key="secondary" content={secondaryAreaContent} />
                                 </div>
                             </div>
                         )
@@ -51,7 +51,7 @@ function HomePage() {
                 <div>
                     <h2>Single component area</h2>
                     <div className="col-12">
-                        <Area key="single" content={single} />
+                        <EditableArea key="single" content={single} />
                     </div>
                 </div>
 

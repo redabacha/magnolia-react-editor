@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Area } from '@magnolia/react-editor';
+import { EditableArea } from '@magnolia/react-editor';
 
 function NestedComponent(props) {
     const { title, nestedArea, metadata } = props;
@@ -8,7 +8,7 @@ function NestedComponent(props) {
     return (
         <div>
             <h2>{title}</h2>
-            <Area key="nestedArea" content={nestedArea} parentTemplateId={metadata['mgnl:template']} />
+            <EditableArea key="nestedArea" content={nestedArea} parentTemplateId={metadata['mgnl:template']} />
         </div>
     );
 }
