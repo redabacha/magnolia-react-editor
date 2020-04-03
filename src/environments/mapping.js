@@ -4,7 +4,7 @@ import Nested from '../app/component/Nested';
 import Navigation from '../app/component/Navigation';
 import HomePage from '../app/component/HomePage';
 import TwoColumns from '../app/component/TwoColumns';
-// NƠTE: This component mapping is very important, and it needs to be passed into enableMgnlRenderer
+// NƠTE: This component mapping is very important, and it needs to be passed into <Page.config> property
 // to render the content
 const COMPONENTS = {
     'sample-light-module:components/title': Title,
