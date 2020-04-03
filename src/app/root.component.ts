@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { NavigationComponent } from './navigation/navigation.component';
 
 @Component({
-  template: '<mgnl-page [content]="content"></mgnl-page>',
+  template: '<editable-page [content]="content"></editable-page>',
 })
 export class RootComponent {
   @Input() content: any;
