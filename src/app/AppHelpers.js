@@ -35,10 +35,6 @@ export function getLink(path, serverPath, rootCmsPath, inPageEditor) {
     return link;
 }
 
-export function isInPageEditor() {
-    return window.inPageEditor || Boolean(window.parent && window.parent.mgnlRefresh);
-}
-
 export function removeExtension(path) {
     let newPath = path;
     if (path.indexOf('.') > -1) {
