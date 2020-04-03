@@ -2,7 +2,9 @@ import React from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
-import { EditorContext, constants, ComponentHelper } from '../../util';
+import {
+    EditorContext, constants, ComponentHelper, EditorContextHelper
+} from '../../util';
 
 class EditableArea extends React.Component {
     static propTypes = {
@@ -37,10 +39,10 @@ class EditableArea extends React.Component {
     renderComponentWithComment(componentName) {
         const { content } = this.props;
         const componentContent = content[componentName];
-        const { inEditor, isDevMode } = this.context;
+        const { isDevMode } = this.context;
         if (componentContent) {
             const component = this.getRenderedComponent(componentContent);
-            if (!isDevMode && !inEditor) {
+            if (!isDevMode && !EditorContextHelper.inEditor()) {
                 return (
                     <React.Fragment key={componentContent['@id']}>
                         {component}
@@ -81,9 +83,9 @@ class EditableArea extends React.Component {
 
     render() {
         const { content } = this.props;
-        const { inEditor, isDevMode } = this.context;
+        const { isDevMode } = this.context;
         const componentNames = content['@nodes'];
-        if (!isDevMode && !inEditor) {
+        if (!isDevMode && !EditorContextHelper.inEditor()) {
             return (
                 <>
                     {

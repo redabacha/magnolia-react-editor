@@ -1,13 +1,12 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, Input, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { EditorContextService } from '../services/editor-context.service';
-import { WindowRefService } from '../services/windowref.service';
 
 @Component({
   template: ''
 })
 export class AbstractComponent implements AfterViewInit {
   constructor(
-    public resolver: ComponentFactoryResolver, public editorContext: EditorContextService, public winRef: WindowRefService
+    public resolver: ComponentFactoryResolver, public editorContext: EditorContextService
   ) { }
 
   @ViewChild('child', { static: false, read: ViewContainerRef }) child: ViewContainerRef;
@@ -38,7 +37,7 @@ export class AbstractComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.editorContext.inEditor()) {
-      setTimeout(() => this.winRef.nativeWindow.parent.mgnlRefresh());
+      setTimeout(() => this.editorContext.refresh());
     }
   }
 }

@@ -1,27 +1,9 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { inject } from '@angular/core/testing';
 
 import { EditorContextService } from './editor-context.service';
-import { WindowRefService } from './windowref.service';
+import '../../../../../mock/mgnlRefresh.mock';
 
 describe('EditorContextService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-          {
-            provide: WindowRefService, useValue: {
-              nativeWindow: {
-                parent: {
-                  mgnlRefresh: true
-                },
-                location: {
-                  href: "/?mgnlPreview=true"
-                }
-              }
-            }
-          }
-      ]
-    });
-  });
 
   it('should be created', inject([EditorContextService], (service: EditorContextService) => {
     expect(service).toBeTruthy();

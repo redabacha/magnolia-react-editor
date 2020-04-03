@@ -22,7 +22,6 @@ describe('EditableArea component', () => {
             templateDefinitions,
             componentMappings,
             content: pageContent,
-            inEditor: true,
             inEditorPreview: false,
             isDevMode: true
         };
@@ -79,7 +78,7 @@ describe('EditableArea component', () => {
 
     it('Render EditableArea in public a site', () => {
         // GIVEN
-        state.inEditor = false;
+        window.mgnlRefresh = null;
         state.isDevMode = false;
         const areaCommentText = 'cms:area';
 

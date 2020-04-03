@@ -1,1 +1,1 @@
-export { TemplateAnnotations } from './service';
+export { TemplateAnnotations, EditorContextHelper } from './service';
