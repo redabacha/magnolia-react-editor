@@ -11,6 +11,7 @@ function App(props) {
     const [content, setContent] = useState(null);
     const [templateDefinitions, setTemplateDefinitions] = useState(null);
     const { history } = props;
+    const config = { componentMappings: COMPONENTS };
 
     history.listen((location) => {
         // NOTE: Set old content to null to force re-rendering
@@ -43,7 +44,7 @@ function App(props) {
     }
 
     return templateDefinitions && content
-        ? (<Page templateDefinitions={templateDefinitions} content={content} componentMappings={COMPONENTS} />) : (<p>Loading...</p>);
+        ? (<Page templateDefinitions={templateDefinitions} content={content} config={config} />) : (<p>Loading...</p>);
 }
 App.propTypes = {
     history: PropTypes.object
