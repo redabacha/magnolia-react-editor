@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { RendererContextService } from '@magnolia/angular-editor';
+import { EditorContextService } from '@magnolia/angular-editor';
 import { TitleComponent } from './title/title.component';
 import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
 import { AboutComponent } from './about/about.component';
@@ -16,8 +16,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 export class RootComponent {
   @Input() content: any;
 
-  constructor(private http: HttpClient, private router: Router, private rendererContext: RendererContextService) {
-    this.rendererContext.setComponentMapping({
+  constructor(private http: HttpClient, private router: Router, private editorContext: EditorContextService) {
+    this.editorContext.setComponentMapping({
       'angular-magnolia-int:pages/home': HomeComponent,
       'angular-magnolia-int:pages/about': AboutComponent,
       'angular-magnolia-int:components/title': TitleComponent,
@@ -39,7 +39,7 @@ export class RootComponent {
     this.http.get(`${environment.restUrlBase}${environment.rootPath}${url}`).subscribe(content => {
       // request the template definitions for given page
       this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
-        this.rendererContext.setTemplateDefinitions(definitions);
+        this.editorContext.setTemplateDefinitions(definitions);
         this.content = content;
       });
     });
