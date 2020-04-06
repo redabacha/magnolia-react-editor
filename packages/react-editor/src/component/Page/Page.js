@@ -7,21 +7,26 @@ import { EditorProvider, ComponentHelper, constants } from '../../util';
 class Page extends Component {
     static propTypes = {
         children: PropTypes.elementType,
-        templateDefinitions: PropTypes.object,
         content: PropTypes.object,
-        componentMappings: PropTypes.object
+        templateDefinitions: PropTypes.object,
+        config: PropTypes.shape({
+            componentMappings: PropTypes.object
+        })
     }
 
     static defaultProps = {
         children: null,
-        templateDefinitions: null,
         content: null,
-        componentMappings: {}
+        templateDefinitions: null,
+        config: {
+            componentMappings: {}
+        }
     }
 
     constructor(props) {
         super(props);
-        const { templateDefinitions, content, componentMappings } = props;
+        const { templateDefinitions, content, config } = props;
+        const { componentMappings } = config;
         const isInEditor = Boolean(window.parent && window.parent.mgnlRefresh);
         const isDevMode = process.env.NODE_ENV === 'development';
         const queryParams = new URLSearchParams(window.location.search);
