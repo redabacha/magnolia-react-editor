@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RendererContext } from '@magnolia/react-editor';
+import { EditorContext } from '@magnolia/react-editor';
 import { getRootPath } from '../AppHelpers';
 import ENVIRONMENT from '../../environments/environment';
 
 function Navigation() {
     const [contentList, setContentList] = React.useState([]);
-    const context = React.useContext(RendererContext);
+    const context = React.useContext(EditorContext);
     const { content } = context;
     const rootPath = getRootPath(content['@path']);
     const url = `${ENVIRONMENT.restUrlBase}${rootPath}`;
