@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ComponentFactoryResolver, Input, Type, ViewChild, ViewContainerRef } from '@angular/core';
-import { RendererContextService } from '../services/renderer-context.service';
+import { EditorContextService } from '../services/editor-context.service';
 import { WindowRefService } from '../services/windowref.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { WindowRefService } from '../services/windowref.service';
 })
 export class AbstractComponent implements AfterViewInit {
   constructor(
-    public resolver: ComponentFactoryResolver, public rendererContext: RendererContextService, public winRef: WindowRefService
+    public resolver: ComponentFactoryResolver, public editorContext: EditorContextService, public winRef: WindowRefService
   ) { }
 
   @ViewChild('child', { static: false, read: ViewContainerRef }) child: ViewContainerRef;
@@ -20,7 +20,7 @@ export class AbstractComponent implements AfterViewInit {
       return;
     }
     // Get the component class from mapping and create the instance
-    const componentClass = this.rendererContext.getComponentMapping(content['mgnl:template']);
+    const componentClass = this.editorContext.getComponentMapping(content['mgnl:template']);
     if (componentClass) {
       setTimeout(() => this.loadComponent(componentClass, this.child, content));
     }
@@ -37,7 +37,7 @@ export class AbstractComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.rendererContext.inEditor()) {
+    if (this.editorContext.inEditor()) {
       setTimeout(() => this.winRef.nativeWindow.parent.mgnlRefresh());
     }
   }

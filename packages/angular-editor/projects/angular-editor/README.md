@@ -18,12 +18,12 @@ npm install --save @magnolia/angular-editor
   template: '<mgnl-page [content]="content"></mgnl-page>'
 })
 export class AppComponent implements OnInit
-  constructor(private http: HttpClient, private rendererContext: RendererContextService) { }
+  constructor(private http: HttpClient, private editorContext: EditorContextService) { }
 
   @Input() content: any;
 
   ngOnInit(): void {
-    this.rendererContext.setComponentMapping({
+    this.editorContext.setComponentMapping({
       'angular-magnolia-int:pages/home': ListOfGroceriesCompnent,
       'angular-magnolia-int:components/textImage': TextImageComponent,
       'angular-magnolia-int:components/paragraph': ParagraphComponent,
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit
     this.http.get(environment.restUrlBase + environment.rootPath`).subscribe(content => {
       // request the template definitions for given page
       this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
-        this.rendererContext.setTemplateDefinitions(definitions);
+        this.editorContext.setTemplateDefinitions(definitions);
         this.content = content;
       });
     });

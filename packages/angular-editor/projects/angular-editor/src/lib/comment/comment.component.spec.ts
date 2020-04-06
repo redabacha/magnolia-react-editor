@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, Renderer2, Type } from '@angular/core';
 
-import { RendererContextService } from '../services/renderer-context.service';
+import { EditorContextService } from '../services/editor-context.service';
 import { CommentComponent } from './comment.component';
 
 @Component({
@@ -12,20 +12,20 @@ export class TestHostComponent {}
 describe('CommentComponent', () => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
-  let service: RendererContextService;
+  let service: EditorContextService;
   let renderer: Renderer2;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TestHostComponent, CommentComponent ],
-      providers: [ RendererContextService, Renderer2 ],
+      providers: [ EditorContextService, Renderer2 ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TestHostComponent);
     component = fixture.componentInstance;
-    service = fixture.debugElement.injector.get(RendererContextService);
+    service = fixture.debugElement.injector.get(EditorContextService);
     renderer = fixture.componentRef.injector.get<Renderer2>(Renderer2 as Type<Renderer2>);
   });
 

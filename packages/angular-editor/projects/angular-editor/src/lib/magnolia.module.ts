@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Services
 import { WindowRefService } from './services/windowref.service';
+import { EditorContextService } from './services/editor-context.service';
 import { RendererContextService } from './services/renderer-context.service';
 // Components
 import { MagnoliaAreaComponent } from './area/mgnl-area.component';
@@ -23,6 +24,7 @@ import { MagnoliaComponent } from './component/mgnl-component.component';
   ],
   providers: [
     WindowRefService,
+    EditorContextService,
     RendererContextService
   ],
   exports: [

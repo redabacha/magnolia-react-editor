@@ -2,25 +2,25 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SimpleChange } from '@angular/core';
 
 import { MgnlPageComponent } from './mgnl-page.component';
-import { RendererContextService } from '../services/renderer-context.service';
+import { EditorContextService } from '../services/editor-context.service';
 import { CommentComponent } from '../comment/comment.component';
 
 describe('MagnoliaPageComponent', () => {
   let component: MgnlPageComponent;
   let fixture: ComponentFixture<MgnlPageComponent>;
-  let service: RendererContextService;
+  let service: EditorContextService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CommentComponent, MgnlPageComponent ],
-      providers: [ RendererContextService ],
+      providers: [ EditorContextService ],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MgnlPageComponent);
     component = fixture.componentInstance;
-    service = fixture.debugElement.injector.get(RendererContextService);
+    service = fixture.debugElement.injector.get(EditorContextService);
     fixture.detectChanges();
   });
 
