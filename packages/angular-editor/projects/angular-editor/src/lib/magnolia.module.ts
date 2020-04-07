@@ -5,11 +5,11 @@ import { WindowRefService } from './services/windowref.service';
 import { EditorContextService } from './services/editor-context.service';
 import { RendererContextService } from './services/renderer-context.service';
 // Components
-import { MagnoliaAreaComponent } from './area/mgnl-area.component';
+import { EditableArea } from './area/editable-area.component';
 import { AbstractComponent } from './abstract/abstract.component';
 import { CommentComponent } from './comment/comment.component';
-import { MgnlPageComponent } from './page/mgnl-page.component';
-import { MagnoliaComponent } from './component/mgnl-component.component';
+import { EditablePage } from './page/editable-page.component';
+import { EditableComponent } from './component/editable-component.component';
 
 @NgModule({
   imports: [
@@ -17,9 +17,9 @@ import { MagnoliaComponent } from './component/mgnl-component.component';
   ],
   declarations: [
     AbstractComponent,
-    MgnlPageComponent,
-    MagnoliaComponent,
-    MagnoliaAreaComponent,
+    EditablePage,
+    EditableComponent,
+    EditableArea,
     CommentComponent
   ],
   providers: [
@@ -28,8 +28,8 @@ import { MagnoliaComponent } from './component/mgnl-component.component';
     RendererContextService
   ],
   exports: [
-    MgnlPageComponent,
-    MagnoliaAreaComponent
+    EditablePage,
+    EditableArea
   ],
 })
 export class MagnoliaModule { }

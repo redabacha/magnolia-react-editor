@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import Page from './Page';
+import EditablePage from './EditablePage';
 import '../../../mock/mgnlRefresh.mock';
 import pageContent from '../../../mock/page';
 import templateDefinitions from '../../../mock/template-definition';
 
-describe('Page', () => {
+describe('EditablePage', () => {
     let componentMappings;
     let container = null;
     let config;
@@ -34,7 +34,7 @@ describe('Page', () => {
     it('Render Page', () => {
         // GIVEN
         // WHEN
-        render(<Page templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
+        render(<EditablePage templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
         // THEN
         expect(container.innerHTML.includes('cms:page content="website:/react-sample" dialog="mte:pages/pageProperties"')).toBe(true);
     });
@@ -43,7 +43,7 @@ describe('Page', () => {
         // GIVEN
         window.parent.mgnlRefresh = null;
         // WHEN
-        render(<Page templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
+        render(<EditablePage templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
         // THEN
         expect(container.innerHTML.includes('cms:page content="website:/react-sample" dialog="mte:pages/pageProperties"')).toBe(false);
     });

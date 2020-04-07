@@ -1,24 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MagnoliaAreaComponent } from './mgnl-area.component';
+import { EditableArea } from './editable-area.component';
 import { CommentComponent } from '../comment/comment.component';
-import { MagnoliaComponent } from '../component/mgnl-component.component';
+import { EditableComponent } from '../component/editable-component.component';
 import { EditorContextService } from '../services/editor-context.service';
 
-describe('MagnoliaAreaComponent', () => {
-  let component: MagnoliaAreaComponent;
-  let fixture: ComponentFixture<MagnoliaAreaComponent>;
+describe('EditableArea', () => {
+  let component: EditableArea;
+  let fixture: ComponentFixture<EditableArea>;
   let service: EditorContextService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommentComponent, MagnoliaComponent, MagnoliaAreaComponent ],
+      declarations: [ CommentComponent, EditableComponent, EditableArea ],
       providers: [ EditorContextService ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MagnoliaAreaComponent);
+    fixture = TestBed.createComponent(EditableArea);
     component = fixture.componentInstance;
     service = fixture.debugElement.injector.get(EditorContextService);
     fixture.detectChanges();

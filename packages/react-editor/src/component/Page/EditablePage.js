@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
 import { EditorProvider, ComponentHelper, constants } from '../../util';
 
-class Page extends Component {
+class EditablePage extends Component {
     static propTypes = {
         children: PropTypes.elementType,
         content: PropTypes.object,
@@ -79,4 +79,4 @@ class Page extends Component {
     }
 }
 
-export default Page;
+export default EditablePage;

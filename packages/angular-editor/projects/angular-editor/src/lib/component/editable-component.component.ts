@@ -4,7 +4,7 @@ import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { AbstractComponent } from '../abstract/abstract.component';
 
 @Component({
-  selector: 'mgnl-page',
+  selector: 'editable-component',
   template: `
     <ng-template [ngIf]="openComment">
       <mgnl-comment [text]="openComment"></mgnl-comment>
@@ -15,12 +15,12 @@ import { AbstractComponent } from '../abstract/abstract.component';
     </ng-template>
     `
 })
-export class MgnlPageComponent extends AbstractComponent implements OnChanges {
+export class EditableComponent extends AbstractComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     const content = changes.content.currentValue;
     if ((this.editorContext.inEditor() || isDevMode()) && content) {
-      this.openComment = TemplateAnnotations.getPageCommentString(content, this.editorContext.getTemplateDefinition(content['mgnl:template']));
-      this.closeComment = '/cms:page';
+      this.openComment = TemplateAnnotations.getComponentCommentString(content, this.editorContext.getTemplateDefinition(content['mgnl:template']));
+      this.closeComment = '/cms:component';
     }
   }
 }
