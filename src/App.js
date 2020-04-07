@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { Page } from '@magnolia/react-editor';
+import { EditablePage } from '@magnolia/react-editor';
 import { removeExtension } from './app/AppHelpers';
 import ENVIRONMENT from './environments/environment';
 import COMPONENTS from './environments/mapping';
@@ -44,7 +44,7 @@ function App(props) {
     }
 
     return templateDefinitions && content
-        ? (<Page templateDefinitions={templateDefinitions} content={content} config={config} />) : (<p>Loading...</p>);
+        ? (<EditablePage templateDefinitions={templateDefinitions} content={content} config={config} />) : (<p>Loading...</p>);
 }
 App.propTypes = {
     history: PropTypes.object
