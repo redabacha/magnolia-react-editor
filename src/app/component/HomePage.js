@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { EditableArea, EditorContext } from '@magnolia/react-editor';
+import { EditableArea, EditorContext, EditorContextHelper } from '@magnolia/react-editor';
 
 function HomePage() {
     const [areaVisible, setAreaVisible] = React.useState(true);
     const context = React.useContext(EditorContext);
     React.useEffect(() => {
-        if (window.parent.mgnlRefresh !== undefined) {
-            window.parent.mgnlRefresh();
-        }
+        EditorContextHelper.refresh();
     });
     const { content } = context;
     const {
