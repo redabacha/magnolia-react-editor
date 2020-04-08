@@ -1,1 +1,1 @@
-export { TemplateAnnotations } from './lib';
+export { TemplateAnnotations, EditorContextHelper } from './lib';

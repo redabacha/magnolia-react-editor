@@ -1,6 +1,7 @@
 import { Injectable, Type } from '@angular/core';
 import { WindowRefService } from './windowref.service';
 import { HttpParams } from '@angular/common/http';
+import { EditorContextHelper } from '@magnolia/template-annotations';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,11 @@ export class EditorContextService {
   constructor(private winRef: WindowRefService) { }
 
   public inEditor(): boolean {
-    return this.winRef.nativeWindow.parent && this.winRef.nativeWindow.parent.mgnlRefresh;
+    return EditorContextHelper.inEditor();
+  }
+
+  public refresh(): void {
+    EditorContextHelper.refresh();
   }
 
   public inEditorPreview(): boolean {

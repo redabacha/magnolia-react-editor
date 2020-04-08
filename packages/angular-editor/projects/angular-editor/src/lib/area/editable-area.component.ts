@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input, isDevMode } from '@angular/core';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { EditorContextService } from '../services/editor-context.service';
-import { WindowRefService } from '../services/windowref.service';
 
 @Component({
   selector: '[editable-area]',
@@ -18,7 +17,7 @@ import { WindowRefService } from '../services/windowref.service';
   `
 })
 export class EditableArea implements AfterViewInit {
-  constructor(public editorContext: EditorContextService, public winRef: WindowRefService) { }
+  constructor(public editorContext: EditorContextService) { }
 
   components: object[];
   openComment: string;
@@ -59,7 +58,7 @@ export class EditableArea implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.editorContext.inEditor()) {
-      this.winRef.nativeWindow.parent.mgnlRefresh();
+      this.editorContext.refresh();
     }
   }
 }

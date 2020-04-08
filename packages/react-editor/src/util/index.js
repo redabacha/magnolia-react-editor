@@ -7,3 +7,4 @@ export { EditorContext, EditorConsumer, EditorProvider };
  */
 const RendererContext = EditorContext;
 export { RendererContext };
+export { default as EditorContextHelper } from './EditorContextHelper';
