@@ -5,14 +5,14 @@ function EditorContextHelper() {
     };
 
     function inEditor() {
-        if (typeof window === "undefined") {
+        if (typeof window === 'undefined') {
             return false;
         }
-        return Boolean(window.parent && window.parent.mgnlRefresh);
+        return Boolean(window.frameElement && window.frameElement.className.includes('gwt-Frame'));
     }
 
     function refresh() {
-        if (inEditor()) {
+        if (inEditor() && window.parent.mgnlRefresh) {
             window.parent.mgnlRefresh();
         }
     }

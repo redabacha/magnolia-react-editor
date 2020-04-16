@@ -41,7 +41,7 @@ describe('EditablePage', () => {
 
     it('Render Page in a public site', () => {
         // GIVEN
-        window.parent.mgnlRefresh = null;
+        window.frameElement = null;
         // WHEN
         render(<EditablePage templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
         // THEN
