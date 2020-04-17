@@ -31,7 +31,11 @@ class EditablePage extends Component {
         const { templateDefinitions, content, config } = props;
         const { componentMappings } = config;
         const isDevMode = process.env.NODE_ENV === 'development';
-        const queryParams = new URLSearchParams(window.location.search);
+        let search = null;
+        if (typeof window !== "undefined") {
+            search = window.location.search;
+          }
+        const queryParams = new URLSearchParams(search);
         const inEditorPreview = queryParams.has('mgnlPreview' && queryParams.get('mgnlPreview') === 'true');
 
         this.state = {
