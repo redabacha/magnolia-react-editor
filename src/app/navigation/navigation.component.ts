@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 export class NavigationComponent implements AfterContentInit {
     navData: object;
     rootPath: string;
-    @Input() content: object;
     constructor(private router: Router) {}
 
     async fetchContent(): Promise<Array<Object>> {
@@ -24,7 +23,7 @@ export class NavigationComponent implements AfterContentInit {
     }
 
     ngAfterContentInit(): void {
-        if (this.content && !this.navData) {
+        if (!this.navData) {
             this.fetchContent().then(data => {
                 this.navData = data;
                 this.rootPath = data.length ? `/${data[0]['@name']}` : '';

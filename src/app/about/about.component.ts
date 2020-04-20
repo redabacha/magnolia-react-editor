@@ -5,5 +5,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
-  @Input() content: any;
+  // properties
+  @Input() title: any;
+  // areas
+  @Input() header: any;
+  @Input() main_area: any;
+  // metadata
+  @Input() metadata: any;
 }

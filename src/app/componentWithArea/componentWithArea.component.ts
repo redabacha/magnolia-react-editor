@@ -6,5 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./componentWithArea.component.scss'],
 })
 export class ComponentWithAreaComponent {
-  @Input() content: any;
+  @Input() nested_area: any;
+  // metadata
+  @Input() metadata: any;
 }

@@ -5,7 +5,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  @Input() content: any;
+  // properties
+  @Input() title: any;
+  // areas
+  @Input() header: any;
+  @Input() main_area: any;
+  @Input() secondary_area: any;
+  // metadata
+  @Input() metadata: any;
   secondaryAreaVisible = true;
 
   toggleArea() {
