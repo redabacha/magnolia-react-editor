@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, NgModule } from '@angular/core';
+import { Component, ComponentFactory, ComponentRef, Input, NgModule, SimpleChange, Type } from '@angular/core';
 
 import { AbstractComponent } from './abstract.component';
 import { EditorContextService } from '../services/editor-context.service';
@@ -8,18 +8,36 @@ import { CommentComponent } from '../comment/comment.component';
 @Component({
   template: '<ng-container #child></ng-container>'
 })
-export class TestHostComponent extends AbstractComponent {}
+export class TestHostComponent extends AbstractComponent { }
 
 @Component({
   template: ''
 })
-class DummyComponent { }
+class DummyComponent {
+  @Input() property: string;
+  @Input() metadata: object;
+}
 
 @NgModule({
   declarations: [ DummyComponent ],
   entryComponents: [ DummyComponent ]
 })
 class DummyModule { }
+
+class MockComponentRef extends ComponentRef<any> {
+  constructor(instance: any) {
+    super();
+    this.instance = instance;
+  }
+  readonly changeDetectorRef: any;
+  readonly componentType: Type<any>;
+  readonly hostView: any;
+  readonly injector: any;
+  readonly instance: any;
+  readonly location: any;
+  destroy(): void { }
+  onDestroy(callback: Function): void { }
+}
 
 describe('AbstractComponent', () => {
   let component: TestHostComponent;
@@ -43,10 +61,20 @@ describe('AbstractComponent', () => {
 
   it('should load component dynamically', () => {
     jest.spyOn(service, 'getComponentMapping').mockReturnValue(DummyComponent);
-    component.content = {
+    let resolvedComponentInstance = new DummyComponent();
+    function mockGetRef(_: ComponentFactory<any>) : ComponentRef<any> {
+      return new MockComponentRef(resolvedComponentInstance);
+    }
+    jest.spyOn(component.child, 'createComponent').mockImplementationOnce(mockGetRef);
+    jest.useFakeTimers();
+    let content = {
+      'property': 'value',
       'mgnl:template': 'templateId',
     };
-    fixture.detectChanges();
-    expect(service.getComponentMapping).toHaveBeenCalledTimes(1);
+    component.ngOnChanges({content: new SimpleChange(null, content, true)});
+    jest.runAllTimers();
+    expect(component.child.createComponent).toHaveBeenCalledTimes(1);
+    expect(resolvedComponentInstance.property).toBe('value');
+    expect(resolvedComponentInstance.metadata['mgnl:template']).toBe('templateId');
   });
 });

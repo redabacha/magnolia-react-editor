@@ -25,14 +25,14 @@ describe('EditableArea', () => {
   });
 
   it('should get area components', () => {
-    component.name = 'area-node';
-    component.content = {'area-node': {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']}};
+    component.template = 'foo:bar';
+    component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
     fixture.detectChanges();
     expect(component.components.length).toBe(1);
   });
 
   it('should not fail on non-existing areas', () => {
-    component.name = 'area-node';
+    component.template = 'foo:bar';
     component.content = {};
     fixture.detectChanges();
     expect(component.components.length).toBe(0);
@@ -40,7 +40,7 @@ describe('EditableArea', () => {
 
   it('should generate area greenbar', () => {
     jest.spyOn(service, 'inEditor').mockReturnValue(true);
-    component.content = {};
+    component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
     expect(service.inEditor).toHaveBeenCalledTimes(1);
     expect(component.closeComment).toBe('/cms:area');
   });

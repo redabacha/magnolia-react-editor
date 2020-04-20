@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, Input, Type, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, OnChanges, SimpleChanges, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { EditorContextService } from '../services/editor-context.service';
 
 @Component({
   template: ''
 })
-export class AbstractComponent implements AfterViewInit {
+export class AbstractComponent implements AfterViewInit, OnChanges {
   constructor(
     public resolver: ComponentFactoryResolver, public editorContext: EditorContextService
   ) { }
@@ -14,7 +14,8 @@ export class AbstractComponent implements AfterViewInit {
   openComment: string;
   closeComment: string;
 
-  @Input() set content(content: object) {
+  ngOnChanges(changes: SimpleChanges): void {
+    const content = changes.content.currentValue;
     if (!content) {
       return;
     }
@@ -31,8 +32,16 @@ export class AbstractComponent implements AfterViewInit {
 
     // Get the view container and set content
     viewContainerRef.clear();
-    const componentRefInstance = viewContainerRef.createComponent(componentFactory).instance as AbstractComponent;
-    componentRefInstance.content = content;
+    const componentRefInstance = viewContainerRef.createComponent(componentFactory).instance;
+    const metadata = {};
+    Object.keys(content).forEach(key => {
+      if (key.startsWith('@') || key.startsWith('mgnl:') || key.startsWith('jcr:')) {
+        metadata[key] = content[key];
+      } else {
+        componentRefInstance[key.replace('-', '_')] = content[key];
+      }
+    });
+    componentRefInstance.metadata = metadata;
   }
 
   ngAfterViewInit(): void {
