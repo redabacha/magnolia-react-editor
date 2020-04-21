@@ -21,6 +21,7 @@ module.exports = {
     output: {
         filename: 'mgnl-react-editor.js',
         path: path.resolve(__dirname, 'build'),
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        globalObject: 'this'
     }
 };

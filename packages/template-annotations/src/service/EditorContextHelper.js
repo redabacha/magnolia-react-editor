@@ -5,6 +5,9 @@ function EditorContextHelper() {
     };
 
     function inEditor() {
+        if (typeof window === "undefined") {
+            return false;
+        }
         return Boolean(window.parent && window.parent.mgnlRefresh);
     }
 
