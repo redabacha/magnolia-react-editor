@@ -78,7 +78,7 @@ describe('EditableArea component', () => {
 
     it('Render EditableArea in public a site', () => {
         // GIVEN
-        window.mgnlRefresh = null;
+        window.frameElement = null;
         state.isDevMode = false;
         const areaCommentText = 'cms:area';
 

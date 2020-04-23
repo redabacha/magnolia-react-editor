@@ -12,7 +12,7 @@ describe('EditorContext', () => {
 
     it('inEditor is false', () => {
         // GIVEN
-        window.mgnlRefresh = null;
+        window.frameElement = null;
         // WHEN
         let isInEditor = EditorContextHelper.inEditor();
         // THEN
