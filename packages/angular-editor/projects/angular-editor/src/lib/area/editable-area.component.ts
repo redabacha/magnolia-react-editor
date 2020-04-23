@@ -19,34 +19,30 @@ import { EditorContextService } from '../services/editor-context.service';
 export class EditableArea implements AfterViewInit {
   constructor(public editorContext: EditorContextService) { }
 
-  components: object[];
+  components: object[] = [];
   openComment: string;
   closeComment: string;
 
-  @Input() public name: string;
-
+  @Input() template: string;
   @Input() set content(content: object) {
-    if (content) {
-      this.components = this.getAreaComponents(content, this.name);
+    if (content && Object.entries(content).length > 0)  {
+      this.components = this.getAreaComponents(content);
 
       if (this.editorContext.inEditor() || isDevMode()) {
         // tslint:disable-next-line:max-line-length
-        this.openComment = TemplateAnnotations.getAreaCommentString(content[this.name], this.editorContext.getTemplateDefinition(content['mgnl:template']));
+        this.openComment = TemplateAnnotations.getAreaCommentString(content, this.editorContext.getTemplateDefinition(this.template));
         this.closeComment = '/cms:area';
       }
     }
   }
 
-  private getAreaComponents(content: object, areaName: string) {
+  private getAreaComponents(content: object) {
     const results = [];
 
-    // Gets the area content
-    const areaContent = content[areaName];
-
-    if (areaContent) {
-      const components = areaContent['@nodes'];
+    if (content) {
+      const components = content['@nodes'];
       components.forEach(nodeName => {
-        const value = areaContent[nodeName];
+        const value = content[nodeName];
 
         if (typeof(value) === 'object' && value['@nodeType'] === 'mgnl:component') {
           results.push(value);

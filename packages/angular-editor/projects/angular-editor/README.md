@@ -44,6 +44,6 @@ export class AppComponent implements OnInit
 
  5. Render areas inside your components using `editable-area` directive:
 ```
-<h2>{{ content.pageTitle }}</h3>
-<ul editable-area [content]="content" [name]="'area-name'"></ul>
+<h2>{{ pageTitle }}</h3>
+<ul editable-area [content]="footer" [template]="metadata['mgnl:template']"></ul>
 ```
