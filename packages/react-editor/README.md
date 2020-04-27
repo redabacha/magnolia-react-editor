@@ -37,3 +37,7 @@ render() {
   <EditableArea key="main" content={mainAreaContent} />
 </div>
 ```
+
+## Changelog
+
+See the [CHANGELOG.md](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/react-editor/CHANGELOG.md) file.

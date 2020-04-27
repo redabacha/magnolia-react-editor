@@ -23,3 +23,7 @@ function getAreaCommentString(data: object, templateDefinition: object, componen
 function getComponentCommentString(data: object, templateDefinition: object): string;
 function getPageCommentString(data: object, templateDefinition: object): string;
 ```
+
+## Changelog
+
+See the [CHANGELOG.md](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/template-annotations/CHANGELOG.md) file.
