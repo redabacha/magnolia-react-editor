@@ -22,10 +22,10 @@ render() {
    const content = await response.json();
    response = await fetch(environment.templateDefinitionBase + '/' + content['mgnl:template']);
    const templateDefinitions = response.json();
-   const pageConfig = {templateDefinitions: templateDefinitions, componentMappings: COMPONENTS_MAPPING}
+   const pageConfig = {componentMappings: COMPONENTS_MAPPING};
 
    return(
-      <EditablePage content={content} config={pageConfig} />
+      <EditablePage content={content} config={pageConfig} templateDefinitions={templateDefinitions} />
    );
 }
 ```
