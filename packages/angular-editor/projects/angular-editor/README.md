@@ -47,3 +47,8 @@ export class AppComponent implements OnInit
 <h2>{{ pageTitle }}</h3>
 <ul editable-area [content]="footer" [template]="metadata['mgnl:template']"></ul>
 ```
+
+## Changelog
+
+See the [CHANGELOG.md](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/angular-editor/projects/angular-editor/CHANGELOG.md) file.
+
