@@ -25,14 +25,14 @@ describe('EditableArea', () => {
   });
 
   it('should get area components', () => {
-    component.template = 'foo:bar';
+    component.parentTemplateId = 'foo:bar';
     component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
     fixture.detectChanges();
     expect(component.components.length).toBe(1);
   });
 
   it('should not fail on non-existing areas', () => {
-    component.template = 'foo:bar';
+    component.parentTemplateId = 'foo:bar';
     component.content = {};
     fixture.detectChanges();
     expect(component.components.length).toBe(0);

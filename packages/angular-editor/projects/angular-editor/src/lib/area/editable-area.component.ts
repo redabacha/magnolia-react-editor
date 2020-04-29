@@ -23,14 +23,14 @@ export class EditableArea implements AfterViewInit {
   openComment: string;
   closeComment: string;
 
-  @Input() template: string;
+  @Input() parentTemplateId: string;
   @Input() set content(content: object) {
     if (content && Object.entries(content).length > 0)  {
       this.components = this.getAreaComponents(content);
 
       if (this.editorContext.inEditor() || isDevMode()) {
         // tslint:disable-next-line:max-line-length
-        this.openComment = TemplateAnnotations.getAreaCommentString(content, this.editorContext.getTemplateDefinition(this.template));
+        this.openComment = TemplateAnnotations.getAreaCommentString(content, this.editorContext.getTemplateDefinition(this.parentTemplateId));
         this.closeComment = '/cms:area';
       }
     }
