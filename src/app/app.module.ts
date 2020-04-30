@@ -7,12 +7,12 @@ import { routing } from './app.routing';
 import { MagnoliaModule } from '@magnolia/angular-editor';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { TitleComponent } from './title/title.component';
-import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
-import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './components/home.component';
+import { TitleComponent } from './components/title.component';
+import { ComponentWithAreaComponent } from './components/componentWithArea.component';
+import { AboutComponent } from './components/about.component';
 import { RootComponent } from './root.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './components/navigation.component';
 
 @NgModule({
   imports: [

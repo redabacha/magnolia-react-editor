@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home.component';
 import { EditorContextService } from '@magnolia/angular-editor';
-import { TitleComponent } from './title/title.component';
-import { ComponentWithAreaComponent } from './componentWithArea/componentWithArea.component';
-import { AboutComponent } from './about/about.component';
+import { TitleComponent } from './components/title.component';
+import { ComponentWithAreaComponent } from './components/componentWithArea.component';
+import { AboutComponent } from './components/about.component';
 
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './components/navigation.component';
 
 @Component({
   template: '<editable-page [content]="content"></editable-page>',

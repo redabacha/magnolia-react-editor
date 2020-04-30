@@ -1,9 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-component-with-area',
-  templateUrl: './componentWithArea.component.html',
-  styleUrls: ['./componentWithArea.component.scss'],
+  template: `
+    <div class="container">
+      <div editable-area [content]="nested_area" [parentTemplateId]="metadata['mgnl:template']"></div>
+    </div>
+  `
 })
 export class ComponentWithAreaComponent {
   @Input() nested_area: any;

@@ -1,9 +1,21 @@
-import { Component, Input, AfterContentInit } from '@angular/core';
+import { Component, AfterContentInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
 @Component({
-    templateUrl: './navigation.component.html'
+    template: `
+        <div>
+            <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+                <ul class="navbar-nav">
+                    <ng-template ngFor let-item [ngForOf]="navData">
+                        <li class="nav-item" [ngClass]="{'active': isActive(item)}">
+                            <a class="nav-link" [routerLink]="getLink(item)">{{item.title || item['@name']}}</a>
+                        </li>
+                    </ng-template>
+                </ul>
+            </nav>
+        </div>
+    `
 })
 export class NavigationComponent implements AfterContentInit {
     navData: object;
