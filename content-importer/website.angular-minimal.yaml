@@ -20,7 +20,7 @@
       'mgnl:lastModified': 2020-05-06T12:42:23.664+02:00
       'mgnl:lastModifiedBy': 'superuser'
       'mgnl:template': 'angular-magnolia-int:components/navigation'
-  'main-area':
+  'mainArea':
     'jcr:primaryType': 'mgnl:area'
     'mgnl:created': 2020-05-06T12:10:13.853+02:00
     'mgnl:createdBy': 'superuser'
@@ -71,7 +71,7 @@
         'mgnl:lastModified': 2020-05-06T12:29:05.105+02:00
         'mgnl:lastModifiedBy': 'superuser'
         'mgnl:template': 'angular-magnolia-int:components/navigation'
-    'main-area':
+    'mainArea':
       'jcr:primaryType': 'mgnl:area'
       'mgnl:created': 2020-05-06T12:12:26.984+02:00
       'mgnl:createdBy': 'superuser'

@@ -22,7 +22,7 @@ export class NavigationComponent implements AfterContentInit {
     rootPath: string;
     constructor(private router: Router) {}
 
-    async fetchContent(): Promise<Array<Object>> {
+    async fetchContent(): Promise<Array<object>> {
         const url = `${environment.restUrlBase}${environment.rootPath}`;
         const childUrl = `${environment.restUrlBase}${environment.rootPath}/@nodes`;
         const parentRes = fetch(url);

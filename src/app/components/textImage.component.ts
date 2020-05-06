@@ -16,8 +16,8 @@ export class TextImageComponent {
   @Input() title: string;
   @Input() body: string;
 
-  @Input() set image(image: object) {
-    this.imageLink = environment.server + image['renditions']['480'].link;
+  @Input() set image(image: any) {
+    this.imageLink = environment.server + image.renditions['480'].link;
   }
 
   imageLink: string = null;

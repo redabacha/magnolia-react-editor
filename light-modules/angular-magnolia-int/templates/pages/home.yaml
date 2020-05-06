@@ -19,7 +19,7 @@ areas:
     availableComponents:
       navigation:
         id: angular-magnolia-int:components/navigation
-  main-area:
+  mainArea:
     title: Main Area
     availableComponents:
       textImage:

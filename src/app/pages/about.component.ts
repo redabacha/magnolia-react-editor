@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
 
         <div>
           <div class="col-12">
-            <div editable-area [content]="main_area" [parentTemplateId]="metadata['mgnl:template']"></div>
+            <div editable-area [content]="mainArea" [parentTemplateId]="metadata['mgnl:template']"></div>
           </div>
         </div>
       </main>
@@ -21,7 +21,7 @@ export class AboutComponent {
   @Input() title: string;
   // areas
   @Input() header: object;
-  @Input() main_area: object;
+  @Input() mainArea: object;
   // metadata
   @Input() metadata: object;
 }
