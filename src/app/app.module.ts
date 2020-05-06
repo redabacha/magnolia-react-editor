@@ -7,10 +7,10 @@ import { routing } from './app.routing';
 import { MagnoliaModule } from '@magnolia/angular-editor';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home.component';
-import { TitleComponent } from './components/title.component';
-import { ComponentWithAreaComponent } from './components/componentWithArea.component';
-import { AboutComponent } from './components/about.component';
+import { HomeComponent } from './pages/home.component';
+import { TextImageComponent } from './components/textImage.component';
+import { TwoColumnsComponent } from './components/twoColumns.component';
+import { AboutComponent } from './pages/about.component';
 import { RootComponent } from './root.component';
 import { NavigationComponent } from './components/navigation.component';
 
@@ -25,16 +25,16 @@ import { NavigationComponent } from './components/navigation.component';
     AppComponent,
     RootComponent,
     HomeComponent,
-    TitleComponent,
+    TextImageComponent,
     AboutComponent,
-    ComponentWithAreaComponent,
+    TwoColumnsComponent,
     NavigationComponent,
   ],
   entryComponents: [
     HomeComponent,
     AboutComponent,
-    TitleComponent,
-    ComponentWithAreaComponent,
+    TextImageComponent,
+    TwoColumnsComponent,
     NavigationComponent,
   ],
   bootstrap: [AppComponent]

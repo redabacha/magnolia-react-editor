@@ -1,8 +1,0 @@
-title: Component with area
-dialog: angular-magnolia-int:components/title
-areas:
-  nested-area:
-    title: Nested Area
-    availableComponents:
-      title:
-        id: angular-magnolia-int:components/title

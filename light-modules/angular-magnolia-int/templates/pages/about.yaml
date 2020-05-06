@@ -1,5 +1,4 @@
 !include:/angular-magnolia-int/templates/pages/home.yaml
-title: Angular-minimal About
 areas:
   header:
     title: Header
@@ -9,5 +8,7 @@ areas:
   main-area:
     title: Main Area
     availableComponents:
-      title:
-        id: angular-magnolia-int:components/title
+      textImage:
+        id: angular-magnolia-int:components/textImage
+      twoColumns:
+        id: angular-magnolia-int:components/twoColumns

@@ -2,27 +2,23 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   template: `
-    <div class="container">
+    <div class="content-background">
       <div editable-area [content]="header" [parentTemplateId]="metadata['mgnl:template']"></div>
-      <h1>{{ title }}</h1>
-
-      <div>
-        <h2>Primary Area</h2>
+      <main class="container">
+        <h1>{{title}}</h1>
         <div class="col-12">
           <div editable-area [content]="main_area" [parentTemplateId]="metadata['mgnl:template']"></div>
         </div>
-      </div>
-
-      <button class="btn btn-primary" routerLink="/">Home</button>
+      </main>
     </div>
   `
 })
-export class AboutComponent {
+export class HomeComponent {
   // properties
-  @Input() title: any;
+  @Input() title: string;
   // areas
-  @Input() header: any;
-  @Input() main_area: any;
+  @Input() header: object;
+  @Input() main_area: object;
   // metadata
-  @Input() metadata: any;
+  @Input() metadata: object;
 }

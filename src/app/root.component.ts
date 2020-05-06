@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { HomeComponent } from './components/home.component';
+import { HomeComponent } from './pages/home.component';
 import { EditorContextService } from '@magnolia/angular-editor';
-import { TitleComponent } from './components/title.component';
-import { ComponentWithAreaComponent } from './components/componentWithArea.component';
-import { AboutComponent } from './components/about.component';
+import { TextImageComponent } from './components/textImage.component';
+import { TwoColumnsComponent } from './components/twoColumns.component';
+import { AboutComponent } from './pages/about.component';
 
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -20,8 +20,8 @@ export class RootComponent {
     this.editorContext.setComponentMapping({
       'angular-magnolia-int:pages/home': HomeComponent,
       'angular-magnolia-int:pages/about': AboutComponent,
-      'angular-magnolia-int:components/title': TitleComponent,
-      'angular-magnolia-int:components/componentWithArea': ComponentWithAreaComponent,
+      'angular-magnolia-int:components/textImage': TextImageComponent,
+      'angular-magnolia-int:components/twoColumns': TwoColumnsComponent,
       'angular-magnolia-int:components/navigation': NavigationComponent,
     });
 
