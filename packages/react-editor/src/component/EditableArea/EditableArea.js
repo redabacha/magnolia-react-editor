@@ -7,7 +7,7 @@ import {
     EditorContext, constants, EditorContextHelper
 } from '../../util';
 
-class EditableArea extends React.Component {
+class EditableArea extends React.PureComponent {
     static propTypes = {
         content: PropTypes.object.isRequired,
         parentTemplateId: PropTypes.string
@@ -58,7 +58,13 @@ class EditableArea extends React.Component {
         const { content } = this.props;
         const { isDevMode } = this.context;
         if (!isDevMode && !EditorContextHelper.inEditor()) {
-            return this.renderComponents();
+            return (
+                <div>
+                    {
+                        this.renderComponents()
+                    }
+                </div>
+            );
         }
 
         const pageTemplateId = this.getParentTemplateId();
@@ -68,9 +74,11 @@ class EditableArea extends React.Component {
         return (
             <>
                 <Comment text={openComment} />
-                {
-                    this.renderComponents()
-                }
+                <div>
+                    {
+                        this.renderComponents()
+                    }
+                </div>
                 <Comment text={this.getAreaClosedCommentContent()} />
             </>
         );

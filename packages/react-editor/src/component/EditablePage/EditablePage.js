@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { Comment } from '../Comment';
@@ -6,7 +6,7 @@ import {
     EditorProvider, ComponentHelper, constants, EditorContextHelper
 } from '../../util';
 
-class EditablePage extends Component {
+class EditablePage extends React.PureComponent {
     static propTypes = {
         children: PropTypes.elementType,
         content: PropTypes.object,
@@ -25,47 +25,43 @@ class EditablePage extends Component {
         }
     }
 
-    constructor(props) {
-        super(props);
-
-        const { templateDefinitions, content, config } = props;
-        const { componentMappings } = config;
-        const isDevMode = process.env.NODE_ENV === 'development';
-        let search = null;
-        if (typeof window !== "undefined") {
-            search = window.location.search;
-          }
-        const queryParams = new URLSearchParams(search);
-        const inEditorPreview = queryParams.has('mgnlPreview' && queryParams.get('mgnlPreview') === 'true');
-
-        this.state = {
-            templateDefinitions,
-            // eslint-disable-next-line react/no-unused-state
-            componentMappings,
-            content,
-            // eslint-disable-next-line react/no-unused-state
-            inEditorPreview,
-            isDevMode
-        };
-    }
-
     hasPageComponent() {
-        const { content, componentMappings } = this.state;
+        const { content, componentMappings } = this.getContextValue();
         return content && componentMappings && componentMappings[content[constants.TEMPLATE_ID_PROP]];
     }
 
+    getContextValue() {
+        const { templateDefinitions, content, config } = this.props;
+        const { componentMappings } = config;
+        const isDevMode = process.env.NODE_ENV === 'development';
+        let search = null;
+        if (typeof window !== 'undefined') {
+            search = window.location.search;
+        }
+        const queryParams = new URLSearchParams(search);
+        const inEditorPreview = queryParams.has('mgnlPreview' && queryParams.get('mgnlPreview') === 'true');
+        const contextValue = {
+            templateDefinitions,
+            componentMappings,
+            content,
+            inEditorPreview,
+            isDevMode
+        };
+        return contextValue;
+    }
+
     render() {
-        const { isDevMode, componentMappings } = this.state;
-        const { content, templateDefinitions } = this.state;
+        const contextValue = this.getContextValue();
         const { children } = this.props;
-        const pageTemplateDefinition = content && templateDefinitions ? templateDefinitions[content[constants.TEMPLATE_ID_PROP]] : null;
-        const openComment = TemplateAnnotations.getPageCommentString(content, pageTemplateDefinition);
-        const pageComponent = this.hasPageComponent() ? ComponentHelper.getRenderedComponent(content, componentMappings) : children;
+        const pageTemplateDefinition = contextValue.content && contextValue.templateDefinitions
+            ? contextValue.templateDefinitions[contextValue.content[constants.TEMPLATE_ID_PROP]] : null;
+        const openComment = TemplateAnnotations.getPageCommentString(contextValue.content, pageTemplateDefinition);
+        const pageComponent = this.hasPageComponent() ? ComponentHelper.getRenderedComponent(contextValue.content, contextValue.componentMappings) : children;
         // NOTE: We need a div tag as a parent node for Page's child HTML. It will cause an issue if we
         // don't have a parent node.
-        if (EditorContextHelper.inEditor() || isDevMode) {
+        if (EditorContextHelper.inEditor() || contextValue.isDevMode) {
             return (
-                <EditorProvider value={this.state}>
+                <EditorProvider value={contextValue}>
                     <div>
                         <Comment text={openComment} />
                         <Comment text="/cms:page" />
@@ -75,7 +71,7 @@ class EditablePage extends Component {
             );
         }
         return (
-            <EditorProvider value={this.state}>
+            <EditorProvider value={contextValue}>
                 <div>
                     {pageComponent}
                 </div>

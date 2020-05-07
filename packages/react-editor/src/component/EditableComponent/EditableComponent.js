@@ -6,7 +6,7 @@ import {
     EditorContext, constants, ComponentHelper, EditorContextHelper
 } from '../../util';
 
-export default class EditableComponent extends React.Component {
+export default class EditableComponent extends React.PureComponent {
     static propTypes = {
         content: PropTypes.object.isRequired
     };
@@ -28,9 +28,9 @@ export default class EditableComponent extends React.Component {
         const component = ComponentHelper.getRenderedComponent(content, componentMappings);
         if (!isDevMode && !EditorContextHelper.inEditor()) {
             return (
-                <>
+                <div>
                     {component}
-                </>
+                </div>
             );
         }
 
@@ -41,11 +41,13 @@ export default class EditableComponent extends React.Component {
         const closedComponentComment = this.getComponentClosedCommentContent();
 
         return (
-            <>
+            <div>
                 <Comment text={openComponentComment} />
-                {component}
+                <div>
+                    {component}
+                </div>
                 <Comment text={closedComponentComment} />
-            </>
+            </div>
         );
     }
 }

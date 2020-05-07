@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
-class Comment extends Component {
+class Comment extends React.PureComponent {
     static propTypes = {
         text: PropTypes.string,
         trim: PropTypes.bool
