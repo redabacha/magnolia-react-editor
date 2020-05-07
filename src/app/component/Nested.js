@@ -13,7 +13,7 @@ function NestedComponent(props) {
     );
 }
 NestedComponent.propTypes = {
-    title: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
     nestedArea: PropTypes.object.isRequired,
     metadata: PropTypes.object.isRequired
 };

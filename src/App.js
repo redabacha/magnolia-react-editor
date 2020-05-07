@@ -14,10 +14,9 @@ function App(props) {
     const config = { componentMappings: COMPONENTS };
 
     history.listen((location) => {
-        // NOTE: Set old content to null to force re-rendering
-        setContent(null);
-        setTemplateDefinitions(null);
-        setCurrentPath(location.pathname);
+        if (location.pathname !== currentPath) {
+            setCurrentPath(location.pathname);
+        }
     });
 
     useEffect(() => {

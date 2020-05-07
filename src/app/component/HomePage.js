@@ -1,21 +1,20 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { EditableArea, EditorContext, EditorContextHelper } from '@magnolia/react-editor';
+import { EditableArea, EditorContextHelper } from '@magnolia/react-editor';
 
-function HomePage() {
+function HomePage(props) {
     const [areaVisible, setAreaVisible] = React.useState(true);
-    const context = React.useContext(EditorContext);
     React.useEffect(() => {
         EditorContextHelper.refresh();
     });
-    const { content } = context;
+
     const {
         header: headerContent,
         main: mainAreaContent,
         secondary: secondaryAreaContent,
         title,
         single
-    } = content;
+    } = props;
 
     function toggleArea() {
         setAreaVisible(!areaVisible);
