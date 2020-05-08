@@ -1,7 +1,6 @@
 import React from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
-import { Comment } from '../Comment';
 import {
     EditorProvider, ComponentHelper, constants, EditorContextHelper
 } from '../../util';
@@ -23,6 +22,37 @@ class EditablePage extends React.PureComponent {
         config: {
             componentMappings: {}
         }
+    }
+
+    componentDidMount() {
+        this.addCloseComment();
+        this.addOpenComment();
+        EditorContextHelper.refresh();
+    }
+
+    // eslint-disable-next-line camelcase
+    UNSAFE_componentWillUpdate() {
+        this.node.firstChild.remove();
+    }
+
+    componentDidUpdate() {
+        this.addOpenComment();
+        EditorContextHelper.refresh();
+    }
+
+    addOpenComment() {
+        const contextValue = this.getContextValue();
+        if (!this.node) {
+            return;
+        }
+        const pageTemplateDefinition = contextValue.content && contextValue.templateDefinitions
+            ? contextValue.templateDefinitions[contextValue.content[constants.TEMPLATE_ID_PROP]] : null;
+        const openComment = TemplateAnnotations.getPageCommentString(contextValue.content, pageTemplateDefinition);
+        ComponentHelper.addComment(this.node, openComment);
+    }
+
+    addCloseComment() {
+        ComponentHelper.addComment(this.node, '/cms:page');
     }
 
     hasPageComponent() {
@@ -53,26 +83,12 @@ class EditablePage extends React.PureComponent {
     render() {
         const contextValue = this.getContextValue();
         const { children } = this.props;
-        const pageTemplateDefinition = contextValue.content && contextValue.templateDefinitions
-            ? contextValue.templateDefinitions[contextValue.content[constants.TEMPLATE_ID_PROP]] : null;
-        const openComment = TemplateAnnotations.getPageCommentString(contextValue.content, pageTemplateDefinition);
         const pageComponent = this.hasPageComponent() ? ComponentHelper.getRenderedComponent(contextValue.content, contextValue.componentMappings) : children;
         // NOTE: We need a div tag as a parent node for Page's child HTML. It will cause an issue if we
         // don't have a parent node.
-        if (EditorContextHelper.inEditor() || contextValue.isDevMode) {
-            return (
-                <EditorProvider value={contextValue}>
-                    <div>
-                        <Comment text={openComment} />
-                        <Comment text="/cms:page" />
-                        {pageComponent}
-                    </div>
-                </EditorProvider>
-            );
-        }
         return (
             <EditorProvider value={contextValue}>
-                <div>
+                <div ref={node => this.node = node} key={contextValue.content['@id']}>
                     {pageComponent}
                 </div>
             </EditorProvider>

@@ -2,7 +2,7 @@ import React from 'react';
 import constants from './constants';
 
 function componentHelper() {
-    return { getRenderedComponent, getComponentProperties };
+    return { getRenderedComponent, getComponentProperties, addComment };
 
     function getRenderedComponent(componentContent, componentMappings) {
         if (!componentContent || !componentMappings || !componentMappings[componentContent[constants.TEMPLATE_ID_PROP]]) {
@@ -29,6 +29,20 @@ function componentHelper() {
         });
         props.metadata = metadata;
         return props;
+    }
+
+    function addComment(element, openComment, closeComment) {
+        if (typeof document === 'undefined' || !element) {
+            return;
+        }
+        if (openComment) {
+            const openCommentElement = document.createComment(openComment);
+            element.insertBefore(openCommentElement, element.firstChild);
+        }
+        if (closeComment) {
+            const closeCommentElement = document.createComment(closeComment);
+            element.appendChild(closeCommentElement);
+        }
     }
 }
 

@@ -1,10 +1,9 @@
 import React from 'react';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
-import { Comment } from '../Comment';
 import { EditableComponent } from '../EditableComponent';
 import {
-    EditorContext, constants, EditorContextHelper
+    EditorContext, constants, EditorContextHelper, ComponentHelper
 } from '../../util';
 
 class EditableArea extends React.PureComponent {
@@ -26,7 +25,7 @@ class EditableArea extends React.PureComponent {
         if (!this.context) {
             throw new Error('EditableArea component must be wrapped inside EditablePage component.');
         }
-        EditorContextHelper.refresh();
+        this.addComment();
     }
 
     static contextType = EditorContext;
@@ -38,49 +37,28 @@ class EditableArea extends React.PureComponent {
         return parentTemplateId || content[constants.TEMPLATE_ID_PROP];
     }
 
-    getAreaClosedCommentContent() {
-        return this.constants.CLOSED_AREA_COMMENT;
-    }
-
-    renderComponents() {
-        const { content } = this.props;
-        const componentNames = content['@nodes'];
-        return (
-            <>
-                {
-                    componentNames.map((name) => <EditableComponent key={name} content={content[name]} />)
-                }
-            </>
-        );
-    }
-
-    render() {
-        const { content } = this.props;
+    addComment() {
         const { isDevMode } = this.context;
-        if (!isDevMode && !EditorContextHelper.inEditor()) {
-            return (
-                <div>
-                    {
-                        this.renderComponents()
-                    }
-                </div>
-            );
+        if (!this.node || (!isDevMode && !EditorContextHelper.inEditor())) {
+            return;
         }
-
+        const { content } = this.props;
         const pageTemplateId = this.getParentTemplateId();
         const { templateDefinitions: allDefinitions } = this.context;
         const templateDefinitions = allDefinitions[pageTemplateId];
         const openComment = TemplateAnnotations.getAreaCommentString(content, templateDefinitions);
+        ComponentHelper.addComment(this.node, openComment, this.constants.CLOSED_AREA_COMMENT);
+    }
+
+    render() {
+        const { content } = this.props;
+        const componentNames = content['@nodes'];
         return (
-            <>
-                <Comment text={openComment} />
-                <div>
-                    {
-                        this.renderComponents()
-                    }
-                </div>
-                <Comment text={this.getAreaClosedCommentContent()} />
-            </>
+            <div ref={node => this.node = node} key={content['@id']}>
+                {
+                    componentNames.map((name) => <EditableComponent key={content[name]['@id']} content={content[name]} />)
+                }
+            </div>
         );
     }
 }
