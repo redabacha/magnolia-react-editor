@@ -23,8 +23,7 @@ export class EditorContextService {
   }
 
   public inEditorPreview(): boolean {
-    const previewParam = this.getParamValueQueryString('mgnlPreview');
-    return this.inEditor() && previewParam === 'true';
+    return EditorContextHelper.inEditorPreview();
   }
 
   private getParamValueQueryString(paramName: string): string {
