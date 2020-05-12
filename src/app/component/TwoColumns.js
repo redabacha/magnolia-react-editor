@@ -1,19 +1,18 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { EditableArea, EditorContext, EditorContextHelper } from '@magnolia/react-editor';
+import { EditableArea, EditorContextHelper } from '@magnolia/react-editor';
 
-function TwoColumns() {
-    const context = React.useContext(EditorContext);
+function TwoColumns(props) {
     React.useEffect(() => {
         EditorContextHelper.refresh();
     });
-    const { content } = context;
+
     const {
         header: headerContent,
         left: leftAreaContent,
         right: rightAreaContent,
         title
-    } = content;
+    } = props;
 
     return (
         <div className="content-background">
