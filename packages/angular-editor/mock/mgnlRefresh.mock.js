@@ -10,5 +10,5 @@ Object.defineProperty(window, 'mgnlRefresh', {
 });
 Object.defineProperty(window, 'location', {
     writable: true,
-    value: { href: '/?mgnlPreview=true' }
+    value: { hash: ':view' }
 });

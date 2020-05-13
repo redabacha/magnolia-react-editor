@@ -10,6 +10,14 @@ describe('EditorContext', () => {
         expect(isInEditor).toEqual(true);
     });
 
+    it('inEditorPreview is true', () => {
+        // GIVEN
+        // WHEN
+        let isInEditorPreview = EditorContextHelper.inEditorPreview();
+        // THEN
+        expect(isInEditorPreview).toEqual(true);
+    });
+
     it('inEditor is false', () => {
         // GIVEN
         window.frameElement = null;
