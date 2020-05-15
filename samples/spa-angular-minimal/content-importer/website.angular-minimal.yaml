@@ -1,0 +1,126 @@
+'angular-minimal':
+  'jcr:primaryType': 'mgnl:page'
+  'jcrName': 'angular-minimal'
+  'mgnl:created': 2020-05-06T12:09:42.909+02:00
+  'mgnl:createdBy': 'superuser'
+  'mgnl:lastModified': 2020-05-06T12:42:23.663+02:00
+  'mgnl:lastModifiedBy': 'superuser'
+  'mgnl:template': 'angular-magnolia-int:pages/home'
+  'title': 'Angular Minimal Sample'
+  'header':
+    'jcr:primaryType': 'mgnl:area'
+    'mgnl:created': 2020-05-06T12:10:13.852+02:00
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2020-05-06T12:42:23.663+02:00
+    'mgnl:lastModifiedBy': 'superuser'
+    '0':
+      'jcr:primaryType': 'mgnl:component'
+      'mgnl:created': 2020-05-06T12:42:23.664+02:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2020-05-06T12:42:23.664+02:00
+      'mgnl:lastModifiedBy': 'superuser'
+      'mgnl:template': 'angular-magnolia-int:components/navigation'
+  'mainArea':
+    'jcr:primaryType': 'mgnl:area'
+    'mgnl:created': 2020-05-06T12:10:13.853+02:00
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2020-05-06T12:19:49.238+02:00
+    'mgnl:lastModifiedBy': 'superuser'
+    '0':
+      'body': '<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum.</em></p>
+
+        '
+      'image': 'jcr:37157de7-4634-4772-90fd-9fc1566f234b'
+      'jcr:primaryType': 'mgnl:component'
+      'mgnl:created': 2020-05-06T12:19:49.239+02:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2020-05-06T12:19:49.239+02:00
+      'mgnl:lastModifiedBy': 'superuser'
+      'mgnl:template': 'angular-magnolia-int:components/textImage'
+      'title': 'Lorem Ipsum'
+  'secondary-area':
+    'jcr:primaryType': 'mgnl:area'
+    'mgnl:created': 2020-05-06T12:10:13.854+02:00
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2020-05-06T12:10:13.854+02:00
+    'mgnl:lastModifiedBy': 'superuser'
+  'about':
+    'jcr:primaryType': 'mgnl:page'
+    'mgnl:created': 2020-05-06T12:12:24.545+02:00
+    'mgnl:createdBy': 'superuser'
+    'mgnl:lastModified': 2020-05-06T12:39:55.463+02:00
+    'mgnl:lastModifiedBy': 'superuser'
+    'mgnl:template': 'angular-magnolia-int:pages/about'
+    'title': 'About'
+    'header':
+      'jcr:primaryType': 'mgnl:area'
+      'mgnl:created': 2020-05-06T12:12:26.982+02:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2020-05-06T12:29:05.104+02:00
+      'mgnl:lastModifiedBy': 'superuser'
+      '0':
+        'jcr:primaryType': 'mgnl:component'
+        'mgnl:created': 2020-05-06T12:29:05.105+02:00
+        'mgnl:createdBy': 'superuser'
+        'mgnl:lastModified': 2020-05-06T12:29:05.105+02:00
+        'mgnl:lastModifiedBy': 'superuser'
+        'mgnl:template': 'angular-magnolia-int:components/navigation'
+    'mainArea':
+      'jcr:primaryType': 'mgnl:area'
+      'mgnl:created': 2020-05-06T12:12:26.984+02:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2020-05-06T12:39:55.463+02:00
+      'mgnl:lastModifiedBy': 'superuser'
+      '0':
+        'jcr:primaryType': 'mgnl:component'
+        'mgnl:created': 2020-05-06T12:39:02.433+02:00
+        'mgnl:createdBy': 'superuser'
+        'mgnl:lastModified': 2020-05-06T12:39:55.463+02:00
+        'mgnl:lastModifiedBy': 'superuser'
+        'mgnl:template': 'angular-magnolia-int:components/twoColumns'
+        'left':
+          'jcr:primaryType': 'mgnl:area'
+          'mgnl:created': 2020-05-06T12:39:02.537+02:00
+          'mgnl:createdBy': 'superuser'
+          'mgnl:lastModified': 2020-05-06T12:39:39.300+02:00
+          'mgnl:lastModifiedBy': 'superuser'
+          '0':
+            'body': '<p>This is the content of the first component in the left area.</p>
+
+              '
+            'jcr:primaryType': 'mgnl:component'
+            'mgnl:created': 2020-05-06T12:39:39.300+02:00
+            'mgnl:createdBy': 'superuser'
+            'mgnl:lastModified': 2020-05-06T12:39:39.300+02:00
+            'mgnl:lastModifiedBy': 'superuser'
+            'mgnl:template': 'angular-magnolia-int:components/textImage'
+            'title': 'Left area'
+        'right':
+          'jcr:primaryType': 'mgnl:area'
+          'mgnl:created': 2020-05-06T12:39:02.537+02:00
+          'mgnl:createdBy': 'superuser'
+          'mgnl:lastModified': 2020-05-06T12:39:55.463+02:00
+          'mgnl:lastModifiedBy': 'superuser'
+          '0':
+            'body': '<p>This is the content of the first component in the right area.</p>
+
+              '
+            'jcr:primaryType': 'mgnl:component'
+            'mgnl:created': 2020-05-06T12:39:55.464+02:00
+            'mgnl:createdBy': 'superuser'
+            'mgnl:lastModified': 2020-05-06T12:39:55.464+02:00
+            'mgnl:lastModifiedBy': 'superuser'
+            'mgnl:template': 'angular-magnolia-int:components/textImage'
+            'title': 'Right area'
+    'secondary-area':
+      'jcr:primaryType': 'mgnl:area'
+      'mgnl:created': 2020-05-06T12:12:26.985+02:00
+      'mgnl:createdBy': 'superuser'
+      'mgnl:lastModified': 2020-05-06T12:12:26.985+02:00
+      'mgnl:lastModifiedBy': 'superuser'

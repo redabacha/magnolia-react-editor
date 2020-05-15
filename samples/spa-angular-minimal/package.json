@@ -1,0 +1,38 @@
+{
+  "name": "angular-minimal-sample",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "~8.2.13",
+    "@angular/compiler": "~8.2.13",
+    "@angular/core": "~8.2.13",
+    "@angular/forms": "~8.2.13",
+    "@angular/platform-browser": "~8.2.13",
+    "@angular/platform-browser-dynamic": "~8.2.13",
+    "@angular/router": "~8.2.13",
+    "@magnolia/angular-editor": "1.0.1",
+    "bootstrap": "^4.4.1",
+    "rxjs": "~6.5.3",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.803.18",
+    "@angular-devkit/build-ng-packagr": "~0.803.18",
+    "@angular/cli": "~8.3.18",
+    "@angular/compiler-cli": "~8.2.13",
+    "@angular/language-service": "~8.2.13",
+    "@types/node": "~8.9.4",
+    "codelyzer": "^5.0.0",
+    "ng-packagr": "^5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "^5.15.0",
+    "typescript": "~3.5.3"
+  }
+}

@@ -1,0 +1,14 @@
+!include:/angular-magnolia-int/templates/pages/home.yaml
+areas:
+  header:
+    title: Header
+    availableComponents:
+      navigation:
+        id: angular-magnolia-int:components/navigation
+  mainArea:
+    title: Main Area
+    availableComponents:
+      textImage:
+        id: angular-magnolia-int:components/textImage
+      twoColumns:
+        id: angular-magnolia-int:components/twoColumns
