@@ -38,13 +38,4 @@ describe('EditablePage', () => {
         // THEN
         expect(container.innerHTML.includes('cms:page content="website:/react-sample" dialog="mte:pages/pageProperties"')).toBe(true);
     });
-
-    it('Render Page in a public site', () => {
-        // GIVEN
-        window.frameElement = null;
-        // WHEN
-        render(<EditablePage templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
-        // THEN
-        expect(container.innerHTML.includes('cms:page content="website:/react-sample" dialog="mte:pages/pageProperties"')).toBe(false);
-    });
 });

@@ -49,4 +49,18 @@ describe('Test ComponentHelper', () => {
         // THEN
         expect(result).toMatchObject(expectedResult);
     });
+
+    it('addComment', () => {
+        // GIVEN
+        const div = document.createElement('div');
+        const openComment = 'open comment';
+        const closeComment = 'close comment';
+
+        // WHEN
+        ComponentHelper.addComment(div, openComment, closeComment);
+
+        // THEN
+        expect(div.firstChild.textContent).toEqual(openComment);
+        expect(div.lastChild.textContent).toEqual(closeComment);
+    });
 });
