@@ -1,4 +1,4 @@
-import { Component, isDevMode, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { AbstractComponent } from '../abstract/abstract.component';
@@ -17,7 +17,7 @@ import { AbstractComponent } from '../abstract/abstract.component';
 })
 export class EditablePage extends AbstractComponent {
   @Input() set content(content: object) {
-    if ((this.editorContext.inEditor() || isDevMode()) && content) {
+    if (content) {
       this.openComment = TemplateAnnotations.getPageCommentString(content, this.editorContext.getTemplateDefinition(content['mgnl:template']));
       this.closeComment = '/cms:page';
     }

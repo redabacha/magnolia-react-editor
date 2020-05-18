@@ -12,6 +12,7 @@ describe('EditorContext', () => {
 
     it('inEditorPreview is true', () => {
         // GIVEN
+        window.location.hash = ':view';
         // WHEN
         let isInEditorPreview = EditorContextHelper.inEditorPreview();
         // THEN
