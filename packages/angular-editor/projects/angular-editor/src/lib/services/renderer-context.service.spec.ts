@@ -13,6 +13,7 @@ describe('RendererContextService', () => {
   }));
 
   it('should detect preview mode', inject([RendererContextService], (service: RendererContextService) => {
+    window.location.hash = ':view';
     expect(service.inEditorPreview()).toBe(true);
   }));
 });

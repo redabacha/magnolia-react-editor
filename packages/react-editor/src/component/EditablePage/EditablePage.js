@@ -64,17 +64,11 @@ class EditablePage extends React.PureComponent {
         const { templateDefinitions, content, config } = this.props;
         const { componentMappings } = config;
         const isDevMode = process.env.NODE_ENV === 'development';
-        let search = null;
-        if (typeof window !== 'undefined') {
-            search = window.location.search;
-        }
-        const queryParams = new URLSearchParams(search);
-        const inEditorPreview = queryParams.has('mgnlPreview' && queryParams.get('mgnlPreview') === 'true');
+
         const contextValue = {
             templateDefinitions,
             componentMappings,
             content,
-            inEditorPreview,
             isDevMode
         };
         return contextValue;

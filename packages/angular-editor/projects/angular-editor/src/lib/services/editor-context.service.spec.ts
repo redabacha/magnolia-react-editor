@@ -14,6 +14,7 @@ describe('EditorContextService', () => {
   }));
 
   it('should detect preview mode', inject([EditorContextService], (service: EditorContextService) => {
+    window.location.hash = ':view';
     expect(service.inEditorPreview()).toBe(true);
   }));
 });

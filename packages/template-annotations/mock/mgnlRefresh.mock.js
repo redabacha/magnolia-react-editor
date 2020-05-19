@@ -11,6 +11,6 @@ Object.defineProperty(window, 'mgnlRefresh', {
 Object.defineProperty(window, 'location', {
     writable: true,
     value: {
-        hash: ':view'
+        hash: ':edit'
     }
 });
