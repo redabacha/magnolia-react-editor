@@ -63,4 +63,13 @@ describe('Test ComponentHelper', () => {
         expect(div.firstChild.textContent).toEqual(openComment);
         expect(div.lastChild.textContent).toEqual(closeComment);
     });
+
+    it('test classnames', () => {
+        // GIVEN
+        const expectedResult = 'class1 class2 class4 class5';
+        // WHEN
+        const result = ComponentHelper.classnames('class1', [{ class2: true, class3: false }, 'class4'], { class5: true });
+        // THEN
+        expect(result).toEqual(expectedResult);
+    });
 });

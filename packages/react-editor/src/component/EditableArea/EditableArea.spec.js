@@ -34,24 +34,48 @@ describe('EditableArea component', () => {
         container = null;
     });
 
-    it('Render EditableArea', () => {
+    it('Render EditableArea default', () => {
         // GIVEN
         const areaCommentText = `cms:area name="main" content="website:/react-sample/main"
         availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
          type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description=""
          activationStatus="1"`;
+        const className = { class1: true, class2: false, class3: true };
 
         // WHEN
         render(
             <EditorProvider value={state}>
                 <div>
-                    <EditableArea content={pageContent.main} />
+                    <EditableArea content={pageContent.main} className={className} />
                 </div>
             </EditorProvider>,
             container
         );
         // THEN
         expect(container.innerHTML.includes(cleanString(areaCommentText))).toBe(true);
+        expect(container.innerHTML.includes('class="class1 class3"')).toBe(true);
+    });
+
+    it('Render EditableArea with <ul>', () => {
+        // GIVEN
+        const areaCommentText = `cms:area name="main" content="website:/react-sample/main"
+        availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
+         type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description=""
+         activationStatus="1"`;
+        const className = { class1: true, class2: false, class3: true };
+
+        // WHEN
+        render(
+            <EditorProvider value={state}>
+                <div>
+                    <EditableArea content={pageContent.main} className={className} elementType="ul" />
+                </div>
+            </EditorProvider>,
+            container
+        );
+        // THEN
+        expect(container.innerHTML.includes(cleanString(areaCommentText))).toBe(true);
+        expect(container.innerHTML.includes('ul class="class1 class3"')).toBe(true);
     });
 
     it('Render nested EditableArea', () => {

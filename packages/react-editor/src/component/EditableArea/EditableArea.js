@@ -9,11 +9,15 @@ import {
 class EditableArea extends React.PureComponent {
     static propTypes = {
         content: PropTypes.object.isRequired,
-        parentTemplateId: PropTypes.string
+        parentTemplateId: PropTypes.string,
+        className: PropTypes.any,
+        elementType: PropTypes.string
     };
 
     static defaultProps = {
-        parentTemplateId: null
+        parentTemplateId: null,
+        className: null,
+        elementType: 'div'
     }
 
     constructor(props) {
@@ -47,18 +51,20 @@ class EditableArea extends React.PureComponent {
         const { templateDefinitions: allDefinitions } = this.context;
         const templateDefinitions = allDefinitions[pageTemplateId];
         const openComment = TemplateAnnotations.getAreaCommentString(content, templateDefinitions);
-        ComponentHelper.addComment(this.node, openComment, this.constants.CLOSED_AREA_COMMENT);
+        this.node.parentNode.insertBefore(document.createComment(openComment), this.node);
+        this.node.parentNode.insertBefore(document.createComment(this.constants.CLOSED_AREA_COMMENT), this.node.nextSibling);
     }
 
     render() {
-        const { content } = this.props;
+        const { content, className, elementType } = this.props;
         const componentNames = content['@nodes'];
+        const element = React.createElement(elementType || 'div');
         return (
-            <div ref={node => this.node = node} key={content['@id']}>
+            <element.type ref={node => this.node = node} key={content['@id']} className={ComponentHelper.classnames(className)}>
                 {
                     componentNames.map((name) => <EditableComponent key={content[name]['@id']} content={content[name]} />)
                 }
-            </div>
+            </element.type>
         );
     }
 }

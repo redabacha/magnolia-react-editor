@@ -23,14 +23,14 @@ function HomePage(props) {
     return (
         <div className="content-background">
             <div>
-                <EditableArea key="header" content={headerContent} />
+                <EditableArea content={headerContent} />
             </div>
             <div className="container">
                 <h1 className="bd-title">{title}</h1>
                 <div>
                     <h2>Primary Area</h2>
                     <div className="col-12">
-                        <EditableArea key="main" content={mainAreaContent} />
+                        <EditableArea content={mainAreaContent} />
                     </div>
                 </div>
                 {
@@ -39,7 +39,7 @@ function HomePage(props) {
                             <div>
                                 <h2>Secondary Area</h2>
                                 <div className="col-12">
-                                    <EditableArea key="secondary" content={secondaryAreaContent} />
+                                    <EditableArea content={secondaryAreaContent} />
                                 </div>
                             </div>
                         )
@@ -48,7 +48,7 @@ function HomePage(props) {
                 <div>
                     <h2>Single component area</h2>
                     <div className="col-12">
-                        <EditableArea key="single" content={single} />
+                        <EditableArea content={single} />
                     </div>
                 </div>
 
