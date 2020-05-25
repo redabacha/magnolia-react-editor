@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2020-05-25
+### Changed
+- Fix dynamic components not reacting on content changes. ([MGNLFE-40](https://jira.magnolia-cms.com/browse/MGNLFE-40))
+- Use `inEditor()` and `inEditorPreview()` from template-annotations library. ([MGNLFE-42](https://jira.magnolia-cms.com/browse/MGNLFE-42))
+
 ## [1.0.1] - 2020-04-28
 Please excuse the breaking changes in 1.0.1. Changes are significant but it's easy to migrate. We will follow semver for future releases.
 
@@ -25,5 +30,6 @@ Please excuse the breaking changes in 1.0.1. Changes are significant but it's ea
 - first release
 
 [Unreleased]: https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/react-editor
+[1.0.2]: https://www.npmjs.com/package/@magnolia/react-editor/v/1.0.2
 [1.0.1]: https://www.npmjs.com/package/@magnolia/react-editor/v/1.0.1
 [1.0.0]: https://www.npmjs.com/package/@magnolia/react-editor/v/1.0.0

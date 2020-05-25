@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2020-05-25
+### Added
+- `inEditorPreview()` method added to `EditorContextHelper`. ([MGNLFE-42](https://jira.magnolia-cms.com/browse/MGNLFE-42))
+
+### Changed
+- `inEditor()` and `inEditorPreview()` methods are now consistent with FreeMarker templating functions. ([MGNLFE-45](https://jira.magnolia-cms.com/browse/MGNLFE-45))
+
 ## [1.0.1] - 2020-04-28
 ### Added
 - Introduced changelog file.
@@ -17,5 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - first release
 
 [Unreleased]: https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/template-annotations
+[1.0.2]: https://www.npmjs.com/package/@magnolia/template-annotations/v/1.0.2
 [1.0.1]: https://www.npmjs.com/package/@magnolia/template-annotations/v/1.0.1
 [1.0.0]: https://www.npmjs.com/package/@magnolia/template-annotations/v/1.0.0
