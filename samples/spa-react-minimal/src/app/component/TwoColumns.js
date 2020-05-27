@@ -17,16 +17,16 @@ function TwoColumns(props) {
     return (
         <div className="content-background">
             <div>
-                <EditableArea key="header" content={headerContent} />
+                <EditableArea content={headerContent} />
             </div>
             <div className="container">
                 <h1 className="bd-title">{title}</h1>
                 <div className="row">
                     <div className="col-sm">
-                        <EditableArea key="left" content={leftAreaContent} />
+                        <EditableArea content={leftAreaContent} />
                     </div>
                     <div className="col-sm">
-                        <EditableArea key="right" content={rightAreaContent} />
+                        <EditableArea content={rightAreaContent} />
                     </div>
                 </div>
             </div>
