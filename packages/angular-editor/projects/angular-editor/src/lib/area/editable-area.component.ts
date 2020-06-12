@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, isDevMode } from '@angular/core';
+import { AfterViewInit, OnChanges, Component, Input, isDevMode } from '@angular/core';
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { EditorContextService } from '../services/editor-context.service';
 
@@ -16,7 +16,7 @@ import { EditorContextService } from '../services/editor-context.service';
     </ng-template>
   `
 })
-export class EditableArea implements AfterViewInit {
+export class EditableArea implements AfterViewInit, OnChanges {
   constructor(public editorContext: EditorContextService) { }
 
   components: object[] = [];
@@ -24,17 +24,7 @@ export class EditableArea implements AfterViewInit {
   closeComment: string;
 
   @Input() parentTemplateId: string;
-  @Input() set content(content: object) {
-    if (content && Object.entries(content).length > 0)  {
-      this.components = this.getAreaComponents(content);
-
-      if (this.editorContext.inEditor() || isDevMode()) {
-        // tslint:disable-next-line:max-line-length
-        this.openComment = TemplateAnnotations.getAreaCommentString(content, this.editorContext.getTemplateDefinition(this.parentTemplateId));
-        this.closeComment = '/cms:area';
-      }
-    }
-  }
+  @Input() content: object;
 
   private getAreaComponents(content: object) {
     const results = [];
@@ -55,6 +45,18 @@ export class EditableArea implements AfterViewInit {
   ngAfterViewInit(): void {
     if (this.editorContext.inEditor()) {
       this.editorContext.refresh();
+    }
+  }
+
+  ngOnChanges(): void {
+    if (this.content && Object.entries(this.content).length > 0 && this.parentTemplateId)  {
+      this.components = this.getAreaComponents(this.content);
+
+      if (this.editorContext.inEditor() || isDevMode()) {
+        // tslint:disable-next-line:max-line-length
+        this.openComment = TemplateAnnotations.getAreaCommentString(this.content, this.editorContext.getTemplateDefinition(this.parentTemplateId));
+        this.closeComment = '/cms:area';
+      }
     }
   }
 }
