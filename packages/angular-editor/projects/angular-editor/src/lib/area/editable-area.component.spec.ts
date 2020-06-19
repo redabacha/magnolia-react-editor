@@ -21,12 +21,12 @@ describe('EditableArea', () => {
     fixture = TestBed.createComponent(EditableArea);
     component = fixture.componentInstance;
     service = fixture.debugElement.injector.get(EditorContextService);
-    fixture.detectChanges();
   });
 
   it('should get area components', () => {
     component.parentTemplateId = 'foo:bar';
     component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
+    component.ngOnChanges();
     fixture.detectChanges();
     expect(component.components.length).toBe(1);
   });
@@ -34,13 +34,24 @@ describe('EditableArea', () => {
   it('should not fail on non-existing areas', () => {
     component.parentTemplateId = 'foo:bar';
     component.content = {};
+    component.ngOnChanges();
     fixture.detectChanges();
     expect(component.components.length).toBe(0);
   });
 
-  it('should generate area greenbar', () => {
+  it('when no parentTemplateId should not generate area greenbar', () => {
     jest.spyOn(service, 'inEditor').mockReturnValue(true);
     component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
+    component.ngOnChanges();
+    expect(service.inEditor).toHaveBeenCalledTimes(0);
+    expect(component.closeComment).toBe(undefined);
+  });
+
+  it('should generate area greenbar', () => {
+    jest.spyOn(service, 'inEditor').mockReturnValue(true);
+    component.parentTemplateId = 'foo:bar';
+    component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
+    component.ngOnChanges();
     expect(service.inEditor).toHaveBeenCalledTimes(1);
     expect(component.closeComment).toBe('/cms:area');
   });
