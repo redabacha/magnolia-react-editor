@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3]
+### Release unpublished, please upgrade to 1.0.4
+
 ## [1.0.2] - 2020-05-25
 ### Added
 - `inEditorPreview()` method added to `EditorContextHelper`. ([MGNLFE-42](https://jira.magnolia-cms.com/browse/MGNLFE-42))
