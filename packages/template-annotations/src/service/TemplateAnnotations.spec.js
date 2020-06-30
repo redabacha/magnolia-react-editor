@@ -16,7 +16,7 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getAreaCommentString with data', () => {
         // GIVEN
-        const expectedResult = cleanString(`cms:area name="main" content="website:/react-sample/main"
+        const expectedResult = cleanString(`cms:area name="main" content="website:/react-sample/main" dialog="mte:areas/mainProperties"
          availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
           type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description=""
           activationStatus="1"`);
@@ -53,7 +53,7 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getAreaCommentString without data', () => {
         // GIVEN
-        const expectedResult = cleanString(`cms:area name="" content="" availableComponents="" type="list" label="" inherit="false"
+        const expectedResult = cleanString(`cms:area name="" content="" dialog="" availableComponents="" type="list" label="" inherit="false"
         optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description="" activationStatus="0"`);
 
         // WHEN
@@ -87,7 +87,7 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getAreaCommentString with empty data', () => {
         // GIVEN
-        const expectedResult = cleanString(`cms:area name="" content="" availableComponents="" type="list" label="" inherit="false" optional="false"
+        const expectedResult = cleanString(`cms:area name="" content="" dialog="" availableComponents="" type="list" label="" inherit="false" optional="false"
         createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description="" activationStatus="0"`);
 
         // WHEN

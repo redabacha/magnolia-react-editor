@@ -16,6 +16,7 @@ function TemplateAnnotations() {
     const AREA_MAP = {
         name: ['@name', ''],
         content: PAGE_MAP.content,
+        dialog: PAGE_MAP.dialog,
         availableComponents: ['availableComponents', []],
         type: ['type', 'list', getValueFromObject],
         label: ['title', '', getValueFromObject],

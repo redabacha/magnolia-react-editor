@@ -93,6 +93,7 @@
             },
             "main": {
                 "name": "main",
+                "dialog": "mte:areas/mainProperties",
                 "availableComponents": {
                     "text-image": {
                         "id": "sample-light-module:components/text-image",
