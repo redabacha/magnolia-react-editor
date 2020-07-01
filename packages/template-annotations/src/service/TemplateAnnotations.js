@@ -70,7 +70,10 @@ function TemplateAnnotations() {
                 value = data[dataKey] || '';
             }
             const item = { key, value };
-            result.push(`${key}="${item.value}"`);
+
+            if (typeof item.value !== "string" || item.value) {
+                result.push(`${key}="${item.value}"`);
+            }
         });
 
         return result.join(' ');

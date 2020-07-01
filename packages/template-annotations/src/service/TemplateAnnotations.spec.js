@@ -18,7 +18,7 @@ describe('Test Magnolia SPA Service', () => {
         // GIVEN
         const expectedResult = cleanString(`cms:area name="main" content="website:/react-sample/main" dialog="mte:areas/mainProperties"
          availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
-          type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description=""
+          type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true"
           activationStatus="1"`);
 
         // WHEN
@@ -31,7 +31,7 @@ describe('Test Magnolia SPA Service', () => {
     it('Test getComponentCommentString with data', () => {
         // GIVEN
         const expectedResult = cleanString(`cms:component content="website:/react-sample/main/0"
-        dialog="sample-light-module:components/title" label="The nested area in component" description="" activationStatus="1"`);
+        dialog="sample-light-module:components/title" label="The nested area in component" activationStatus="1"`);
 
         // WHEN
         const result = TemplateAnnotations.getComponentCommentString(page.main['0'], pageDefinition['sample-light-module:components/nested']);
@@ -42,7 +42,7 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getPageCommentString without data', () => {
         // GIVEN
-        const expectedResult = 'cms:page content="" dialog=""';
+        const expectedResult = 'cms:page ';
 
         // WHEN
         const result = TemplateAnnotations.getPageCommentString(null, null);
@@ -53,8 +53,8 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getAreaCommentString without data', () => {
         // GIVEN
-        const expectedResult = cleanString(`cms:area name="" content="" dialog="" availableComponents="" type="list" label="" inherit="false"
-        optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description="" activationStatus="0"`);
+        const expectedResult = cleanString(`cms:area type="list" inherit="false"
+        optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" activationStatus="0"`);
 
         // WHEN
         const result = TemplateAnnotations.getAreaCommentString(null, null);
@@ -65,7 +65,7 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getComponentCommentString without data', () => {
         // GIVEN
-        const expectedResult = 'cms:component content="" dialog="" label="" description="" activationStatus="0"';
+        const expectedResult = 'cms:component activationStatus="0"';
 
         // WHEN
         const result = TemplateAnnotations.getComponentCommentString(null, null);
@@ -76,7 +76,7 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getPageCommentString with empty data', () => {
         // GIVEN
-        const expectedResult = 'cms:page content="" dialog=""';
+        const expectedResult = 'cms:page ';
 
         // WHEN
         const result = TemplateAnnotations.getPageCommentString({}, {});
@@ -87,8 +87,8 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getAreaCommentString with empty data', () => {
         // GIVEN
-        const expectedResult = cleanString(`cms:area name="" content="" dialog="" availableComponents="" type="list" label="" inherit="false" optional="false"
-        createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description="" activationStatus="0"`);
+        const expectedResult = cleanString(`cms:area type="list" inherit="false" optional="false"
+        createdAreaNode="true" showAddButton="true" showNewComponentArea="true" activationStatus="0"`);
 
         // WHEN
         const result = TemplateAnnotations.getAreaCommentString({}, {});
@@ -99,7 +99,7 @@ describe('Test Magnolia SPA Service', () => {
 
     it('Test getComponentCommentString with empty data', () => {
         // GIVEN
-        const expectedResult = 'cms:component content="" dialog="" label="" description="" activationStatus="0"';
+        const expectedResult = 'cms:component activationStatus="0"';
 
         // WHEN
         const result = TemplateAnnotations.getComponentCommentString({}, {});
@@ -111,7 +111,7 @@ describe('Test Magnolia SPA Service', () => {
     it('Test getComponentCommentString with activationStatus', () => {
         // GIVEN
         const expectedResult = cleanString(`cms:component content="website:/react-sample/main/0"
-        dialog="sample-light-module:components/title" label="The nested area in component" description="" activationStatus="1"`);
+        dialog="sample-light-module:components/title" label="The nested area in component" activationStatus="1"`);
 
         // WHEN
         const result = TemplateAnnotations.getComponentCommentString(page.main['0'], pageDefinition['sample-light-module:components/nested']);
@@ -123,7 +123,7 @@ describe('Test Magnolia SPA Service', () => {
     it('Test getComponentCommentString with activationStatus', () => {
         // GIVEN
         const expectedResult = cleanString(`cms:component content="website:/react-sample/main/00"
-        dialog="sample-light-module:components/title" label="Title" description="" activationStatus="2"`);
+        dialog="sample-light-module:components/title" label="Title" activationStatus="2"`);
 
         // WHEN
         const result = TemplateAnnotations.getComponentCommentString(page.main['00'], pageDefinition['sample-light-module:components/title']);
@@ -135,7 +135,7 @@ describe('Test Magnolia SPA Service', () => {
     it('Test getComponentCommentString with activationStatus', () => {
         // GIVEN
         const expectedResult = cleanString(`cms:component content="website:/react-sample/main/01"
-        dialog="sample-light-module:components/title" label="Title" description="" activationStatus="0"`);
+        dialog="sample-light-module:components/title" label="Title" activationStatus="0"`);
 
         // WHEN
         const result = TemplateAnnotations.getComponentCommentString(page.main['01'], pageDefinition['sample-light-module:components/title']);
@@ -147,7 +147,7 @@ describe('Test Magnolia SPA Service', () => {
     it('Test getComponentCommentString with activationStatus', () => {
         // GIVEN
         const expectedResult = cleanString(`cms:component content="website:/react-sample/main/02"
-        dialog="sample-light-module:components/title" label="Title" description="" activationStatus="0"`);
+        dialog="sample-light-module:components/title" label="Title" activationStatus="0"`);
 
         // WHEN
         const result = TemplateAnnotations.getComponentCommentString(page.main['02'], pageDefinition['sample-light-module:components/title']);
