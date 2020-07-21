@@ -1,6 +1,6 @@
 {
   "name": "angular-editor-source",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "author": "Magnolia International Ltd.",
   "scripts": {
     "ng": "ng",
@@ -13,7 +13,7 @@
   "dependencies": {
     "@angular/common": "~8.2.13",
     "@angular/core": "~8.2.13",
-    "@magnolia/template-annotations": "1.0.3"
+    "@magnolia/template-annotations": "1.0.5"
   },
   "devDependencies": {
     "@angular-builders/jest": "^9.0.1",
