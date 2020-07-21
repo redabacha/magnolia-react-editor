@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.5]
+ - Allow using dialogs at area level. ([MGNLFE-58](https://jira.magnolia-cms.com/browse/MGNLFE-58))
+
 ## [1.0.3]
 ### Release unpublished, please upgrade to 1.0.4
 
