@@ -37,7 +37,7 @@ describe('EditableComponent component', () => {
     it('Render EditableComponent', () => {
         // GIVEN
         const editableComponentText = `cms:component content="website:/react-sample/main/0"
-        dialog="sample-light-module:components/title" label="The nested area in component" description=""
+        dialog="sample-light-module:components/title" label="The nested area in component"
         activationStatus="1"`;
 
         // WHEN

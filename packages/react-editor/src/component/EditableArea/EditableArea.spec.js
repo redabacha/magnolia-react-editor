@@ -37,8 +37,8 @@ describe('EditableArea component', () => {
     it('Render EditableArea default', () => {
         // GIVEN
         const areaCommentText = `cms:area name="main" content="website:/react-sample/main"
-        availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
-         type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description=""
+         availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
+         type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true"
          activationStatus="1"`;
         const className = { class1: true, class2: false, class3: true };
 
@@ -60,7 +60,7 @@ describe('EditableArea component', () => {
         // GIVEN
         const areaCommentText = `cms:area name="main" content="website:/react-sample/main"
         availableComponents="sample-light-module:components/text-image,sample-light-module:components/title,sample-light-module:components/nested"
-         type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true" description=""
+         type="list" label="Main" inherit="false" optional="false" createdAreaNode="true" showAddButton="true" showNewComponentArea="true"
          activationStatus="1"`;
         const className = { class1: true, class2: false, class3: true };
 
@@ -83,7 +83,7 @@ describe('EditableArea component', () => {
         const areaCommentText = `cms:area name="nestedArea" content="website:/react-sample/main/0/nestedArea"
             availableComponents="sample-light-module:components/text-image,sample-light-module:components/title"
             type="list" label="Nested Area" inherit="false" optional="false" createdAreaNode="true" showAddButton="true"
-            showNewComponentArea="true" description="" activationStatus="0"`;
+            showNewComponentArea="true" activationStatus="0"`;
 
         // WHEN
         render(
