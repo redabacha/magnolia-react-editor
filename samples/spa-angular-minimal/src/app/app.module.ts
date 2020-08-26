@@ -13,6 +13,9 @@ import { TwoColumnsComponent } from './components/twoColumns.component';
 import { AboutComponent } from './pages/about.component';
 import { RootComponent } from './root.component';
 import { NavigationComponent } from './components/navigation.component';
+import { CustomArea } from './components/custom-area.component';
+import { CardComponent } from './components/card.component';
+import { AlertComponent } from './components/alert.component';
 
 @NgModule({
   imports: [
@@ -25,17 +28,22 @@ import { NavigationComponent } from './components/navigation.component';
     AppComponent,
     RootComponent,
     HomeComponent,
+    CardComponent,
+    AlertComponent,
     TextImageComponent,
     AboutComponent,
     TwoColumnsComponent,
     NavigationComponent,
+    CustomArea
   ],
   entryComponents: [
     HomeComponent,
     AboutComponent,
     TextImageComponent,
+    CardComponent,
+    AlertComponent,
     TwoColumnsComponent,
-    NavigationComponent,
+    NavigationComponent
   ],
   bootstrap: [AppComponent]
 })

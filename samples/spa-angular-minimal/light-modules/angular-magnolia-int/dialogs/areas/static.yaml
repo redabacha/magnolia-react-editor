@@ -1,0 +1,4 @@
+form:
+  properties:
+    text:
+      $type: textField

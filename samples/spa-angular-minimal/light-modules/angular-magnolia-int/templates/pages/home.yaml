@@ -22,7 +22,14 @@ areas:
   mainArea:
     title: Main Area
     availableComponents:
-      textImage:
-        id: angular-magnolia-int:components/textImage
-      twoColumns:
-        id: angular-magnolia-int:components/twoColumns
+      alert:
+        id: angular-magnolia-int:components/alert
+  staticArea:
+    dialog: angular-magnolia-int:areas/static
+    title: Static area
+    type: noComponent
+  customArea:
+    title: Custom area
+    availableComponents:
+      card:
+        id: angular-magnolia-int:components/card

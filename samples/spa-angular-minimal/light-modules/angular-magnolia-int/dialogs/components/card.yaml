@@ -1,0 +1,11 @@
+form:
+  properties:
+    title:
+      $type: textField
+    body:
+      $type: richTextField
+    image:
+      $type: linkField
+      chooser:
+        workbenchChooser:
+          appName: dam-chooser

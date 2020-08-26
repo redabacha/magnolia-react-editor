@@ -28,8 +28,10 @@ import { EditableComponent } from './component/editable-component.component';
     RendererContextService
   ],
   exports: [
+    EditableArea,
+    EditableComponent,
     EditablePage,
-    EditableArea
+    CommentComponent
   ],
 })
 export class MagnoliaModule { }

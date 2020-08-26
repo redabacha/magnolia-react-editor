@@ -1,2 +1,2 @@
 export { EditablePage, EditableArea, EditableComponent } from './component';
-export { EditorContext, RendererContext, EditorContextHelper } from './util';
+export { EditorContext, RendererContext, EditorContextHelper, ComponentHelper } from './util';

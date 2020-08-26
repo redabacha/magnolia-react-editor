@@ -38,6 +38,8 @@ areas:
         id: sample-light-module:components/nested
   single:
     type: single
+    title: Single
+    dialog: sample-light-module:components/title
     availableComponents:
       title:
         id: sample-light-module:components/title

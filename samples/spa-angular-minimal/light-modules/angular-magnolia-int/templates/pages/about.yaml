@@ -7,6 +7,7 @@ areas:
         id: angular-magnolia-int:components/navigation
   mainArea:
     title: Main Area
+    dialog: angular-magnolia-int:areas/main
     availableComponents:
       textImage:
         id: angular-magnolia-int:components/textImage

@@ -9,6 +9,8 @@ import { AboutComponent } from './pages/about.component';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation.component';
+import { CardComponent } from './components/card.component';
+import { AlertComponent } from './components/alert.component';
 
 @Component({
   template: '<editable-page [content]="content"></editable-page>',
@@ -22,6 +24,8 @@ export class RootComponent {
       'angular-magnolia-int:pages/about': AboutComponent,
       'angular-magnolia-int:components/textImage': TextImageComponent,
       'angular-magnolia-int:components/twoColumns': TwoColumnsComponent,
+      'angular-magnolia-int:components/card': CardComponent,
+      'angular-magnolia-int:components/alert': AlertComponent,
       'angular-magnolia-int:components/navigation': NavigationComponent,
     });
 
