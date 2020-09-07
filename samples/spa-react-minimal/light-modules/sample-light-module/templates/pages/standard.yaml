@@ -39,7 +39,6 @@ areas:
   single:
     type: single
     title: Single
-    dialog: sample-light-module:components/title
     availableComponents:
       title:
         id: sample-light-module:components/title
@@ -47,6 +46,8 @@ areas:
         id: sample-light-module:components/text-image
   noComponent:
     type: noComponent
+    title: NoComponent area
+    dialog: sample-light-module:components/title
   noComponentNoCreatedNode:
     createAreaNode: false
     type: noComponent

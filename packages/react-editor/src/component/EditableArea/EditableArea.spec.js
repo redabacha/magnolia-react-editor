@@ -116,6 +116,26 @@ describe('EditableArea component', () => {
         expect(container.innerHTML.includes(cleanString(areaCommentText))).toBe(false);
     });
 
+    it('Render children of EditableArea', () => {
+        // GIVEN
+        window.frameElement = null;
+        pageContent.main.title = 'fooBar';
+
+        // WHEN
+        render(
+            <EditorProvider value={state}>
+                <div>
+                    <EditableArea content={pageContent.main}>
+                        {pageContent.main.title}
+                    </EditableArea>
+                </div>
+            </EditorProvider>,
+            container
+        );
+        // THEN
+        expect(container.innerHTML.includes('fooBar')).toBe(true);
+    });
+
     function cleanString(str) {
         return str.replace(/\n/g, ' ').replace(/\s+/g, ' ');
     }

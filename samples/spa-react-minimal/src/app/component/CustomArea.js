@@ -7,9 +7,14 @@ class CustomArea extends EditableArea {
         const componentNames = content['@nodes'];
         const hasComponents = componentNames.length > 0;
         return (
-           <div ref={node => this.node = node} key={content['@id']}>
-                <p>Custom area script: {content.title}</p>
-                { hasComponents ? <EditableComponent key={content[componentNames[0]]['@id']} content={content[componentNames[0]]}/> : null }
+            <div ref={node => this.node = node} key={content['@id']}>
+                <p>
+                    Custom area script:
+                    {
+                        content.title
+                    }
+                </p>
+                { hasComponents ? <EditableComponent key={content[componentNames[0]]['@id']} content={content[componentNames[0]]} /> : null }
             </div>
         );
     }

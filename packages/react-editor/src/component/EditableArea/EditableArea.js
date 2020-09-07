@@ -11,13 +11,15 @@ class EditableArea extends React.PureComponent {
         content: PropTypes.object.isRequired,
         parentTemplateId: PropTypes.string,
         className: PropTypes.any,
-        elementType: PropTypes.string
+        elementType: PropTypes.string,
+        children: PropTypes.node
     };
 
     static defaultProps = {
         parentTemplateId: null,
         className: null,
-        elementType: 'div'
+        elementType: 'div',
+        children: null
     }
 
     constructor(props) {
@@ -56,11 +58,14 @@ class EditableArea extends React.PureComponent {
     }
 
     render() {
-        const { content, className, elementType } = this.props;
+        const {
+            content, className, elementType, children
+        } = this.props;
         const componentNames = content['@nodes'];
         const element = React.createElement(elementType || 'div');
         return (
             <element.type ref={node => this.node = node} key={content['@id']} className={ComponentHelper.classnames(className)}>
+                {children}
                 {
                     componentNames.map((name) => <EditableComponent key={content[name]['@id']} content={content[name]} />)
                 }
