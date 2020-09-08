@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { EditableArea, EditorContextHelper } from '@magnolia/react-editor';
+import CustomArea from './CustomArea';
 
 function HomePage(props) {
     const [areaVisible, setAreaVisible] = React.useState(true);
@@ -12,6 +13,7 @@ function HomePage(props) {
         header: headerContent,
         main: mainAreaContent,
         secondary: secondaryAreaContent,
+        noComponent,
         title,
         single
     } = props;
@@ -46,9 +48,18 @@ function HomePage(props) {
                         : null
                 }
                 <div>
-                    <h2>Single component area</h2>
+                    <h2>Custom area</h2>
                     <div className="col-12">
-                        <EditableArea content={single} />
+                        <CustomArea content={single} />
+                    </div>
+                </div>
+
+                <div>
+                    <h2>NoComponent area</h2>
+                    <div className="col-12">
+                        <EditableArea content={noComponent}>
+                            {noComponent.title}
+                        </EditableArea>
                     </div>
                 </div>
 

@@ -8,6 +8,7 @@ import { EditorContextService } from '../services/editor-context.service';
     <ng-template [ngIf]="openComment">
       <mgnl-comment [text]="openComment"></mgnl-comment>
     </ng-template>
+    <ng-content></ng-content>
     <ng-template ngFor let-component [ngForOf]="components">
         <editable-component [content]="component"></editable-component>
     </ng-template>
@@ -22,6 +23,7 @@ export class EditableArea implements AfterViewInit, OnChanges {
   components: object[] = [];
   openComment: string;
   closeComment: string;
+  metadata: object;
 
   @Input() parentTemplateId: string;
   @Input() content: object;
@@ -38,6 +40,15 @@ export class EditableArea implements AfterViewInit, OnChanges {
           results.push(value);
         }
       });
+      const metadata = {};
+      Object.keys(content).forEach(key => {
+        if (key.startsWith('@') || key.startsWith('mgnl:') || key.startsWith('jcr:')) {
+          metadata[key] = content[key];
+        } else {
+          this[key.replace('-', '_')] = content[key];
+        }
+      });
+      this.metadata = metadata;
     }
     return results;
   }
