@@ -10,14 +10,12 @@
     "test": "jest --passWithNoTests"
   },
   "peerDependencies": {
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "dependencies": {
     "@magnolia/template-annotations": "1.0.5",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -37,7 +35,8 @@
     "eslint-plugin-react": "^7.21.2",
     "eslint-plugin-react-hooks": "^4.1.2",
     "jest": "^26.4.2",
-    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-merge": "^5.1.4",
