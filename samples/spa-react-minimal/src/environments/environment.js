@@ -4,13 +4,15 @@ const SERVER = 'http://localhost:8080';
 const SERVER_PATH = '/magnoliaAuthor';
 
 const ENVIRONMENT = {
-    server: SERVER,
-    restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages/v1`,
-    templateDefinitionBase: `${SERVER + SERVER_PATH}/.rest/template-definitions/v1`,
-    serverPath: SERVER_PATH,
+  server: SERVER,
+  restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages/v1`,
+  templateDefinitionBase: `${
+    SERVER + SERVER_PATH
+  }/.rest/template-definitions/v1`,
+  serverPath: SERVER_PATH,
 
-    damUrl: SERVER + SERVER_PATH,
-    staticFilePath: `${SERVER + SERVER_PATH}/.resources/webresources/static`
+  damUrl: SERVER + SERVER_PATH,
+  staticFilePath: `${SERVER + SERVER_PATH}/.resources/webresources/static`
 };
 
 export default ENVIRONMENT;

@@ -10,13 +10,13 @@ npm install --save @magnolia/template-annotations
 
 ## Usage
 
-To use *TemplateAnnotations*, you need to import it:
+To use _TemplateAnnotations_, you need to import it:
 
 ```javascript
 import { TemplateAnnotations } from '@magnolia/template-annotations';
 ```
 
-*TemplateAnnotations* module provides these functions:
+_TemplateAnnotations_ module provides these functions:
 
 ```javascript
 function getAreaCommentString(data: object, templateDefinition: object, componentCount?: number): string;

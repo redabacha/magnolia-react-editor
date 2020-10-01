@@ -5,6 +5,6 @@ They help integrate Magnolia with Single Page Applications (SPAs), built with An
 
 ## Modules
 
- * [Template Annotations](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/template-annotations/README.md)
- * [React Editor](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/react-editor/README.md)
- * [Angular Editor](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/angular-editor/projects/angular-editor/README.md)
+- [Template Annotations](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/template-annotations/README.md)
+- [React Editor](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/react-editor/README.md)
+- [Angular Editor](https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/angular-editor/projects/angular-editor/README.md)

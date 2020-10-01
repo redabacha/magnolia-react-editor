@@ -1,67 +1,52 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "jasmine": true,
-        "jest": true
-    },
-    "extends": ["eslint:recommended", "airbnb", "airbnb/hooks"],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly",
-        "process": "readonly",
-        "module": "readonly",
-        "require": "readonly",
-        "__dirname": "readonly"
-    },
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "arrow-parens": "off",
-        "comma-dangle": ["error", "never"],
-        "no-unused-vars": "warn",
-        "no-use-before-define": "off",
-        "no-nested-ternary": "off",
-        "no-return-assign": "off",
-        "max-len": ["warn", 160],
-        "react/jsx-filename-extension": "off",
-        "react/jsx-indent": "off",
-        "react/jsx-props-no-spreading": "off",
-        "react/sort-comp": [1, {
-            "order": [
-                "static-methods",
-                "lifecycle",
-                "everything-else",
-                "render"
-            ]
-          }],
-        "react/static-property-placement": ["warn", "property assignment", {
-            "childContextTypes": "static getter",
-            "contextTypes": "static public field",
-            "contextType": "static public field",
-            "displayName": "static public field",
-            "propTypes": "static public field",
-            "defaultProps": "static public field"
-          }],
-        "react/forbid-prop-types": "off"
-    }
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jasmine": true,
+    "jest": true
+  },
+  "extends": ["eslint:recommended", "airbnb", "airbnb/hooks", "prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "process": "readonly",
+    "module": "readonly",
+    "require": "readonly",
+    "__dirname": "readonly"
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-use-before-define": "off",
+    "no-nested-ternary": "off",
+    "no-return-assign": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/sort-comp": [
+      1,
+      {
+        "order": ["static-methods", "lifecycle", "everything-else", "render"]
+      }
+    ],
+    "react/static-property-placement": [
+      "warn",
+      "property assignment",
+      {
+        "childContextTypes": "static getter",
+        "contextTypes": "static public field",
+        "contextType": "static public field",
+        "displayName": "static public field",
+        "propTypes": "static public field",
+        "defaultProps": "static public field"
+      }
+    ],
+    "react/forbid-prop-types": "off"
+  }
 }

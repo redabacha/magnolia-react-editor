@@ -1,1 +1,0 @@
-magnoliaNodePipeline(useLerna: true)

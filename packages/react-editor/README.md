@@ -4,12 +4,14 @@ This library facilitates integration of front-end projects with Magnolia Page Ed
 
 ## Usage
 
- 1. Install the package:
+1.  Install the package:
+
 ```
 npm install --save @magnolia/react-editor
 ```
 
- 2. Connect to rest endpoints and use `<EditablePage>` directive in your component:
+2.  Connect to rest endpoints and use `<EditablePage>` directive in your component:
+
 ```
 render() {
    const COMPONENTS_MAPPING = {
@@ -30,7 +32,8 @@ render() {
 }
 ```
 
- 3. Render areas inside your components using `<EditableArea>` directive:
+3.  Render areas inside your components using `<EditableArea>` directive:
+
 ```
 <h2>Primary Area</h2>
 <div className="col-12">

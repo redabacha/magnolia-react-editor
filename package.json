@@ -7,7 +7,8 @@
     "audit": "lerna-audit"
   },
   "devDependencies": {
-    "lerna": "^3.20.2",
-    "lerna-audit": "^1.2.0"
+    "lerna": "^3.22.1",
+    "lerna-audit": "^1.2.0",
+    "prettier": "^2.1.2"
   }
 }
