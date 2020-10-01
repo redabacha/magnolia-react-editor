@@ -1,5 +1,5 @@
 import React from 'react';
-import { TemplateAnnotations } from '@magnolia/template-annotations';
+import { TemplateAnnotations } from '@redabacha/magnolia-template-annotations';
 import PropTypes from 'prop-types';
 import { EditableComponent } from '../EditableComponent';
 import {

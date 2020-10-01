@@ -1,3 +1,3 @@
-import { EditorContextHelper } from '@magnolia/template-annotations';
+import { EditorContextHelper } from '@redabacha/magnolia-template-annotations';
 
 export default EditorContextHelper;

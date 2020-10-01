@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TemplateAnnotations } from '@magnolia/template-annotations';
+import { TemplateAnnotations } from '@redabacha/magnolia-template-annotations';
 import {
   EditorContext,
   constants,
