@@ -5,8 +5,7 @@ function componentHelper() {
   return {
     getRenderedComponent,
     getComponentProperties,
-    addComment,
-    classnames
+    addComment
   };
 
   function getRenderedComponent(componentContent, componentMappings) {
@@ -60,28 +59,6 @@ function componentHelper() {
       const closeCommentElement = document.createComment(closeComment);
       element.appendChild(closeCommentElement);
     }
-  }
-
-  function classnames(...arg) {
-    const classes = [];
-    arg.forEach(item => {
-      if (item == null) {
-        return;
-      }
-      const itemType = typeof item;
-      if (itemType === 'string' || itemType === 'number') {
-        classes.push(item);
-      } else if (Array.isArray(item) && item.length) {
-        classes.push(classnames(...item));
-      } else if (itemType === 'object') {
-        Object.keys(item).forEach(key => {
-          if (item[key]) {
-            classes.push(key);
-          }
-        });
-      }
-    });
-    return classes.join(' ');
   }
 }
 

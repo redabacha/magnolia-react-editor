@@ -2,12 +2,7 @@ import React from 'react';
 import { TemplateAnnotations } from '@redabacha/magnolia-template-annotations';
 import PropTypes from 'prop-types';
 import { EditableComponent } from '../EditableComponent';
-import {
-  EditorContext,
-  constants,
-  EditorContextHelper,
-  ComponentHelper
-} from '../../util';
+import { EditorContext, constants, EditorContextHelper } from '../../util';
 
 class EditableArea extends React.PureComponent {
   static propTypes = {
@@ -20,7 +15,7 @@ class EditableArea extends React.PureComponent {
 
   static defaultProps = {
     parentTemplateId: null,
-    className: null,
+    className: undefined,
     elementType: 'div',
     children: null
   };
@@ -79,7 +74,7 @@ class EditableArea extends React.PureComponent {
       <element.type
         ref={node => (this.node = node)}
         key={content['@id']}
-        className={ComponentHelper.classnames(className)}
+        className={className}
       >
         {children}
         {componentNames.map(name => (
