@@ -10,7 +10,7 @@ import {
 
 class EditablePage extends React.PureComponent {
   static propTypes = {
-    children: PropTypes.elementType,
+    children: PropTypes.element,
     config: PropTypes.shape({
       componentMappings: PropTypes.object
     }),
