@@ -1,6 +1,6 @@
 {
   "name": "@redabacha/magnolia-react-editor",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Magnolia React Editor",
   "main": "build/mgnl-react-editor.min.js",
   "author": "Magnolia International Ltd.",
