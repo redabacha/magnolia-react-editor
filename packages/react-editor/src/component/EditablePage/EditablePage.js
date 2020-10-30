@@ -15,7 +15,7 @@ class EditablePage extends React.PureComponent {
       componentMappings: PropTypes.object
     }),
     content: PropTypes.object,
-    isDevMode: PropTypes.bool,
+    isEditor: PropTypes.bool,
     templateDefinitions: PropTypes.object
   };
 
@@ -25,7 +25,7 @@ class EditablePage extends React.PureComponent {
       componentMappings: {}
     },
     content: null,
-    isDevMode: process.env.NODE_ENV === 'development',
+    isEditor: EditorContextHelper.inEditor(),
     templateDefinitions: null
   };
 
@@ -77,13 +77,13 @@ class EditablePage extends React.PureComponent {
   }
 
   getContextValue() {
-    const { content, config, isDevMode, templateDefinitions } = this.props;
+    const { content, config, isEditor, templateDefinitions } = this.props;
     const { componentMappings } = config;
 
     return {
       componentMappings,
       content,
-      isDevMode,
+      isEditor,
       templateDefinitions
     };
   }

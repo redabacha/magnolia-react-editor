@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TemplateAnnotations } from '@redabacha/magnolia-template-annotations';
-import {
-  EditorContext,
-  constants,
-  ComponentHelper,
-  EditorContextHelper
-} from '../../util';
+import { EditorContext, constants, ComponentHelper } from '../../util';
 
 export default class EditableComponent extends React.PureComponent {
   static propTypes = {
@@ -16,24 +11,24 @@ export default class EditableComponent extends React.PureComponent {
   constructor(props) {
     super(props);
     this.constants = constants;
+    this.state = { renderComments: false };
   }
 
   componentDidMount() {
-    this.addComment();
+    const { isEditor } = this.context;
+
+    if (isEditor) {
+      this.setState({ renderComments: true }, this.addComment);
+    }
   }
 
   static contextType = EditorContext;
 
   addComment() {
-    const { isDevMode } = this.context;
-    const { content } = this.props;
-    if (
-      !this.openNode ||
-      !this.closeNode ||
-      (!isDevMode && !EditorContextHelper.inEditor())
-    ) {
+    if (!this.openNode || !this.closeNode) {
       return;
     }
+    const { content } = this.props;
     const templateId = content[constants.TEMPLATE_ID_PROP];
     const { templateDefinitions: allDefinitions } = this.context;
     const templateDefinitions = allDefinitions[templateId];
@@ -53,22 +48,31 @@ export default class EditableComponent extends React.PureComponent {
   }
 
   render() {
-    const { content } = this.props;
     const { componentMappings } = this.context;
+    const { content } = this.props;
+    const { renderComments } = this.state;
+
     const component = ComponentHelper.getRenderedComponent(
       content,
       componentMappings
     );
 
-    return (
-      <>
-        <div ref={node => (this.openNode = node)} style={{ display: 'none' }} />
-        {component}
-        <div
-          ref={node => (this.closeNode = node)}
-          style={{ display: 'none' }}
-        />
-      </>
-    );
+    if (renderComments) {
+      return (
+        <>
+          <div
+            ref={node => (this.openNode = node)}
+            style={{ display: 'none' }}
+          />
+          {component}
+          <div
+            ref={node => (this.closeNode = node)}
+            style={{ display: 'none' }}
+          />
+        </>
+      );
+    }
+
+    return component;
   }
 }

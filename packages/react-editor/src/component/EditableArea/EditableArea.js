@@ -2,7 +2,7 @@ import React from 'react';
 import { TemplateAnnotations } from '@redabacha/magnolia-template-annotations';
 import PropTypes from 'prop-types';
 import { EditableComponent } from '../EditableComponent';
-import { EditorContext, constants, EditorContextHelper } from '../../util';
+import { EditorContext, constants } from '../../util';
 
 class EditableArea extends React.PureComponent {
   static propTypes = {
@@ -44,8 +44,8 @@ class EditableArea extends React.PureComponent {
   }
 
   addComment() {
-    const { isDevMode } = this.context;
-    if (!this.node || (!isDevMode && !EditorContextHelper.inEditor())) {
+    const { isEditor } = this.context;
+    if (!this.node || !isEditor) {
       return;
     }
     const { content } = this.props;
