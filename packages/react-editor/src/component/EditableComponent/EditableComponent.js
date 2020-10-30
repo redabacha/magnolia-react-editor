@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TemplateAnnotations } from '@redabacha/magnolia-template-annotations';
-import { EditorContext, constants, ComponentHelper } from '../../util';
+import {
+  EditorContext,
+  EditorContextHelper,
+  constants,
+  ComponentHelper
+} from '../../util';
 
 export default class EditableComponent extends React.PureComponent {
   static propTypes = {
@@ -45,6 +50,7 @@ export default class EditableComponent extends React.PureComponent {
       document.createComment(closedComponentComment),
       this.closeNode
     );
+    EditorContextHelper.refresh();
   }
 
   render() {
