@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { EditablePage } from '@magnolia/react-editor';
-import { removeExtension } from './app/AppHelpers';
+import { removeExtension, getVersion } from './app/AppHelpers';
 import ENVIRONMENT from './environments/environment';
 import COMPONENTS from './environments/mapping';
 
@@ -25,8 +25,9 @@ function App(props) {
 
     async function loadPageContent() {
         const { pathname } = window.location;
+        const version = getVersion();
         const path = ENVIRONMENT.serverPath ? pathname.substr(ENVIRONMENT.serverPath.length) : pathname;
-        const fullURL = `${ENVIRONMENT.restUrlBase}${removeExtension(path)}`;
+        const fullURL = `${version ? ENVIRONMENT.restUrlBasePreview : ENVIRONMENT.restUrlBase}${removeExtension(path)}${version ? `?version=${version}` : ''}`;
         const contentResponse = await fetch(fullURL);
         const contentResponseData = await contentResponse.json();
         const templateId = contentResponseData['mgnl:template'];
