@@ -1,7 +1,6 @@
 class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
 renderType: spa
 visible: true
-title: Standard Minimal Page
 dialog: mte:pages/pageProperties
 templateScript: /sample-light-module/webresources/index.html
 jsPaths:
@@ -13,6 +12,7 @@ areas:
   header:
     renderType: spa
     title: Header
+    type: single
     availableComponents:
       navigation:
         id: sample-light-module:components/navigation

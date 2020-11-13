@@ -3,18 +3,15 @@ form:
     - name: tabMain
       fields:
         - name: title
-          label: Title
           i18n: true
           fieldType: text
         - name: text
-          label: Text
           i18n: true
           fieldType: richText
         - name: image
           fieldType: link
           targetWorkspace: dam
           appName: assets
-          label: Select image
           identifierToPathConverter:
             class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
           contentPreviewDefinition:
