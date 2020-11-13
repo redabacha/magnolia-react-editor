@@ -18,7 +18,7 @@ import { AlertComponent } from './components/alert.component';
 export class RootComponent {
   @Input() content: any;
 
-  constructor(private http: HttpClient, private router: Router, private editorContext: EditorContextService) {
+  constructor(private http: HttpClient, private router: Router, private editorContext: EditorContextService, private window: Window ) {
     this.editorContext.setComponentMapping({
       'angular-magnolia-int:pages/home': HomeComponent,
       'angular-magnolia-int:pages/about': AboutComponent,
@@ -40,12 +40,22 @@ export class RootComponent {
   private getContent(url: string): void {
     // strip everything after '.html'
     url = url.replace(/\.html.*$/, '');
-    this.http.get(`${environment.restUrlBase}${environment.rootPath}${url}`).subscribe(content => {
+    const version = this.getVersion();
+    this.http.get(`${version ?
+      environment.restPreviewUrlBase : environment.restUrlBase}${environment.rootPath}${url}${version ? `?version=${version}` : ''}`)
+      .subscribe(content => {
       // request the template definitions for given page
       this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
         this.editorContext.setTemplateDefinitions(definitions);
         this.content = content;
       });
     });
+  }
+
+  private getVersion(): string {
+    if (typeof window === 'undefined') {
+      return '';
+    }
+    return new URLSearchParams(window.location.href).get('mgnlVersion');
   }
 }
