@@ -9,7 +9,7 @@ import COMPONENTS from './environments/mapping';
 function App(props) {
     const [currentPath, setCurrentPath] = useState('');
     const [content, setContent] = useState(null);
-    const [templateDefinitions, setTemplateDefinitions] = useState(null);
+    const [templateAnnotations, setTemplateAnnotations] = useState(null);
     const { history } = props;
     const config = { componentMappings: COMPONENTS };
 
@@ -24,8 +24,8 @@ function App(props) {
     }, [currentPath]);
 
     async function loadPageContent() {
-        const { pathname } = window.location;
-        const version = getVersion();
+        const { pathname, href } = window.location;
+        const version = getVersion(href);
         const path = ENVIRONMENT.serverPath ? pathname.substr(ENVIRONMENT.serverPath.length) : pathname;
         const fullURL = `${version ? ENVIRONMENT.restUrlBasePreview : ENVIRONMENT.restUrlBase}${removeExtension(path)}${version ? `?version=${version}` : ''}`;
         const contentResponse = await fetch(fullURL);
@@ -34,17 +34,17 @@ function App(props) {
         if (!templateId) {
             return;
         }
-        const templateEndpointUrl = `${ENVIRONMENT.templateDefinitionBase}/${templateId}`;
+        const templateEndpointUrl = ENVIRONMENT.templateAnnotationsBase + removeExtension(path);
 
         // Loads the single page config
         const templateResponse = await fetch(templateEndpointUrl);
         const templateResponseData = await templateResponse.json();
         setContent(contentResponseData);
-        setTemplateDefinitions(templateResponseData);
+        setTemplateAnnotations(templateResponseData);
     }
 
-    return templateDefinitions && content
-        ? (<EditablePage templateDefinitions={templateDefinitions} content={content} config={config} />) : (<p>Loading...</p>);
+    return templateAnnotations && content
+        ? (<EditablePage templateAnnotations={templateAnnotations} content={content} config={config} />) : (<p>Loading...</p>);
 }
 App.propTypes = {
     history: PropTypes.object

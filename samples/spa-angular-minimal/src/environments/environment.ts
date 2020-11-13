@@ -1,10 +1,10 @@
 const SERVER = 'http://localhost:8080';
-const CONTEXT = '/magnoliaAuthor';
+const SERVER_PATH = '/magnoliaAuthor';
 
 export const environment = {
   server: SERVER,
-  rootPath: '/angular-minimal',
-  restUrlBase: SERVER + CONTEXT + '/.rest/delivery/pages/v1',
-  restPreviewUrlBase: SERVER + CONTEXT + '/.rest/preview/pages/v1',
-  templateDefinitionBase: SERVER + CONTEXT + '/.rest/template-definitions/v1'
+  serverPath: SERVER_PATH,
+  restUrlBase: SERVER + SERVER_PATH + '/.rest/delivery/pages/v1',
+  restPreviewUrlBase: SERVER + SERVER_PATH + '/.rest/preview/pages/v1',
+  templateAnnotationsBase: SERVER + SERVER_PATH + '/.rest/template-annotations/v1'
 };
