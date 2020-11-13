@@ -1,5 +1,4 @@
 import React from 'react';
-import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import {
     EditorProvider, ComponentHelper, constants, EditorContextHelper
@@ -9,7 +8,7 @@ class EditablePage extends React.PureComponent {
     static propTypes = {
         children: PropTypes.elementType,
         content: PropTypes.object,
-        templateDefinitions: PropTypes.object,
+        templateAnnotations: PropTypes.object,
         config: PropTypes.shape({
             componentMappings: PropTypes.object
         })
@@ -18,7 +17,7 @@ class EditablePage extends React.PureComponent {
     static defaultProps = {
         children: null,
         content: null,
-        templateDefinitions: null,
+        templateAnnotations: null,
         config: {
             componentMappings: {}
         }
@@ -45,9 +44,8 @@ class EditablePage extends React.PureComponent {
         if (!this.node) {
             return;
         }
-        const pageTemplateDefinition = contextValue.content && contextValue.templateDefinitions
-            ? contextValue.templateDefinitions[contextValue.content[constants.TEMPLATE_ID_PROP]] : null;
-        const openComment = TemplateAnnotations.getPageCommentString(contextValue.content, pageTemplateDefinition);
+        const openComment = contextValue.content && contextValue.templateAnnotations
+            ? contextValue.templateAnnotations[contextValue.content['@path']] : null;
         ComponentHelper.addComment(this.node, openComment);
     }
 
@@ -61,12 +59,12 @@ class EditablePage extends React.PureComponent {
     }
 
     getContextValue() {
-        const { templateDefinitions, content, config } = this.props;
+        const { templateAnnotations, content, config } = this.props;
         const { componentMappings } = config;
         const isDevMode = process.env.NODE_ENV === 'development';
 
         const contextValue = {
-            templateDefinitions,
+            templateAnnotations,
             componentMappings,
             content,
             isDevMode

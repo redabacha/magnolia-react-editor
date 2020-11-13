@@ -2,7 +2,6 @@ import React from 'react';
 import ComponentHelper from './ComponentHelper';
 import page from '../../mock/page';
 import getComponentPropertiesJsonResult from '../../mock/expected-result/getComponentProperties';
-// import definitions from '../../mock/template-definition';
 
 describe('Test ComponentHelper', () => {
     let componentMapping;
