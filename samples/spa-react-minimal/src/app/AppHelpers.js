@@ -50,3 +50,7 @@ export function getRootPath(path) {
     }
     return `/${paths[1]}`;
 }
+
+export function getVersion() {
+    return new URLSearchParams(window.location.href).get('mgnlVersion');
+}

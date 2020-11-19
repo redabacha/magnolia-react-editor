@@ -45,6 +45,9 @@ import { AlertComponent } from './components/alert.component';
     TwoColumnsComponent,
     NavigationComponent
   ],
+  providers: [
+    { provide: Window, useValue: window }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

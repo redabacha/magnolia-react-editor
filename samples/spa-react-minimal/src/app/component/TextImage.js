@@ -7,7 +7,7 @@ function TextImage(props) {
 
     function CleanImage(properties) {
         const { image: img } = properties;
-        if (img) {
+        if (img && img.renditions) {
             const damURL = ENVIRONMENT.server + img.renditions['480'].link;
 
             return (
