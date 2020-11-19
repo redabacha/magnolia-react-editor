@@ -7,6 +7,7 @@ const ENVIRONMENT = {
     server: SERVER,
     restUrlBase: `${SERVER + SERVER_PATH}/.rest/delivery/pages/v1`,
     restUrlBasePreview: `${SERVER + SERVER_PATH}/.rest/preview/pages/v1`,
+    templateDefinitionBase: `${SERVER + SERVER_PATH}/.rest/template-definitions/v1`,
     templateAnnotationsBase: `${SERVER + SERVER_PATH}/.rest/template-annotations/v1`,
     serverPath: SERVER_PATH,
 
