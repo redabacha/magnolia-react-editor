@@ -27,7 +27,8 @@ class EditableArea extends React.PureComponent {
 
   componentDidMount() {
     if (!this.context) {
-      throw new Error(
+      // eslint-disable-next-line no-console
+      console.error(
         'EditableArea component must be wrapped inside EditablePage component.'
       );
     }
