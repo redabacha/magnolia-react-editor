@@ -6,10 +6,10 @@ import { Component, Input } from '@angular/core';
       <h1 class="bd-title">{{title}}</h1>
       <div class="row">
         <div class="col-sm">
-          <div editable-area [content]="left" [parentTemplateId]="metadata['mgnl:template']"></div>
+          <div editable-area [content]="left"></div>
         </div>
         <div class="col-sm">
-          <div editable-area [content]="right" [parentTemplateId]="metadata['mgnl:template']"></div>
+          <div editable-area [content]="right"></div>
         </div>
       </div>
     </div>
@@ -19,6 +19,4 @@ export class TwoColumnsComponent {
   @Input() title: string;
   @Input() left: object;
   @Input() right: object;
-  // metadata
-  @Input() metadata: object;
 }

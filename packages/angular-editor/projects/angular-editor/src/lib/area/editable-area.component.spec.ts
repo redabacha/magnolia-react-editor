@@ -24,7 +24,6 @@ describe('EditableArea', () => {
   });
 
   it('should get area components', () => {
-    component.parentTemplateId = 'foo:bar';
     component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
     component.ngOnChanges();
     fixture.detectChanges();
@@ -32,24 +31,14 @@ describe('EditableArea', () => {
   });
 
   it('should not fail on non-existing areas', () => {
-    component.parentTemplateId = 'foo:bar';
     component.content = {};
     component.ngOnChanges();
     fixture.detectChanges();
     expect(component.components.length).toBe(0);
   });
 
-  it('when no parentTemplateId should not generate area greenbar', () => {
-    jest.spyOn(service, 'inEditor').mockReturnValue(true);
-    component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
-    component.ngOnChanges();
-    expect(service.inEditor).toHaveBeenCalledTimes(0);
-    expect(component.closeComment).toBe(undefined);
-  });
-
   it('should generate area greenbar', () => {
     jest.spyOn(service, 'inEditor').mockReturnValue(true);
-    component.parentTemplateId = 'foo:bar';
     component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
     component.ngOnChanges();
     expect(service.inEditor).toHaveBeenCalledTimes(1);

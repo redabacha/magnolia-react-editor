@@ -36,7 +36,7 @@ class MockComponentRef extends ComponentRef<any> {
   readonly instance: any;
   readonly location: any;
   destroy(): void { }
-  onDestroy(callback: Function): void { }
+  onDestroy(callback: () => void): void { }
 }
 
 describe('AbstractComponent', () => {
@@ -61,13 +61,13 @@ describe('AbstractComponent', () => {
 
   it('should load component dynamically', () => {
     jest.spyOn(service, 'getComponentMapping').mockReturnValue(DummyComponent);
-    let resolvedComponentInstance = new DummyComponent();
+    const resolvedComponentInstance = new DummyComponent();
     function mockGetRef(_: ComponentFactory<any>) : ComponentRef<any> {
       return new MockComponentRef(resolvedComponentInstance);
     }
     jest.spyOn(component.child, 'createComponent').mockImplementationOnce(mockGetRef);
     jest.useFakeTimers();
-    let content = {
+    const content = {
       'property': 'value',
       'mgnl:template': 'templateId',
     };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { TemplateAnnotations } from '@magnolia/template-annotations';
 import PropTypes from 'prop-types';
 import { EditableComponent } from '../EditableComponent';
 import {
@@ -9,14 +8,12 @@ import {
 class EditableArea extends React.PureComponent {
     static propTypes = {
         content: PropTypes.object.isRequired,
-        parentTemplateId: PropTypes.string,
         className: PropTypes.any,
         elementType: PropTypes.string,
         children: PropTypes.node
     };
 
     static defaultProps = {
-        parentTemplateId: null,
         className: null,
         elementType: 'div',
         children: null
@@ -36,23 +33,14 @@ class EditableArea extends React.PureComponent {
 
     static contextType = EditorContext;
 
-    getParentTemplateId() {
-        const { parentTemplateId } = this.props;
-        const { content } = this.context;
-
-        return parentTemplateId || content[constants.TEMPLATE_ID_PROP];
-    }
-
     addComment() {
         const { isDevMode } = this.context;
+        const { content } = this.props;
         if (!this.node || (!isDevMode && !EditorContextHelper.inEditor())) {
             return;
         }
-        const { content } = this.props;
-        const pageTemplateId = this.getParentTemplateId();
-        const { templateDefinitions: allDefinitions } = this.context;
-        const templateDefinitions = allDefinitions[pageTemplateId];
-        const openComment = TemplateAnnotations.getAreaCommentString(content, templateDefinitions);
+        const { templateAnnotations: allAnnotations } = this.context;
+        const openComment = allAnnotations[content['@path']];
         this.node.parentNode.insertBefore(document.createComment(openComment), this.node);
         this.node.parentNode.insertBefore(document.createComment(this.constants.CLOSED_AREA_COMMENT), this.node.nextSibling);
     }

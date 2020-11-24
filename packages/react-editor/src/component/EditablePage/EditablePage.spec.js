@@ -3,7 +3,7 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import EditablePage from './EditablePage';
 import '../../../mock/mgnlRefresh.mock';
 import pageContent from '../../../mock/page';
-import templateDefinitions from '../../../mock/template-definition';
+import templateAnnotations from '../../../mock/template-annotations';
 
 describe('EditablePage', () => {
     let componentMappings;
@@ -34,8 +34,8 @@ describe('EditablePage', () => {
     it('Render Page', () => {
         // GIVEN
         // WHEN
-        render(<EditablePage templateDefinitions={templateDefinitions} content={pageContent} config={config} />, container);
+        render(<EditablePage templateAnnotations={templateAnnotations} content={pageContent} config={config} />, container);
         // THEN
-        expect(container.innerHTML.includes('cms:page content="website:/react-sample" dialog="mte:pages/pageProperties"')).toBe(true);
+        expect(container.innerHTML.includes('cms:page content="/react-sample')).toBe(true);
     });
 });

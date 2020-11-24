@@ -1,6 +1,4 @@
 import { Injectable, Type } from '@angular/core';
-import { WindowRefService } from './windowref.service';
-import { HttpParams } from '@angular/common/http';
 import { EditorContextHelper } from '@magnolia/template-annotations';
 
 @Injectable({
@@ -9,10 +7,8 @@ import { EditorContextHelper } from '@magnolia/template-annotations';
 export class EditorContextService {
   /** Component mapping */
   componentMapping = {};
-  /** Template definitions */
-  templateDefinitions = {};
-
-  constructor(private winRef: WindowRefService) { }
+  /** Template annotations */
+  templateAnnotations = {};
 
   public inEditor(): boolean {
     return EditorContextHelper.inEditor();
@@ -26,16 +22,6 @@ export class EditorContextService {
     return EditorContextHelper.inEditorPreview();
   }
 
-  private getParamValueQueryString(paramName: string): string {
-    const url = this.winRef.nativeWindow.location.href;
-    let paramValue;
-    if (url.includes('?')) {
-      const httpParams = new HttpParams({ fromString: url.split('?')[1] });
-      paramValue = httpParams.get(paramName);
-    }
-    return paramValue;
-  }
-
   public setComponentMapping(componentMapping: object): void {
     this.componentMapping = componentMapping;
   }
@@ -44,11 +30,11 @@ export class EditorContextService {
     return this.componentMapping ? this.componentMapping[templateId] : null;
   }
 
-  public setTemplateDefinitions(templateDefinitions: object): void {
-    this.templateDefinitions = templateDefinitions;
+  public setTemplateAnnotations(templateAnnotations: object): void {
+    this.templateAnnotations = templateAnnotations;
   }
 
-  public getTemplateDefinition(template: string): Type<object> {
-    return this.templateDefinitions[template];
+  public getTemplateAnnotation(path: string): string {
+    return this.templateAnnotations[path];
   }
 }

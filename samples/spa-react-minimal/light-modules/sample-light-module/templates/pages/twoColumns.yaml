@@ -1,12 +1,5 @@
 !include:/sample-light-module/templates/pages/standard.yaml
-title: Two columns
 areas:
-  header:
-    renderType: spa
-    title: Header
-    availableComponents:
-      navigation:
-        id: sample-light-module:components/navigation
   left:
     renderType: spa
     title: Main

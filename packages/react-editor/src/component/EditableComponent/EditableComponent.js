@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TemplateAnnotations } from '@magnolia/template-annotations';
 import {
     EditorContext, constants, ComponentHelper, EditorContextHelper
 } from '../../util';
@@ -28,13 +27,11 @@ export default class EditableComponent extends React.PureComponent {
         if (!this.openNode || !this.closeNode || (!isDevMode && !EditorContextHelper.inEditor())) {
             return;
         }
-        const templateId = content[constants.TEMPLATE_ID_PROP];
-        const { templateDefinitions: allDefinitions } = this.context;
-        const templateDefinitions = allDefinitions[templateId];
-        const openComponentComment = TemplateAnnotations.getComponentCommentString(content, templateDefinitions);
-        const closedComponentComment = this.constants.CLOSED_COMPONENT_COMMENT;
-        this.openNode.parentNode.insertBefore(document.createComment(openComponentComment), this.openNode);
-        this.closeNode.parentNode.insertBefore(document.createComment(closedComponentComment), this.closeNode);
+        const { templateAnnotations: allAnnotations } = this.context;
+        const openComment = allAnnotations[content['@path']];
+        const closedComment = this.constants.CLOSED_COMPONENT_COMMENT;
+        this.openNode.parentNode.insertBefore(document.createComment(openComment), this.openNode);
+        this.closeNode.parentNode.insertBefore(document.createComment(closedComment), this.closeNode);
     }
 
     removeRefs() {

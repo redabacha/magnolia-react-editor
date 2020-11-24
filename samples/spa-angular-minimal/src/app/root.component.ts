@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation.component';
 import { CardComponent } from './components/card.component';
 import { AlertComponent } from './components/alert.component';
+import { Location } from '@angular/common';
 
 @Component({
   template: '<editable-page [content]="content"></editable-page>',
@@ -18,7 +19,7 @@ import { AlertComponent } from './components/alert.component';
 export class RootComponent {
   @Input() content: any;
 
-  constructor(private http: HttpClient, private router: Router, private editorContext: EditorContextService, private window: Window ) {
+  constructor(private http: HttpClient, private router: Router, private editorContext: EditorContextService, private location: Location) {
     this.editorContext.setComponentMapping({
       'angular-magnolia-int:pages/home': HomeComponent,
       'angular-magnolia-int:pages/about': AboutComponent,
@@ -32,30 +33,28 @@ export class RootComponent {
     // refresh the content on navigation event
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.getContent(event.url);
+        this.getContent(location.prepareExternalUrl(event.url));
       }
     });
   }
 
-  private getContent(url: string): void {
-    // strip everything after '.html'
-    url = url.replace(/\.html.*$/, '');
-    const version = this.getVersion();
-    this.http.get(`${version ?
-      environment.restPreviewUrlBase : environment.restUrlBase}${environment.rootPath}${url}${version ? `?version=${version}` : ''}`)
-      .subscribe(content => {
-      // request the template definitions for given page
-      this.http.get(environment.templateDefinitionBase + '/' + content['mgnl:template']).subscribe(definitions => {
-        this.editorContext.setTemplateDefinitions(definitions);
+  private getContent(location: string): void {
+    const version = this.getVersion(location);
+    // strip context and everything after '.html' to get the JCR path
+    location = location.replace(/\.html.*$/, '');
+    const path = environment.serverPath ? location.substr(environment.serverPath.length) : location;
+    // request the template annotations
+    this.http.get(environment.templateAnnotationsBase + path).subscribe(annotations => {
+      this.editorContext.setTemplateAnnotations(annotations);
+    });
+    // request the content itself
+    this.http.get(`${version ? environment.restPreviewUrlBase : environment.restUrlBase}${path}${version ? `?version=${version}` : ''}`)
+        .subscribe(content => {
         this.content = content;
-      });
     });
   }
 
-  private getVersion(): string {
-    if (typeof window === 'undefined') {
-      return '';
-    }
-    return new URLSearchParams(window.location.href).get('mgnlVersion');
+  private getVersion(location: string): string {
+    return new URLSearchParams(location).get('mgnlVersion');
   }
 }

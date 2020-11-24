@@ -14,7 +14,7 @@ cssPaths:
   - /.resources/angular-magnolia-int/webresources/styles.css
 areas:
   header:
-    title: Header
+    title: Single Area
     type: single
     availableComponents:
       navigation:
@@ -26,10 +26,10 @@ areas:
         id: angular-magnolia-int:components/alert
   staticArea:
     dialog: angular-magnolia-int:areas/static
-    title: Static area
+    title: Static Area
     type: noComponent
   customArea:
-    title: Custom area
+    title: Custom Area
     availableComponents:
       card:
         id: angular-magnolia-int:components/card

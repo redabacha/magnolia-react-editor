@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SimpleChange } from '@angular/core';
 
 import { EditablePage } from './editable-page.component';
 import { EditorContextService } from '../services/editor-context.service';
@@ -26,7 +25,9 @@ describe('EditablePage', () => {
 
   it('should generate page greenbar', () => {
     jest.spyOn(service, 'inEditor').mockReturnValue(true);
-    component.content = {}
+    service.setTemplateAnnotations({'/page': 'cms:page'});
+    component.content = {'@path': '/page'};
+    expect(component.openComment).toBe('cms:page');
     expect(component.closeComment).toBe('/cms:page');
   });
 });

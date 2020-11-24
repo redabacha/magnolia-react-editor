@@ -4,7 +4,7 @@ import '../../../mock/mgnlRefresh.mock';
 import EditableComponent from './EditableComponent';
 import { EditorProvider } from '../../util';
 import pageContent from '../../../mock/page';
-import templateDefinitions from '../../../mock/template-definition';
+import templateAnnotations from '../../../mock/template-annotations';
 
 describe('EditableComponent component', () => {
     let componentMappings;
@@ -19,7 +19,7 @@ describe('EditableComponent component', () => {
             'sample-light-module:pages/standard': () => (<div />)
         };
         state = {
-            templateDefinitions,
+            templateAnnotations,
             componentMappings,
             content: pageContent
         };
@@ -36,9 +36,7 @@ describe('EditableComponent component', () => {
 
     it('Render EditableComponent', () => {
         // GIVEN
-        const editableComponentText = `cms:component content="website:/react-sample/main/0"
-        dialog="sample-light-module:components/title" label="The nested area in component"
-        activationStatus="1"`;
+        const editableComponentText = 'cms:component content="/react-sample/main/0"';
 
         // WHEN
         render(

@@ -1,0 +1,6 @@
+{
+    "/react-sample": "cms:page content=\"/react-sample\"",
+    "/react-sample/main": "cms:area content=\"/react-sample/main\"",
+    "/react-sample/main/0": "cms:component content=\"/react-sample/main/0\"",
+    "/react-sample/main/0/nestedArea": "cms:area content=\"/react-sample/main/0/nestedArea\""
+}
