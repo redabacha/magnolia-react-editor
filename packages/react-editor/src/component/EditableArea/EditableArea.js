@@ -6,7 +6,7 @@ import { EditorContext, constants } from '../../util';
 
 class EditableArea extends React.PureComponent {
   static propTypes = {
-    content: PropTypes.object.isRequired,
+    content: PropTypes.object,
     parentTemplateId: PropTypes.string,
     className: PropTypes.any,
     elementType: PropTypes.string,
@@ -14,6 +14,7 @@ class EditableArea extends React.PureComponent {
   };
 
   static defaultProps = {
+    content: {},
     parentTemplateId: null,
     className: undefined,
     elementType: 'div',
@@ -69,9 +70,9 @@ class EditableArea extends React.PureComponent {
 
   render() {
     const { content, className, elementType, children } = this.props;
-    const componentNames = content['@nodes'];
+    const componentNames = content['@nodes'] || [];
     const element = React.createElement(elementType || 'div');
-    return (
+    return componentNames && componentNames.length > 0 ? (
       <element.type
         ref={node => (this.node = node)}
         key={content['@id']}
@@ -85,7 +86,7 @@ class EditableArea extends React.PureComponent {
           />
         ))}
       </element.type>
-    );
+    ) : null;
   }
 }
 

@@ -30,8 +30,7 @@ class EditablePage extends React.PureComponent {
   };
 
   componentDidMount() {
-    this.addCloseComment();
-    this.addOpenComment();
+    this.addComment();
     EditorContextHelper.refresh();
   }
 
@@ -41,13 +40,13 @@ class EditablePage extends React.PureComponent {
   }
 
   componentDidUpdate() {
-    this.addOpenComment();
+    this.addComment();
     EditorContextHelper.refresh();
   }
 
-  addOpenComment() {
+  addComment() {
     const contextValue = this.getContextValue();
-    if (!this.node) {
+    if (!this.node || !contextValue.isEditor) {
       return;
     }
     const pageTemplateDefinition =
@@ -60,11 +59,8 @@ class EditablePage extends React.PureComponent {
       contextValue.content,
       pageTemplateDefinition
     );
-    ComponentHelper.addComment(this.node, openComment);
-  }
-
-  addCloseComment() {
     ComponentHelper.addComment(this.node, '/cms:page');
+    ComponentHelper.addComment(this.node, openComment);
   }
 
   hasPageComponent() {
