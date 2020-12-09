@@ -10,8 +10,8 @@
     "test": "jest --passWithNoTests"
   },
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "*",
+    "react-dom": "*"
   },
   "dependencies": {
     "@redabacha/magnolia-template-annotations": "^1.0.6",
