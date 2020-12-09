@@ -1,5 +1,5 @@
 {
-  "name": "angular-editor-source",
+  "name": "@magnolia/angular-editor",
   "version": "1.0.5",
   "author": "Magnolia International Ltd.",
   "scripts": {
@@ -42,6 +42,9 @@
   },
   "resolutions": {
     "minimist": "^1.2.5"
+  },
+  "publishConfig": {
+    "directory": "dist/angular-editor"
   },
   "private": true
 }
