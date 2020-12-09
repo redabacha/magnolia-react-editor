@@ -69,10 +69,11 @@ class EditableArea extends React.PureComponent {
   }
 
   render() {
+    const { isEditor } = this.context;
     const { content, className, elementType, children } = this.props;
     const componentNames = content['@nodes'] || [];
     const element = React.createElement(elementType || 'div');
-    return componentNames && componentNames.length > 0 ? (
+    return isEditor || (componentNames && componentNames.length > 0) ? (
       <element.type
         ref={node => (this.node = node)}
         key={content['@id']}
