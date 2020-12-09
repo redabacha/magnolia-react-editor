@@ -2,7 +2,8 @@ function EditorContextHelper() {
     return {
         inEditor,
         refresh,
-        inEditorPreview
+        inEditorPreview,
+        onFrameReady
     };
 
     function inIframe() {
@@ -23,6 +24,12 @@ function EditorContextHelper() {
     function refresh() {
         if (inEditor() && window.parent.mgnlRefresh) {
             window.parent.mgnlRefresh();
+        }
+    }
+
+    function onFrameReady() {
+        if (inIframe() && window.parent.mgnlFrameReady) {
+            window.parent.mgnlFrameReady();
         }
     }
 }
