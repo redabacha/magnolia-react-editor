@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "lerna": "lerna",
+    "postinstall": "lerna bootstrap",
+    "build": "lerna run build",
+    "test": "lerna run test",
     "audit": "lerna-audit"
   },
   "devDependencies": {
