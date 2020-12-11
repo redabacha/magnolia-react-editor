@@ -45,8 +45,11 @@ export class AbstractComponent implements AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit(): void {
-    if (this.editorContext.inEditor()) {
-      setTimeout(() => this.editorContext.refresh());
-    }
+    setTimeout(() => {
+      this.editorContext.onFrameReady();
+      if (this.editorContext.inEditor()) {
+        this.editorContext.refresh();
+      }
+    });
   }
 }

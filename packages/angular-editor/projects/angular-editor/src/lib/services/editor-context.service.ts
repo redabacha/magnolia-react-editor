@@ -22,6 +22,10 @@ export class EditorContextService {
     return EditorContextHelper.inEditorPreview();
   }
 
+  public onFrameReady(): void {
+    EditorContextHelper.onFrameReady();
+  }
+
   public setComponentMapping(componentMapping: object): void {
     this.componentMapping = componentMapping;
   }

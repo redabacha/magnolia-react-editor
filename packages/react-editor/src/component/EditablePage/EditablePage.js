@@ -26,6 +26,7 @@ class EditablePage extends React.PureComponent {
     componentDidMount() {
         this.addCloseComment();
         this.addOpenComment();
+        EditorContextHelper.onFrameReady();
         EditorContextHelper.refresh();
     }
 
@@ -36,6 +37,7 @@ class EditablePage extends React.PureComponent {
 
     componentDidUpdate() {
         this.addOpenComment();
+        EditorContextHelper.onFrameReady();
         EditorContextHelper.refresh();
     }
 
