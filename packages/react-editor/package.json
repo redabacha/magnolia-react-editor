@@ -1,6 +1,6 @@
 {
   "name": "@redabacha/magnolia-react-editor",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Magnolia React Editor",
   "main": "build/mgnl-react-editor.min.js",
   "author": "Magnolia International Ltd.",
@@ -14,7 +14,7 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "@redabacha/magnolia-template-annotations": "^1.0.6",
+    "@redabacha/magnolia-template-annotations": "^1.0.14",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
