@@ -34,13 +34,6 @@ class EditablePage extends React.PureComponent {
     EditorContextHelper.refresh();
   }
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillUpdate() {
-    if (this.node && this.node.firstChild) {
-      this.node.firstChild.remove();
-    }
-  }
-
   componentDidUpdate() {
     this.addComment();
     EditorContextHelper.refresh();
