@@ -31,11 +31,13 @@ class EditablePage extends React.PureComponent {
 
   componentDidMount() {
     this.addComment();
+    EditorContextHelper.onFrameReady();
     EditorContextHelper.refresh();
   }
 
   componentDidUpdate() {
     this.addComment();
+    EditorContextHelper.onFrameReady();
     EditorContextHelper.refresh();
   }
 
