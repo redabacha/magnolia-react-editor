@@ -36,7 +36,9 @@ class EditablePage extends React.PureComponent {
 
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillUpdate() {
-    this.node.firstChild.remove();
+    if (this.node && this.node.firstChild) {
+      this.node.firstChild.remove();
+    }
   }
 
   componentDidUpdate() {
