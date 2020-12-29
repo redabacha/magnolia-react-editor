@@ -8,11 +8,11 @@
     "url": "https://git.magnolia-cms.com/scm/modules/frontend-helpers.git",
     "directory": "angular-editor"
   },
-  "peerDependencies": {
-    "@angular/common": "^8.2.13",
-    "@angular/core": "^8.2.13"
-  },
   "dependencies": {
     "@magnolia/template-annotations": "1.0.5"
+  },
+  "devDependencies": {
+    "@angular/common": "^8.2.13",
+    "@angular/core": "^8.2.13"
   }
 }
