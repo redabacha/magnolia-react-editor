@@ -11,8 +11,6 @@
     "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
-    "@angular/common": "~8.2.13",
-    "@angular/core": "~8.2.13",
     "@magnolia/template-annotations": "1.0.5"
   },
   "devDependencies": {
@@ -20,8 +18,10 @@
     "@angular-devkit/build-angular": "~0.901.3",
     "@angular-devkit/build-ng-packagr": "~0.803.18",
     "@angular/cli": "~8.3.18",
+    "@angular/common": "~8.2.13",
     "@angular/compiler": "~8.2.13",
     "@angular/compiler-cli": "~8.2.13",
+    "@angular/core": "~8.2.13",
     "@angular/language-service": "~8.2.13",
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
