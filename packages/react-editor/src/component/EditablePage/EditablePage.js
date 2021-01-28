@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 import {
     EditorProvider, ComponentHelper, constants, EditorContextHelper
 } from '../../util';
@@ -8,6 +9,7 @@ class EditablePage extends React.PureComponent {
     static propTypes = {
         children: PropTypes.elementType,
         content: PropTypes.object,
+        templateDefinitions: PropTypes.object,
         templateAnnotations: PropTypes.object,
         config: PropTypes.shape({
             componentMappings: PropTypes.object
@@ -17,6 +19,7 @@ class EditablePage extends React.PureComponent {
     static defaultProps = {
         children: null,
         content: null,
+        templateDefinitions: null,
         templateAnnotations: null,
         config: {
             componentMappings: {}
@@ -24,8 +27,7 @@ class EditablePage extends React.PureComponent {
     }
 
     componentDidMount() {
-        this.addCloseComment();
-        this.addOpenComment();
+        this.addComment();
         EditorContextHelper.onFrameReady();
         EditorContextHelper.refresh();
     }
@@ -36,23 +38,23 @@ class EditablePage extends React.PureComponent {
     }
 
     componentDidUpdate() {
-        this.addOpenComment();
+        this.addComment();
         EditorContextHelper.onFrameReady();
         EditorContextHelper.refresh();
     }
 
-    addOpenComment() {
+    addComment() {
         const contextValue = this.getContextValue();
         if (!this.node) {
             return;
         }
-        const openComment = contextValue.content && contextValue.templateAnnotations
-            ? contextValue.templateAnnotations[contextValue.content['@path']] : null;
-        ComponentHelper.addComment(this.node, openComment);
-    }
-
-    addCloseComment() {
-        ComponentHelper.addComment(this.node, '/cms:page');
+        if (contextValue.content) {
+            if (contextValue.templateDefinitions) {
+                ComponentHelper.addComment(this.node, TemplateAnnotations.getPageCommentString(contextValue.content, contextValue.templateDefinitions[contextValue.content[constants.TEMPLATE_ID_PROP]]));
+            } else if (contextValue.templateAnnotations) {
+                ComponentHelper.addComment(this.node, contextValue.templateAnnotations[contextValue.content['@path']]);
+            }
+        }
     }
 
     hasPageComponent() {
@@ -61,11 +63,12 @@ class EditablePage extends React.PureComponent {
     }
 
     getContextValue() {
-        const { templateAnnotations, content, config } = this.props;
+        const { templateDefinitions, templateAnnotations, content, config } = this.props;
         const { componentMappings } = config;
         const isDevMode = process.env.NODE_ENV === 'development';
 
         const contextValue = {
+            templateDefinitions,
             templateAnnotations,
             componentMappings,
             content,
