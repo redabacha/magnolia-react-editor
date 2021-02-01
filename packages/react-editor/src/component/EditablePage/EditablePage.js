@@ -55,11 +55,6 @@ class EditablePage extends React.PureComponent {
         ComponentHelper.addComment(this.node, '/cms:page');
     }
 
-    hasPageComponent() {
-        const { content, componentMappings } = this.getContextValue();
-        return content && componentMappings && componentMappings[content[constants.TEMPLATE_ID_PROP]];
-    }
-
     getContextValue() {
         const { templateAnnotations, content, config } = this.props;
         const { componentMappings } = config;
@@ -77,7 +72,7 @@ class EditablePage extends React.PureComponent {
     render() {
         const contextValue = this.getContextValue();
         const { children } = this.props;
-        const pageComponent = this.hasPageComponent() ? ComponentHelper.getRenderedComponent(contextValue.content, contextValue.componentMappings) : children;
+        const pageComponent = children ? children : ComponentHelper.getRenderedComponent(contextValue.content, contextValue.componentMappings);
         // NOTE: We need a div tag as a parent node for Page's child HTML. It will cause an issue if we
         // don't have a parent node.
         return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import constants from './constants';
+import { LoggerService } from '@magnolia/template-annotations';
 
 function componentHelper() {
     return {
@@ -7,11 +8,15 @@ function componentHelper() {
     };
 
     function getRenderedComponent(componentContent, componentMappings) {
-        if (!componentContent || !componentMappings || !componentMappings[componentContent[constants.TEMPLATE_ID_PROP]]) {
+        if (!componentContent || !componentMappings) {
             return React.createElement('div');
         }
 
         const componentClass = componentMappings[componentContent[constants.TEMPLATE_ID_PROP]];
+        if (!componentClass) {
+            LoggerService.error(`Component with ID ${componentContent[constants.TEMPLATE_ID_PROP]} is not mapped.`);
+            return React.createElement('div');
+        }
 
         return React.createElement(componentClass, getComponentProperties(componentContent));
     }

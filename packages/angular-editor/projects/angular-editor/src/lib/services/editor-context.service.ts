@@ -1,5 +1,5 @@
 import { Injectable, Type } from '@angular/core';
-import { EditorContextHelper } from '@magnolia/template-annotations';
+import { EditorContextHelper, LoggerService } from '@magnolia/template-annotations';
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +27,19 @@ export class EditorContextService {
   }
 
   public setComponentMapping(componentMapping: object): void {
+    if (!componentMapping) {
+      LoggerService.error('componentMapping cannot be null');
+      return;
+    }
     this.componentMapping = componentMapping;
   }
 
   public getComponentMapping(templateId: string): Type<object> {
-    return this.componentMapping ? this.componentMapping[templateId] : null;
+    const component = this.componentMapping[templateId];
+    if (!component) {
+      LoggerService.error(`Component with ID ${templateId} is not mapped.`)
+    }
+    return component;
   }
 
   public setTemplateAnnotations(templateAnnotations: object): void {
