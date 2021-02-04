@@ -1,5 +1,6 @@
 import React from 'react';
 import ComponentHelper from './ComponentHelper';
+import { LoggerService } from '@magnolia/template-annotations';
 import page from '../../mock/page';
 import getComponentPropertiesJsonResult from '../../mock/expected-result/getComponentProperties';
 
@@ -70,5 +71,15 @@ describe('Test ComponentHelper', () => {
         const result = ComponentHelper.classnames('class1', [{ class2: true, class3: false }, 'class4'], { class5: true });
         // THEN
         expect(result).toEqual(expectedResult);
+    });
+
+    it('it should print an error in the console', () => {
+        // GIVEN
+        LoggerService.error = jest.fn();
+        const componentContent = { 'mgnl:template': 'foo:components/bar' };
+        // WHEN
+        ComponentHelper.getRenderedComponent(componentContent, componentMapping);
+        // THEN
+        expect(LoggerService.error).toHaveBeenLastCalledWith('Component with ID foo:components/bar is not mapped.');
     });
 });
