@@ -24,8 +24,10 @@ describe('EditableComponent', () => {
 
   it('should generate component greenbar', () => {
     jest.spyOn(service, 'inEditor').mockReturnValue(true);
-    component.content = {};
+    service.setTemplateAnnotations({'/0': 'cms:content content=\"website:/0\"'});
+    component.content = {'@path' : '/0'};
     expect(service.inEditor).toHaveBeenCalledTimes(1);
+    expect(component.openComment).toBe('cms:content content=\"website:/0\"');
     expect(component.closeComment).toBe('/cms:component');
   });
 });

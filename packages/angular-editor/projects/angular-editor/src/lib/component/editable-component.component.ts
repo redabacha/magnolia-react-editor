@@ -1,4 +1,5 @@
 import { Component, isDevMode, Input } from '@angular/core';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { AbstractComponent } from '../abstract/abstract.component';
 
 @Component({
@@ -16,8 +17,14 @@ import { AbstractComponent } from '../abstract/abstract.component';
 export class EditableComponent extends AbstractComponent {
   @Input() set content(content: object) {
     if ((this.editorContext.inEditor() || isDevMode()) && content) {
-      this.openComment = this.editorContext.getTemplateAnnotation(content['@path']);
-      this.closeComment = '/cms:component';
+      if (this.editorContext.templateDefinitions) {
+        // tslint:disable-next-line:max-line-length
+        this.openComment = TemplateAnnotations.getComponentCommentString(content, this.editorContext.getTemplateDefinition(content['mgnl:template']));
+        this.closeComment = '/cms:component';
+      } else if (this.editorContext.templateAnnotations) {
+        this.openComment = this.editorContext.getTemplateAnnotation(content['@path']);
+        this.closeComment = '/cms:component';
+      }
     }
   }
 }

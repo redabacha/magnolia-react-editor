@@ -39,9 +39,11 @@ describe('EditableArea', () => {
 
   it('should generate area greenbar', () => {
     jest.spyOn(service, 'inEditor').mockReturnValue(true);
-    component.content = {'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
+    service.setTemplateAnnotations({'/area': 'cms:area content=\"website:/area\"'});
+    component.content = {'@path' : '/area', 'component-node': {'@nodeType': 'mgnl:component'}, '@nodes': ['component-node']};
     component.ngOnChanges();
     expect(service.inEditor).toHaveBeenCalledTimes(1);
+    expect(component.openComment).toBe('cms:area content=\"website:/area\"');
     expect(component.closeComment).toBe('/cms:area');
   });
 });

@@ -7,8 +7,10 @@ import { EditorContextHelper, LoggerService } from '@magnolia/template-annotatio
 export class EditorContextService {
   /** Component mapping */
   componentMapping = {};
+  /** Template definitions */
+  templateDefinitions = null;
   /** Template annotations */
-  templateAnnotations = {};
+  templateAnnotations = null;
 
   public inEditor(): boolean {
     return EditorContextHelper.inEditor();
@@ -40,6 +42,14 @@ export class EditorContextService {
       LoggerService.error(`Component with ID ${templateId} is not mapped.`)
     }
     return component;
+  }
+
+  public setTemplateDefinitions(templateDefinitions: object): void {
+    this.templateDefinitions = templateDefinitions;
+  }
+
+  public getTemplateDefinition(template: string): Type<object> {
+    return this.templateDefinitions[template];
   }
 
   public setTemplateAnnotations(templateAnnotations: object): void {

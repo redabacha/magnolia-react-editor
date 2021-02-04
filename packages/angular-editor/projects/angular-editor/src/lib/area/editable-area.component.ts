@@ -1,4 +1,5 @@
 import { AfterViewInit, OnChanges, Component, Input, isDevMode } from '@angular/core';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { EditorContextService } from '../services/editor-context.service';
 
 @Component({
@@ -24,6 +25,7 @@ export class EditableArea implements AfterViewInit, OnChanges {
   closeComment: string;
   metadata: object;
 
+  @Input() parentTemplateId: string;
   @Input() content: object;
 
   private getAreaComponents(content: object) {
@@ -62,8 +64,14 @@ export class EditableArea implements AfterViewInit, OnChanges {
       this.components = this.getAreaComponents(this.content);
 
       if (this.editorContext.inEditor() || isDevMode()) {
-        this.openComment = this.editorContext.getTemplateAnnotation(this.content['@path']);
-        this.closeComment = '/cms:area';
+          if (this.editorContext.templateDefinitions) {
+            // tslint:disable-next-line:max-line-length
+            this.openComment = TemplateAnnotations.getAreaCommentString(this.content, this.editorContext.getTemplateDefinition(this.parentTemplateId));
+            this.closeComment = '/cms:area';
+          } else if (this.editorContext.templateAnnotations) {
+            this.openComment = this.editorContext.getTemplateAnnotation(this.content['@path']);
+            this.closeComment = '/cms:area';
+          }
       }
     }
   }

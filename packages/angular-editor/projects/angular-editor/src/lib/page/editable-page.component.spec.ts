@@ -25,9 +25,8 @@ describe('EditablePage', () => {
 
   it('should generate page greenbar', () => {
     jest.spyOn(service, 'inEditor').mockReturnValue(true);
-    service.setTemplateAnnotations({'/page': 'cms:page'});
+    service.setTemplateAnnotations({'/page': 'cms:page content=\"website:/page\"'});
     component.content = {'@path': '/page'};
-    expect(component.openComment).toBe('cms:page');
-    expect(component.closeComment).toBe('/cms:page');
+    expect(component.openComment).toBe('cms:page content=\"website:/page\"');
   });
 });

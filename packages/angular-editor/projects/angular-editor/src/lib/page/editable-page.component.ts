@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TemplateAnnotations } from '@magnolia/template-annotations';
 import { AbstractComponent } from '../abstract/abstract.component';
 
 @Component({
@@ -8,17 +9,18 @@ import { AbstractComponent } from '../abstract/abstract.component';
       <mgnl-comment [text]="openComment"></mgnl-comment>
     </ng-template>
     <ng-container #child></ng-container>
-    <ng-template [ngIf]="closeComment">
-      <mgnl-comment [text]="closeComment"></mgnl-comment>
-    </ng-template>
     `
 })
 export class EditablePage extends AbstractComponent {
 
   @Input() set content(content: object) {
     if (content) {
-      this.openComment = this.editorContext.getTemplateAnnotation(content['@path']);
-      this.closeComment = '/cms:page';
+      if (this.editorContext.templateDefinitions) {
+        // tslint:disable-next-line:max-line-length
+        this.openComment = TemplateAnnotations.getPageCommentString(content, this.editorContext.getTemplateDefinition(content['mgnl:template']));
+      } else if (this.editorContext.templateAnnotations) {
+        this.openComment = this.editorContext.getTemplateAnnotation(content['@path']);
+      }
     }
   }
 }
