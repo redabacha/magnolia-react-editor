@@ -1,6 +1,6 @@
 {
   "name": "@magnolia/angular-editor",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Magnolia Angular Editor",
   "author": "Magnolia International Ltd.",
   "repository": {
@@ -9,7 +9,7 @@
     "directory": "angular-editor"
   },
   "dependencies": {
-    "@magnolia/template-annotations": "1.0.5"
+    "@magnolia/template-annotations": "1.0.6"
   },
   "devDependencies": {
     "@angular/common": "^8.2.13",

@@ -1,6 +1,6 @@
 {
   "name": "@magnolia/react-editor",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Magnolia React Editor",
   "main": "index.js",
   "author": "Magnolia International Ltd.",
@@ -10,7 +10,7 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@magnolia/template-annotations": "1.0.5"
+    "@magnolia/template-annotations": "1.0.6"
   },
   "devDependencies": {
     "@babel/core": "7.7.4",
