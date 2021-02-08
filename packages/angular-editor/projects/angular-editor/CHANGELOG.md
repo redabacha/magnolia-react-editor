@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2021-02-08
+### Added
+- Log a warning when a template ID is not mapped to any component. ([MGNLFE-50](https://jira.magnolia-cms.com/browse/MGNLFE-50))
+- Refresh Page Editor after the frame is ready. ([MGNLFE-85](https://jira.magnolia-cms.com/browse/MGNLFE-85))
+- Support for new template-annotations endpoint. See the documentation or sample projects for more details. ([MGNLFE-77](https://jira.magnolia-cms.com/browse/MGNLFE-77), [MGNLFE-91](https://jira.magnolia-cms.com/browse/MGNLFE-91))
+- Allow users to define custom area templates. ([MGNLFE-61](https://jira.magnolia-cms.com/browse/MGNLFE-61))
+
+### Changed
+- Migrate the `peerDependencies` section deprectated in npm 7.0.0. ([MGNLFE-84](https://jira.magnolia-cms.com/browse/MGNLFE-84))
+
+## [1.0.5] - 2020-07-21
+
 ## [1.0.4] - 2020-06-23
 ### Changed
 - No Add Component action with Angular 9. ([MGNLFE-54](https://jira.magnolia-cms.com/browse/MGNLFE-54))
@@ -17,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Use `inEditor()` and `inEditorPreview()` from template-annotations library. ([MGNLFE-42](https://jira.magnolia-cms.com/browse/MGNLFE-42))
 
-## [1.0.1] - 2020-04-28
+## [1.0.1] - 2020-04-29
 Please excuse the breaking changes in 1.0.1. Changes are significant but it's easy to migrate. We will follow semver for future releases.
 
 ### Added
@@ -36,6 +48,10 @@ Please excuse the breaking changes in 1.0.1. Changes are significant but it's ea
 - first release
 
 [Unreleased]: https://git.magnolia-cms.com/projects/MODULES/repos/frontend-helpers/browse/packages/angular-editor
+[1.0.6]: https://www.npmjs.com/package/@magnolia/angular-editor/v/1.0.6
+[1.0.5]: https://www.npmjs.com/package/@magnolia/angular-editor/v/1.0.5
+[1.0.4]: https://www.npmjs.com/package/@magnolia/angular-editor/v/1.0.4
+[1.0.3]: https://www.npmjs.com/package/@magnolia/angular-editor/v/1.0.3
 [1.0.2]: https://www.npmjs.com/package/@magnolia/angular-editor/v/1.0.2
 [1.0.1]: https://www.npmjs.com/package/@magnolia/angular-editor/v/1.0.1
 [1.0.0]: https://www.npmjs.com/package/@magnolia/angular-editor/v/1.0.0
