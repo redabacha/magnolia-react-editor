@@ -1,14 +1,35 @@
 {
-  "name": "root",
+  "name": "@redabacha/magnolia-react-editor",
+  "version": "1.0.14",
   "author": "Magnolia International Ltd.",
-  "private": true,
+  "description": "Magnolia React Editor",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redabacha/magnolia-frontend-helpers.git"
+  },
   "scripts": {
-    "lerna": "lerna",
-    "audit": "lerna-audit"
+    "build": "microbundle --jsx React.createElement --no-compress --tsconfig tsconfig.json",
+    "clean": "rimraf dist",
+    "lint": "eslint src"
+  },
+  "peerDependencies": {
+    "react": "*"
   },
   "devDependencies": {
-    "lerna": "^3.22.1",
-    "lerna-audit": "^1.2.0",
-    "prettier": "^2.1.2"
+    "@types/react": "^17.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "eslint": "^7.20.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "microbundle": "^0.13.0",
+    "react": "^17.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.5"
   }
 }
