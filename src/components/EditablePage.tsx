@@ -10,7 +10,7 @@ export type EditablePageProps = {
       [key: string]: React.ComponentType<any>;
     };
   };
-  content: any;
+  content?: any;
   isEditor?: boolean;
   templateAnnotations?: { [template: string]: string };
   /** @deprecated */
@@ -35,8 +35,7 @@ export const EditablePage = ({
     }
   }, [isEditor]);
 
-  let component: React.ReactElement =
-    getRenderedComponent(content, componentMappings) ?? children;
+  let component = children ?? getRenderedComponent(content, componentMappings);
 
   if (isEditor) {
     let openComment;
