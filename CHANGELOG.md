@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.1...v1.1.2) (2021-03-01)
+
+
+### Bug Fixes
+
+* use children before component mapping in EditablePage ([5fa024a](https://github.com/redabacha/magnolia-frontend-helpers/commit/5fa024af32fb88ec3d61b6bd0fe55bc1930007dd))
+
 ## [1.1.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.0...v1.1.1) (2021-02-28)
 
 
