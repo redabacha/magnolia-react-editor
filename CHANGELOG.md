@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.2...v1.1.3) (2021-03-09)
+
+
+### Bug Fixes
+
+* useEffect instead of useLayoutEffect to avoid ssr warning ([cb5b0d4](https://github.com/redabacha/magnolia-frontend-helpers/commit/cb5b0d4447b7e90e99a443ee04065fc84cb1fe92))
+
 ## [1.1.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.1...v1.1.2) (2021-03-01)
 
 
