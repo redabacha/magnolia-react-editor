@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { EditorContext } from '../hooks';
 import { getPageCommentString, getRenderedComponent } from '../util';
 import { Comment } from './Comment';
@@ -28,7 +28,7 @@ export const EditablePage = ({
   templateDefinitions
 }: EditablePageProps) => {
   // should run once after html comments have been injected
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isEditor) {
       window.parent.mgnlFrameReady?.();
       window.parent.mgnlRefresh?.();
