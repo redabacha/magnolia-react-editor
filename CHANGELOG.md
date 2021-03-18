@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.3...v2.0.0) (2021-03-18)
+
+
+### Code Refactoring
+
+* remove templateDefinitions support ([143adac](https://github.com/redabacha/magnolia-frontend-helpers/commit/143adaccbb237dd3168887b6fcf7918b29a8570d))
+
+
+### Features
+
+* export hooks ([6411c97](https://github.com/redabacha/magnolia-frontend-helpers/commit/6411c977d55d1855140c1907ad1a1bce9510e340))
+
+
+### BREAKING CHANGES
+
+* templateDefinitions was deprecated and has now been removed. Use templateAnnotations instead.
+
 ## [1.1.3](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.2...v1.1.3) (2021-03-09)
 
 
