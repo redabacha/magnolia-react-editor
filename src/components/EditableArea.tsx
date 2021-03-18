@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEditor } from '../hooks';
-import { getAreaCommentString } from '../util';
 import { Comment } from './Comment';
 import { EditableComponent, EditableComponentProps } from './EditableComponent';
 
@@ -16,15 +15,9 @@ export const EditableArea = <T extends unknown = HTMLDivElement>({
   content,
   componentType: ComponentType = EditableComponent,
   elementType: ElementType = 'div',
-  parentTemplateId,
   ...props
 }: EditableAreaProps<T>) => {
-  const {
-    content: pageContent,
-    isEditor,
-    templateAnnotations,
-    templateDefinitions
-  } = useEditor();
+  const { isEditor, templateAnnotations } = useEditor();
 
   const component = (
     <ElementType {...props}>
@@ -36,19 +29,11 @@ export const EditableArea = <T extends unknown = HTMLDivElement>({
   );
 
   if (isEditor) {
-    let openComment;
-
-    if (templateAnnotations) {
-      openComment = templateAnnotations[content['@path']];
-    } else if (templateDefinitions) {
-      openComment = getAreaCommentString(
-        content,
-        templateDefinitions[parentTemplateId ?? pageContent['mgnl:template']]
-      );
-    }
-
     return (
-      <Comment openComment={openComment} closeComment="/cms:area">
+      <Comment
+        openComment={templateAnnotations?.[content['@path']]}
+        closeComment="/cms:area"
+      >
         {component}
       </Comment>
     );

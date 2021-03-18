@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { EditorContext } from '../hooks';
-import { getPageCommentString, getRenderedComponent } from '../util';
+import { getRenderedComponent } from '../util';
 import { Comment } from './Comment';
 
 export type EditablePageProps = {
@@ -13,8 +13,6 @@ export type EditablePageProps = {
   content?: any;
   isEditor?: boolean;
   templateAnnotations?: { [template: string]: string };
-  /** @deprecated */
-  templateDefinitions?: { [template: string]: any };
 };
 
 export const EditablePage = ({
@@ -24,8 +22,7 @@ export const EditablePage = ({
   isEditor = typeof window !== 'undefined' &&
     window.frameElement?.className.includes('gwt-Frame') &&
     window.parent.location.hash.endsWith(':edit'),
-  templateAnnotations,
-  templateDefinitions
+  templateAnnotations
 }: EditablePageProps) => {
   // should run once after html comments have been injected
   useEffect(() => {
@@ -38,19 +35,11 @@ export const EditablePage = ({
   let component = children ?? getRenderedComponent(content, componentMappings);
 
   if (isEditor) {
-    let openComment;
-
-    if (templateAnnotations) {
-      openComment = templateAnnotations[content['@path']];
-    } else if (templateDefinitions) {
-      openComment = getPageCommentString(
-        content,
-        templateDefinitions[content['mgnl:template']]
-      );
-    }
-
     component = (
-      <Comment openComment={openComment} closeComment="/cms:page">
+      <Comment
+        openComment={templateAnnotations?.[content['@path']]}
+        closeComment="/cms:page"
+      >
         {component}
       </Comment>
     );
@@ -62,8 +51,7 @@ export const EditablePage = ({
         componentMappings,
         content,
         isEditor,
-        templateAnnotations,
-        templateDefinitions
+        templateAnnotations
       }}
     >
       {component}

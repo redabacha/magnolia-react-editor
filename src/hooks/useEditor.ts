@@ -7,7 +7,6 @@ export const EditorContext = createContext<{
   content?: any;
   isEditor?: boolean;
   templateAnnotations?: { [template: string]: string };
-  templateDefinitions?: { [template: string]: any };
 }>({});
 
 export const useEditor = () => useContext(EditorContext);
