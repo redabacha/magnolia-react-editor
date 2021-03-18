@@ -7,7 +7,6 @@ export type EditableAreaProps<T> = React.HTMLAttributes<T> & {
   content: any;
   componentType?: React.ComponentType<EditableComponentProps>;
   elementType?: string;
-  parentTemplateId?: string;
 };
 
 export const EditableArea = <T extends unknown = HTMLDivElement>({
