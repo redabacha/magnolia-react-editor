@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEditor } from '../hooks';
 import { Comment } from './Comment';
 import { EditableComponent, EditableComponentProps } from './EditableComponent';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEditor } from '../hooks';
 import { getRenderedComponent } from '../util';
 import { Comment } from './Comment';
@@ -15,7 +14,7 @@ export const EditableComponent = ({ content }: EditableComponentProps) => {
   if (isEditor) {
     return (
       <Comment
-        openComment={templateAnnotations?.[content['@path']]}
+        openComment={templateAnnotations?.[content?.['@path']]}
         closeComment="/cms:component"
       >
         {component}

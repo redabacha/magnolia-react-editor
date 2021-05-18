@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { EditorContext } from '../hooks';
 import { getRenderedComponent } from '../util';
 import { Comment } from './Comment';
