@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEditor } from '../hooks';
 import { getAreaCommentString } from '../util';
 import { Comment } from './Comment';

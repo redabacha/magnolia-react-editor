@@ -9,7 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "preserve",
     "isolatedModules": false,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -17,7 +17,8 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "outDir": "dist"
   },
   "include": ["src/**/*"]
 }
