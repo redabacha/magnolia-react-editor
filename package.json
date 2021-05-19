@@ -8,6 +8,9 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/redabacha/magnolia-frontend-helpers.git"
