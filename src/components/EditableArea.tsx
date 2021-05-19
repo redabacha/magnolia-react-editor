@@ -3,6 +3,7 @@ import { Comment } from './Comment';
 import { EditableComponent, EditableComponentProps } from './EditableComponent';
 
 export type EditableAreaProps = {
+  children?: React.ReactNode;
   content: any;
   renderArea?: <T extends { children?: React.ReactNode }>(
     props: T
@@ -13,9 +14,7 @@ export type EditableAreaProps = {
 };
 
 export const EditableArea = <
-  T extends {
-    children?: React.ReactNode;
-  } = React.HTMLAttributes<HTMLDivElement>
+  T extends {} = React.HTMLAttributes<HTMLDivElement>
 >({
   children,
   content,
