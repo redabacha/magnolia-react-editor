@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.1.0...v2.1.1) (2021-05-19)
+
+
+### Bug Fixes
+
+* update EditableAreaProps type ([20d9bf7](https://github.com/redabacha/magnolia-frontend-helpers/commit/20d9bf746cd9db253124498f1e3863f867478e0e))
+
 # [2.1.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.0.0...v2.1.0) (2021-05-19)
 
 
