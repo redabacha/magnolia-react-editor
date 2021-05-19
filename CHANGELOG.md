@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.3...v1.2.0) (2021-05-19)
+
+
+### Bug Fixes
+
+* add branch to release.yaml ([c28f59e](https://github.com/redabacha/magnolia-frontend-helpers/commit/c28f59e0db770c4c8b4b96cda98e25af408b00e0))
+* set files field in package.json ([379d560](https://github.com/redabacha/magnolia-frontend-helpers/commit/379d560236bca9fa168a563b714f96614bf7b9a0))
+
+
+### Features
+
+* allow custom render for EditableArea ([8b757c9](https://github.com/redabacha/magnolia-frontend-helpers/commit/8b757c936baeeebf242378002d37ffb74b1ec5c6))
+* use babel instead of microbundle ([3368c2d](https://github.com/redabacha/magnolia-frontend-helpers/commit/3368c2d2915b7631dcce38f731f0adb28b5c291c))
+
 ## [1.1.3](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.1.2...v1.1.3) (2021-03-09)
 
 
