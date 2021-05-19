@@ -2,13 +2,15 @@ import { useEditor } from '../hooks';
 import { Comment } from './Comment';
 import { EditableComponent, EditableComponentProps } from './EditableComponent';
 
-export type EditableAreaProps<
-  T extends {
-    children?: React.ReactNode;
-  } = React.HTMLAttributes<HTMLDivElement>
-> = {
+export type EditableAreaProps = {
   content: any;
-  renderArea?: (props: T) => React.ReactElement;
+  renderArea?: <
+    T extends {
+      children?: React.ReactNode;
+    } = React.HTMLAttributes<HTMLDivElement>
+  >(
+    props: T
+  ) => React.ReactElement;
   renderComponent?: <T extends EditableComponentProps>(
     props: T
   ) => React.ReactElement;
