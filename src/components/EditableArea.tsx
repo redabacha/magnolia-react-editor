@@ -2,29 +2,40 @@ import { useEditor } from '../hooks';
 import { Comment } from './Comment';
 import { EditableComponent, EditableComponentProps } from './EditableComponent';
 
-export type EditableAreaProps<T> = React.HTMLAttributes<T> & {
+export type EditableAreaProps<
+  T extends {
+    children?: React.ReactNode;
+  } = React.HTMLAttributes<HTMLDivElement>
+> = {
   content: any;
-  componentType?: React.ComponentType<EditableComponentProps>;
-  elementType?: string;
+  renderArea?: (props: T) => React.ReactElement;
+  renderComponent?: <T extends EditableComponentProps>(
+    props: T
+  ) => React.ReactElement;
 };
 
-export const EditableArea = <T extends unknown = HTMLDivElement>({
+export const EditableArea = <
+  T extends {
+    children?: React.ReactNode;
+  } = React.HTMLAttributes<HTMLDivElement>
+>({
   children,
   content,
-  componentType: ComponentType = EditableComponent,
-  elementType: ElementType = 'div',
+  renderArea = props => <div {...props} />,
+  renderComponent = props => <EditableComponent {...props} />,
   ...props
-}: EditableAreaProps<T>) => {
+}: EditableAreaProps & T) => {
   const { isEditor, templateAnnotations } = useEditor();
 
-  const component = (
-    <ElementType {...props}>
-      {children}
-      {(content?.['@nodes'] ?? []).map((id: string) => (
-        <ComponentType key={id} content={content[id]} />
-      ))}
-    </ElementType>
-  );
+  const component = renderArea({
+    ...props,
+    children: [
+      children,
+      (content?.['@nodes'] ?? []).map((id: string) =>
+        renderComponent({ content: content[id], key: id })
+      )
+    ]
+  });
 
   if (isEditor) {
     return (
