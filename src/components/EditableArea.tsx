@@ -6,11 +6,7 @@ import { EditableComponent, EditableComponentProps } from './EditableComponent';
 export type EditableAreaProps = {
   content: any;
   parentTemplateId?: string;
-  renderArea?: <
-    T extends {
-      children?: React.ReactNode;
-    } = React.HTMLAttributes<HTMLDivElement>
-  >(
+  renderArea?: <T extends { children?: React.ReactNode }>(
     props: T
   ) => React.ReactElement;
   renderComponent?: <T extends EditableComponentProps>(
