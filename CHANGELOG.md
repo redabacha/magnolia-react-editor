@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.2.1...v1.2.2) (2021-05-19)
+
+
+### Bug Fixes
+
+* set children type in EditableAreaProps ([17f4171](https://github.com/redabacha/magnolia-frontend-helpers/commit/17f4171287e78882e1915f413a5ec706461310fd))
+
 ## [1.2.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.2.0...v1.2.1) (2021-05-19)
 
 
