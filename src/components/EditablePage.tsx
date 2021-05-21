@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { EditorContext } from '../hooks';
 import { getRenderedComponent } from '../util';
 import { Comment } from './Comment';
+import { EditableComponentProps } from './EditableComponent';
 
 export type EditablePageProps = {
   children?: React.ReactNode;
@@ -12,6 +13,12 @@ export type EditablePageProps = {
   };
   content?: any;
   isEditor?: boolean;
+  renderArea?: <T extends { children?: React.ReactNode }>(
+    props: T
+  ) => React.ReactElement;
+  renderComponent?: <T extends EditableComponentProps>(
+    props: T
+  ) => React.ReactElement;
   templateAnnotations?: { [template: string]: string };
 };
 
@@ -22,6 +29,8 @@ export const EditablePage = ({
   isEditor = typeof window !== 'undefined' &&
     window.frameElement?.className.includes('gwt-Frame') &&
     window.parent.location.hash.endsWith(':edit'),
+  renderArea,
+  renderComponent,
   templateAnnotations
 }: EditablePageProps) => {
   // should run once after html comments have been injected
@@ -51,6 +60,8 @@ export const EditablePage = ({
         componentMappings,
         content,
         isEditor,
+        renderArea,
+        renderComponent,
         templateAnnotations
       }}
     >
