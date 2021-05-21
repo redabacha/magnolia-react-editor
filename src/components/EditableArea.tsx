@@ -21,16 +21,25 @@ export const EditableArea = <
   children,
   content,
   parentTemplateId,
-  renderArea = props => <div {...props} />,
-  renderComponent = props => <EditableComponent {...props} />,
+  renderArea: propsRenderArea,
+  renderComponent: propsRenderComponent,
   ...props
 }: EditableAreaProps & T) => {
   const {
     content: pageContent,
     isEditor,
+    renderArea: editorRenderArea,
+    renderComponent: editorRenderComponent,
     templateAnnotations,
     templateDefinitions
   } = useEditor();
+
+  const renderArea =
+    propsRenderArea ?? editorRenderArea ?? (props => <div {...props} />);
+  const renderComponent =
+    propsRenderComponent ??
+    editorRenderComponent ??
+    (props => <EditableComponent {...props} />);
 
   const component = renderArea({
     ...props,

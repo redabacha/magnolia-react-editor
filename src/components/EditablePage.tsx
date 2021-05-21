@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { EditorContext } from '../hooks';
 import { getPageCommentString, getRenderedComponent } from '../util';
 import { Comment } from './Comment';
+import { EditableComponentProps } from './EditableComponent';
 
 export type EditablePageProps = {
   children?: React.ReactNode;
@@ -12,6 +13,12 @@ export type EditablePageProps = {
   };
   content?: any;
   isEditor?: boolean;
+  renderArea?: <T extends { children?: React.ReactNode }>(
+    props: T
+  ) => React.ReactElement;
+  renderComponent?: <T extends EditableComponentProps>(
+    props: T
+  ) => React.ReactElement;
   templateAnnotations?: { [template: string]: string };
   /** @deprecated */
   templateDefinitions?: { [template: string]: any };
@@ -24,6 +31,8 @@ export const EditablePage = ({
   isEditor = typeof window !== 'undefined' &&
     window.frameElement?.className.includes('gwt-Frame') &&
     window.parent.location.hash.endsWith(':edit'),
+  renderArea,
+  renderComponent,
   templateAnnotations,
   templateDefinitions
 }: EditablePageProps) => {
@@ -62,6 +71,8 @@ export const EditablePage = ({
         componentMappings,
         content,
         isEditor,
+        renderArea,
+        renderComponent,
         templateAnnotations,
         templateDefinitions
       }}
