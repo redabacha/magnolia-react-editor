@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.2.2...v1.3.0) (2021-05-21)
+
+
+### Features
+
+* allow custom render set in EditablePage ([68269f9](https://github.com/redabacha/magnolia-frontend-helpers/commit/68269f917473f4aa8583f127eddaaa2ea6c49730))
+
 ## [1.2.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.2.1...v1.2.2) (2021-05-19)
 
 
