@@ -8,7 +8,6 @@ export type CommentProps = {
 
 /**
  * Used to render HTML comments needed for magnolia editor to work.
- * Will NOT delete previously rendered HTML comments on the page.
  */
 export const Comment = ({
   children,
