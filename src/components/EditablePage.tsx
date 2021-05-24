@@ -33,13 +33,12 @@ export const EditablePage = ({
   renderComponent,
   templateAnnotations
 }: EditablePageProps) => {
-  // should run once after html comments have been injected
   useEffect(() => {
     if (isEditor) {
       window.parent.mgnlFrameReady?.();
       window.parent.mgnlRefresh?.();
     }
-  }, [isEditor]);
+  });
 
   let component = children ?? getRenderedComponent(content, componentMappings);
 
