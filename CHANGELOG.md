@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.2.1...v2.2.2) (2021-05-24)
+
+
+### Bug Fixes
+
+* delete injected markup on cleanup ([769a860](https://github.com/redabacha/magnolia-frontend-helpers/commit/769a8602f911cd3bfd6ed9a18a533b27d0f5e2ff))
+
 ## [2.2.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.2.0...v2.2.1) (2021-05-24)
 
 
