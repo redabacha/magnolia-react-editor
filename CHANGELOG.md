@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.2.0...v2.2.1) (2021-05-24)
+
+
+### Bug Fixes
+
+* run mgnlRefresh on every render ([7dadab8](https://github.com/redabacha/magnolia-frontend-helpers/commit/7dadab8bd382f401c6e084f5cd0cb001a26ae9a9))
+
 # [2.2.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.1.2...v2.2.0) (2021-05-21)
 
 
