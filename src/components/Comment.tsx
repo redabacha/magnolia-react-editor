@@ -19,19 +19,52 @@ export const Comment = ({
   const closeNode = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    const currentOpenNode = openNode.current;
+    const currentCloseNode = closeNode.current;
+
     if (openComment) {
-      openNode.current?.insertAdjacentHTML(
+      currentOpenNode?.insertAdjacentHTML(
         'beforebegin',
         `<!--${openComment}-->`
       );
     }
 
     if (closeComment) {
-      closeNode.current?.insertAdjacentHTML(
+      currentCloseNode?.insertAdjacentHTML(
         'afterend',
         `<!--${closeComment}-->`
       );
     }
+
+    return () => {
+      if (currentOpenNode && openComment) {
+        const sibling = currentOpenNode;
+
+        while (
+          sibling.previousSibling &&
+          (sibling.previousSibling.nodeType === Node.COMMENT_NODE ||
+            (sibling.previousSibling as HTMLElement).classList?.contains(
+              'mgnlEditor'
+            ))
+        ) {
+          sibling.previousSibling.remove();
+        }
+      }
+
+      if (currentCloseNode && closeComment) {
+        const sibling = currentCloseNode;
+
+        while (
+          sibling.nextSibling &&
+          (sibling.nextSibling.nodeType === Node.COMMENT_NODE ||
+            (sibling.nextSibling as HTMLElement).classList?.contains(
+              'mgnlEditor'
+            ))
+        ) {
+          sibling.nextSibling.remove();
+        }
+      }
+    };
   }, [openComment, closeComment]);
 
   return (
