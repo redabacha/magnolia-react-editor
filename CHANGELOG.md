@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.2...v1.3.3) (2021-06-07)
+
+
+### Bug Fixes
+
+* include content in console.error ([#13](https://github.com/redabacha/magnolia-frontend-helpers/issues/13)) ([7a15205](https://github.com/redabacha/magnolia-frontend-helpers/commit/7a1520518af1d29aca9636ce133307103d1f8979))
+
 ## [1.3.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.1...v1.3.2) (2021-05-24)
 
 
