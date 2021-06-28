@@ -1,3 +1,11 @@
+## [1.3.4](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.3...v1.3.4) (2021-06-28)
+
+
+### Reverts
+
+* Revert "fix: run mgnlRefresh on every render" ([80a30e5](https://github.com/redabacha/magnolia-frontend-helpers/commit/80a30e523730bf3d30bf56364bb12a766779ddde))
+* Revert "fix: delete injected markup on cleanup" ([78c3578](https://github.com/redabacha/magnolia-frontend-helpers/commit/78c3578403b69ed99996baf35a8f885dfecd6862))
+
 ## [1.3.3](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.2...v1.3.3) (2021-06-07)
 
 
