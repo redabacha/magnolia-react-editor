@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.4...v1.3.5) (2021-12-24)
+
+
+### Performance Improvements
+
+* add babel compiler assumptions ([4608191](https://github.com/redabacha/magnolia-frontend-helpers/commit/460819155574f6d01b1a53003db0c36fedf3efd1))
+
 ## [1.3.4](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.3...v1.3.4) (2021-06-28)
 
 
