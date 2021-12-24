@@ -1,6 +1,6 @@
 {
   "name": "@redabacha/magnolia-react-editor",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "author": "Magnolia International Ltd.",
   "description": "Magnolia React Editor",
   "source": "./src/index.ts",
