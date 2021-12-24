@@ -3,6 +3,12 @@ module.exports = api => {
   const isTest = api.env('test');
 
   return {
+    assumptions: {
+      iterableIsArray: true,
+      noClassCalls: true,
+      noDocumentAll: true,
+      noNewArrows: true
+    },
     ignore: isTest
       ? []
       : ['**/*.test.js', '**/*.test.jsx', '**/*.test.ts', '**/*.test.tsx'],
