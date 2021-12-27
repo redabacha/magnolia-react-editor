@@ -20,7 +20,7 @@
     "build:cjs": "COMMONJS=true babel src --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist/cjs --source-maps",
     "build:esm": "babel src --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist/esm --source-maps",
     "clean": "rimraf dist",
-    "lint": "eslint src"
+    "lint": "eslint --cache ."
   },
   "release": {
     "plugins": [
@@ -32,9 +32,10 @@
       "@semantic-release/github"
     ]
   },
+  "packageManager": "yarn@3.1.1",
   "peerDependencies": {
     "@babel/runtime": "^7.13.17",
-    "react": "*"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
@@ -47,8 +48,8 @@
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@types/react": "^17.0.38",
-    "@typescript-eslint/eslint-plugin": "^5.8.0",
-    "@typescript-eslint/parser": "^5.8.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
     "concurrently": "^6.5.1",
     "eslint": "^8.5.0",
     "eslint-plugin-react": "^7.28.0",
