@@ -43,7 +43,8 @@ export const EditableArea = <
       (content?.['@nodes'] ?? []).map((id: string) =>
         renderComponent({ content: content[id], key: id })
       )
-    ]
+    ],
+    key: content?.['@id']
   });
 
   if (isEditor) {

@@ -1,7 +1,7 @@
 import { createElement as _createElement } from 'react';
 
 export const getComponentProperties = content => {
-  const props = { metadata: {} };
+  const props = { key: content['@id'], metadata: {} };
 
   Object.keys(content).forEach(key => {
     if (
