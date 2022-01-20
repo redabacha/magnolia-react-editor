@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.5...v1.3.6) (2022-01-20)
+
+
+### Bug Fixes
+
+* use content id as a key ([b0c76d3](https://github.com/redabacha/magnolia-frontend-helpers/commit/b0c76d3c70f4201806a1cfb5be22c847866b11db))
+
 ## [1.3.5](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.4...v1.3.5) (2021-12-24)
 
 
