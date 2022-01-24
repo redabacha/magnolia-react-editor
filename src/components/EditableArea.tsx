@@ -40,8 +40,11 @@ export const EditableArea = <
     ...props,
     children: [
       children,
-      (content?.['@nodes'] ?? []).map((id: string) =>
-        renderComponent({ content: content[id], key: id })
+      (content?.['@nodes'] ?? []).map((name: string) =>
+        renderComponent({
+          content: content[name],
+          key: content[name]?.['@id'] ?? name
+        })
       )
     ],
     key: content?.['@id']
