@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.2.6...v2.2.7) (2022-01-24)
+
+
+### Bug Fixes
+
+* use content uuid for rendering children components in EditableArea ([8bf3dbd](https://github.com/redabacha/magnolia-frontend-helpers/commit/8bf3dbd657211491f3422995e88e43014fa8bc3a))
+
 ## [2.2.6](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.2.5...v2.2.6) (2022-01-20)
 
 
