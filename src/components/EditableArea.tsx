@@ -1,4 +1,5 @@
 import { useEditor } from '../hooks';
+import { getContentVariant } from '../util';
 import { Comment } from './Comment';
 import { EditableComponent, EditableComponentProps } from './EditableComponent';
 
@@ -17,7 +18,7 @@ export const EditableArea = <
   T extends {} = React.HTMLAttributes<HTMLDivElement>
 >({
   children,
-  content,
+  content: originalContent,
   renderArea: propsRenderArea,
   renderComponent: propsRenderComponent,
   ...props
@@ -36,6 +37,7 @@ export const EditableArea = <
     editorRenderComponent ??
     (props => <EditableComponent {...props} />);
 
+  const content = getContentVariant(originalContent, templateAnnotations);
   const component = renderArea({
     ...props,
     children: [
@@ -53,7 +55,7 @@ export const EditableArea = <
   if (isEditor) {
     return (
       <Comment
-        openComment={templateAnnotations?.[content['@path']]}
+        openComment={templateAnnotations?.[originalContent?.['@path']]}
         closeComment="/cms:area"
       >
         {component}
