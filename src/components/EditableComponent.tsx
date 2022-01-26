@@ -1,12 +1,18 @@
 import { useEditor } from '../hooks';
-import { getComponentCommentString, getRenderedComponent } from '../util';
+import {
+  getComponentCommentString,
+  getContentVariant,
+  getRenderedComponent
+} from '../util';
 import { Comment } from './Comment';
 
 export type EditableComponentProps = {
   content: any;
 };
 
-export const EditableComponent = ({ content }: EditableComponentProps) => {
+export const EditableComponent = ({
+  content: originalContent
+}: EditableComponentProps) => {
   const {
     componentMappings,
     isEditor,
@@ -14,17 +20,18 @@ export const EditableComponent = ({ content }: EditableComponentProps) => {
     templateDefinitions
   } = useEditor();
 
+  const content = getContentVariant(originalContent, templateAnnotations);
   const component = getRenderedComponent(content, componentMappings);
 
   if (isEditor) {
     let openComment;
 
     if (templateAnnotations) {
-      openComment = templateAnnotations[content['@path']];
+      openComment = templateAnnotations[originalContent['@path']];
     } else if (templateDefinitions) {
       openComment = getComponentCommentString(
-        content,
-        templateDefinitions[content['mgnl:template']]
+        originalContent,
+        templateDefinitions[originalContent['mgnl:template']]
       );
     }
 

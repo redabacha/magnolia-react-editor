@@ -2,9 +2,7 @@ import { createContext, useContext } from 'react';
 import { EditableComponentProps } from '../components/EditableComponent';
 
 export const EditorContext = createContext<{
-  componentMappings?: {
-    [key: string]: React.ComponentType<any>;
-  };
+  componentMappings?: Record<string, React.ComponentType<any>>;
   content?: any;
   isEditor?: boolean;
   renderArea?: <T extends { children?: React.ReactNode }>(
@@ -13,8 +11,8 @@ export const EditorContext = createContext<{
   renderComponent?: <T extends EditableComponentProps>(
     props: T
   ) => React.ReactElement;
-  templateAnnotations?: { [template: string]: string };
-  templateDefinitions?: { [template: string]: any };
+  templateAnnotations?: Record<string, string>;
+  templateDefinitions?: Record<string, any>;
 }>({});
 
 export const useEditor = () => useContext(EditorContext);

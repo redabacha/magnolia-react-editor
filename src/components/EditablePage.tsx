@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
 import { EditorContext } from '../hooks';
-import { getPageCommentString, getRenderedComponent } from '../util';
+import {
+  getContentVariant,
+  getPageCommentString,
+  getRenderedComponent,
+  isInEditor,
+  refreshEditor
+} from '../util';
 import { Comment } from './Comment';
 import { EditableComponentProps } from './EditableComponent';
 
@@ -19,18 +25,16 @@ export type EditablePageProps = {
   renderComponent?: <T extends EditableComponentProps>(
     props: T
   ) => React.ReactElement;
-  templateAnnotations?: { [template: string]: string };
+  templateAnnotations?: Record<string, string>;
   /** @deprecated */
-  templateDefinitions?: { [template: string]: any };
+  templateDefinitions?: Record<string, any>;
 };
 
 export const EditablePage = ({
   children,
   config: { componentMappings },
-  content,
-  isEditor = typeof window !== 'undefined' &&
-    window.frameElement?.className.includes('gwt-Frame') &&
-    window.parent.location.hash.endsWith(':edit'),
+  content: originalContent,
+  isEditor = isInEditor(),
   renderArea,
   renderComponent,
   templateAnnotations,
@@ -39,22 +43,22 @@ export const EditablePage = ({
   // should run once after html comments have been injected
   useEffect(() => {
     if (isEditor) {
-      window.parent.mgnlFrameReady?.();
-      window.parent.mgnlRefresh?.();
+      refreshEditor();
     }
   }, [isEditor]);
 
+  const content = getContentVariant(originalContent, templateAnnotations);
   let component = children ?? getRenderedComponent(content, componentMappings);
 
   if (isEditor) {
     let openComment;
 
     if (templateAnnotations) {
-      openComment = templateAnnotations[content['@path']];
+      openComment = templateAnnotations[originalContent['@path']];
     } else if (templateDefinitions) {
       openComment = getPageCommentString(
-        content,
-        templateDefinitions[content['mgnl:template']]
+        originalContent,
+        templateDefinitions[originalContent['mgnl:template']]
       );
     }
 

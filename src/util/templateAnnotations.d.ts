@@ -11,4 +11,3 @@ export function getPageCommentString(
   data: any,
   templateDefinition: any
 ): string;
-export as namespace TemplateAnnotations;

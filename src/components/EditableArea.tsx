@@ -1,5 +1,5 @@
 import { useEditor } from '../hooks';
-import { getAreaCommentString } from '../util';
+import { getAreaCommentString, getContentVariant } from '../util';
 import { Comment } from './Comment';
 import { EditableComponent, EditableComponentProps } from './EditableComponent';
 
@@ -19,7 +19,7 @@ export const EditableArea = <
   T extends {} = React.HTMLAttributes<HTMLDivElement>
 >({
   children,
-  content,
+  content: originalContent,
   parentTemplateId,
   renderArea: propsRenderArea,
   renderComponent: propsRenderComponent,
@@ -41,6 +41,7 @@ export const EditableArea = <
     editorRenderComponent ??
     (props => <EditableComponent {...props} />);
 
+  const content = getContentVariant(originalContent, templateAnnotations);
   const component = renderArea({
     ...props,
     children: [
@@ -59,10 +60,10 @@ export const EditableArea = <
     let openComment;
 
     if (templateAnnotations) {
-      openComment = templateAnnotations[content['@path']];
+      openComment = templateAnnotations[originalContent['@path']];
     } else if (templateDefinitions) {
       openComment = getAreaCommentString(
-        content,
+        originalContent,
         templateDefinitions[parentTemplateId ?? pageContent['mgnl:template']]
       );
     }
