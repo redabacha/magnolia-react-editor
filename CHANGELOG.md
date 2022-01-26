@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.2.7...v2.3.0) (2022-01-26)
+
+
+### Features
+
+* add p13n support ([#14](https://github.com/redabacha/magnolia-frontend-helpers/issues/14)) ([fa4783d](https://github.com/redabacha/magnolia-frontend-helpers/commit/fa4783d28694fcb8a5fd579cb00af1a9bc321e56))
+
 ## [2.2.7](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.2.6...v2.2.7) (2022-01-24)
 
 
