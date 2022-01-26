@@ -1,7 +1,11 @@
-import { createElement as _createElement } from 'react';
+import { createElement } from 'react';
 
-export const getComponentProperties = content => {
-  const props = { key: content['@id'], metadata: {} };
+export const getComponentProperties = (content: any) => {
+  const props: {
+    key: string;
+    metadata: Record<string, string>;
+    [name: string]: unknown;
+  } = { key: content['@id'], metadata: {} };
 
   Object.keys(content).forEach(key => {
     if (
@@ -19,9 +23,8 @@ export const getComponentProperties = content => {
 };
 
 export const getRenderedComponent = (
-  content,
-  componentMappings,
-  createElement = _createElement
+  content: any,
+  componentMappings?: Record<string, React.ComponentType<any>>
 ) => {
   if (!content || !componentMappings) {
     return createElement('div');

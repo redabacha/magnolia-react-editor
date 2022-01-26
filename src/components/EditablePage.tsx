@@ -1,6 +1,11 @@
 import { useEffect } from 'react';
 import { EditorContext } from '../hooks';
-import { getRenderedComponent } from '../util';
+import {
+  getContentVariant,
+  getRenderedComponent,
+  isInEditor,
+  refreshEditor
+} from '../util';
 import { Comment } from './Comment';
 import { EditableComponentProps } from './EditableComponent';
 
@@ -19,16 +24,14 @@ export type EditablePageProps = {
   renderComponent?: <T extends EditableComponentProps>(
     props: T
   ) => React.ReactElement;
-  templateAnnotations?: { [template: string]: string };
+  templateAnnotations?: Record<string, string>;
 };
 
 export const EditablePage = ({
   children,
   config: { componentMappings },
-  content,
-  isEditor = typeof window !== 'undefined' &&
-    window.frameElement?.className.includes('gwt-Frame') &&
-    window.parent.location.hash.endsWith(':edit'),
+  content: originalContent,
+  isEditor = isInEditor(),
   renderArea,
   renderComponent,
   templateAnnotations
@@ -36,17 +39,17 @@ export const EditablePage = ({
   // should run once after html comments have been injected
   useEffect(() => {
     if (isEditor) {
-      window.parent.mgnlFrameReady?.();
-      window.parent.mgnlRefresh?.();
+      refreshEditor();
     }
   }, [isEditor]);
 
+  const content = getContentVariant(originalContent, templateAnnotations);
   let component = children ?? getRenderedComponent(content, componentMappings);
 
   if (isEditor) {
     component = (
       <Comment
-        openComment={templateAnnotations?.[content['@path']]}
+        openComment={templateAnnotations?.[originalContent?.['@path']]}
         closeComment="/cms:page"
       >
         {component}

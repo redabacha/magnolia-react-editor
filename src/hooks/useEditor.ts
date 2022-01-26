@@ -13,7 +13,7 @@ export const EditorContext = createContext<{
   renderComponent?: <T extends EditableComponentProps>(
     props: T
   ) => React.ReactElement;
-  templateAnnotations?: { [template: string]: string };
+  templateAnnotations?: Record<string, string>;
 }>({});
 
 export const useEditor = () => useContext(EditorContext);
