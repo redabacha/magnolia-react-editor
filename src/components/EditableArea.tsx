@@ -57,19 +57,19 @@ export const EditableArea = <
   });
 
   if (isEditor) {
-    let openComment;
-
-    if (templateAnnotations) {
-      openComment = templateAnnotations[originalContent['@path']];
-    } else if (templateDefinitions) {
-      openComment = getAreaCommentString(
-        originalContent,
-        templateDefinitions[parentTemplateId ?? pageContent['mgnl:template']]
-      );
-    }
-
     return (
-      <Comment openComment={openComment} closeComment="/cms:area">
+      <Comment
+        openComment={
+          templateAnnotations?.[originalContent['@path']] ??
+          getAreaCommentString(
+            originalContent,
+            templateDefinitions?.[
+              parentTemplateId ?? pageContent['mgnl:template']
+            ]
+          )
+        }
+        closeComment="/cms:area"
+      >
         {component}
       </Comment>
     );

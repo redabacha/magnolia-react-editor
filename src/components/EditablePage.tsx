@@ -51,19 +51,17 @@ export const EditablePage = ({
   let component = children ?? getRenderedComponent(content, componentMappings);
 
   if (isEditor) {
-    let openComment;
-
-    if (templateAnnotations) {
-      openComment = templateAnnotations[originalContent['@path']];
-    } else if (templateDefinitions) {
-      openComment = getPageCommentString(
-        originalContent,
-        templateDefinitions[originalContent['mgnl:template']]
-      );
-    }
-
     component = (
-      <Comment openComment={openComment} closeComment="/cms:page">
+      <Comment
+        openComment={
+          templateAnnotations?.[originalContent['@path']] ??
+          getPageCommentString(
+            originalContent,
+            templateDefinitions?.[originalContent['mgnl:template']]
+          )
+        }
+        closeComment="/cms:page"
+      >
         {component}
       </Comment>
     );

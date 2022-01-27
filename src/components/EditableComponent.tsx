@@ -24,19 +24,17 @@ export const EditableComponent = ({
   const component = getRenderedComponent(content, componentMappings);
 
   if (isEditor) {
-    let openComment;
-
-    if (templateAnnotations) {
-      openComment = templateAnnotations[originalContent['@path']];
-    } else if (templateDefinitions) {
-      openComment = getComponentCommentString(
-        originalContent,
-        templateDefinitions[originalContent['mgnl:template']]
-      );
-    }
-
     return (
-      <Comment openComment={openComment} closeComment="/cms:component">
+      <Comment
+        openComment={
+          templateAnnotations?.[originalContent['@path']] ??
+          getComponentCommentString(
+            originalContent,
+            templateDefinitions?.[originalContent['mgnl:template']]
+          )
+        }
+        closeComment="/cms:component"
+      >
         {component}
       </Comment>
     );
