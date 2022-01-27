@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.4.0...v1.4.1) (2022-01-27)
+
+
+### Bug Fixes
+
+* fallback to template definition if template annotation is missing ([de28a48](https://github.com/redabacha/magnolia-frontend-helpers/commit/de28a482176255d8667eb70bfbc0808660f72f4c))
+
 # [1.4.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.7...v1.4.0) (2022-01-27)
 
 
