@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.7...v1.4.0) (2022-01-27)
+
+
+### Bug Fixes
+
+* pin semantic-release to v18.0.1 ([3fdc0d4](https://github.com/redabacha/magnolia-frontend-helpers/commit/3fdc0d4c29207512f0998ea50473d86fb04c65c6))
+
+
+### Features
+
+* add p13n support ([#14](https://github.com/redabacha/magnolia-frontend-helpers/issues/14)) ([cd7a327](https://github.com/redabacha/magnolia-frontend-helpers/commit/cd7a327245b8d96489701fc7df59d36cc0cdca30))
+
 ## [1.3.7](https://github.com/redabacha/magnolia-frontend-helpers/compare/v1.3.6...v1.3.7) (2022-01-24)
 
 
