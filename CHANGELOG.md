@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.3.1...v2.3.2) (2022-02-03)
+
+
+### Bug Fixes
+
+* change component not mapped error to a regular log ([#16](https://github.com/redabacha/magnolia-frontend-helpers/issues/16)) ([03408e9](https://github.com/redabacha/magnolia-frontend-helpers/commit/03408e9502e5a0cfc8c61d1dc138414df5448a7b))
+
 ## [2.3.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.3.0...v2.3.1) (2022-01-27)
 
 
