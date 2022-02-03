@@ -33,9 +33,11 @@ export const getRenderedComponent = (
   const componentClass = componentMappings[content['mgnl:template']];
 
   if (!componentClass) {
-    console.error(
-      `Component ${content['mgnl:template']} is not mapped.`,
-      content
+    console.log(
+      JSON.stringify({
+        message: `[magnolia-react-editor] Component ${content['mgnl:template']} is not mapped.`,
+        content
+      })
     );
     return createElement('div');
   }
