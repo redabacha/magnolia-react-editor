@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.3.2...v2.3.3) (2022-02-16)
+
+
+### Bug Fixes
+
+* add @babel/runtime as a dependency rather than peer dependency ([11f95bc](https://github.com/redabacha/magnolia-frontend-helpers/commit/11f95bc20996761b6d04a8cc65ee08b3fe33a865))
+
 ## [2.3.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.3.1...v2.3.2) (2022-02-03)
 
 
