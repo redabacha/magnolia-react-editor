@@ -33,7 +33,7 @@
       "@semantic-release/github"
     ]
   },
-  "packageManager": "yarn@3.1.1",
+  "packageManager": "yarn@3.2.1",
   "peerDependencies": {
     "react": ">=16.8.0"
   },
