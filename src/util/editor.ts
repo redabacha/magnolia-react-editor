@@ -1,5 +1,5 @@
 export const isInIFrame = () =>
-  typeof window === 'undefined' ? false : window !== window.parent;
+  typeof document === 'undefined' ? false : window !== window.parent;
 
 export const isInEditor = () =>
   isInIFrame() && window.parent.location.hash.endsWith(':edit');
