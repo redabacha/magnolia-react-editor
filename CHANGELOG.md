@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.3.3...v2.4.0) (2022-06-19)
+
+
+### Features
+
+* support deno environments ([4714565](https://github.com/redabacha/magnolia-frontend-helpers/commit/4714565eaf58fe8602e90d76df6e9832ecaac7c3))
+
 ## [2.3.3](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.3.2...v2.3.3) (2022-02-16)
 
 
