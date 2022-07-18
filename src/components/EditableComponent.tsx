@@ -17,7 +17,10 @@ export const EditableComponent = ({
   if (isEditor) {
     return (
       <Comment
-        openComment={templateAnnotations?.[originalContent?.['@path']]}
+        openComment={
+          templateAnnotations?.[content?.['@path']] ??
+          templateAnnotations?.[originalContent?.['@path']]
+        }
         closeComment="/cms:component"
       >
         {component}

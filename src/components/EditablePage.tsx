@@ -49,7 +49,10 @@ export const EditablePage = ({
   if (isEditor) {
     component = (
       <Comment
-        openComment={templateAnnotations?.[originalContent?.['@path']]}
+        openComment={
+          templateAnnotations?.[content?.['@path']] ??
+          templateAnnotations?.[originalContent?.['@path']]
+        }
         closeComment="/cms:page"
       >
         {component}

@@ -55,7 +55,10 @@ export const EditableArea = <
   if (isEditor) {
     return (
       <Comment
-        openComment={templateAnnotations?.[originalContent?.['@path']]}
+        openComment={
+          templateAnnotations?.[content?.['@path']] ??
+          templateAnnotations?.[originalContent?.['@path']]
+        }
         closeComment="/cms:area"
       >
         {component}
