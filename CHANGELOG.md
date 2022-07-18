@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.4.0...v2.4.1) (2022-07-18)
+
+
+### Bug Fixes
+
+* check for variant template annotation with fallback to original ([0e7eb78](https://github.com/redabacha/magnolia-frontend-helpers/commit/0e7eb78ff99c08043770fdde2c3ff215e6e4b0c6))
+
 # [2.4.0](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.3.3...v2.4.0) (2022-06-19)
 
 
