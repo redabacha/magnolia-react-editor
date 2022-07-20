@@ -9,6 +9,7 @@ export const getComponentProperties = (content: any) => {
 
   Object.keys(content).forEach(key => {
     if (
+      key === 'masterContent' ||
       key.startsWith('@') ||
       key.startsWith('mgnl:') ||
       key.startsWith('jcr:')
