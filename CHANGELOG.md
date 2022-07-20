@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.4.1...v2.4.2) (2022-07-20)
+
+
+### Bug Fixes
+
+* move masterContent to metadata object ([#19](https://github.com/redabacha/magnolia-frontend-helpers/issues/19)) ([c9bb967](https://github.com/redabacha/magnolia-frontend-helpers/commit/c9bb967ad64d900880987a1dcd6731bff73d380f))
+
 ## [2.4.1](https://github.com/redabacha/magnolia-frontend-helpers/compare/v2.4.0...v2.4.1) (2022-07-18)
 
 
