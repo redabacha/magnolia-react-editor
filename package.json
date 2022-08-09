@@ -20,7 +20,7 @@
     "build": "concurrently --kill-others-on-fail \"yarn build:cjs\" \"yarn build:esm\" \"tsc --emitDeclarationOnly\"",
     "build:cjs": "COMMONJS=true babel src --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist/cjs --source-maps",
     "build:esm": "babel src --extensions \".js,.jsx,.ts,.tsx\" --out-dir dist/esm --source-maps",
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "lint": "eslint --cache ."
   },
   "release": {
@@ -33,7 +33,7 @@
       "@semantic-release/github"
     ]
   },
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.2.2",
   "peerDependencies": {
     "react": ">=16.8.0"
   },
@@ -41,24 +41,23 @@
     "@babel/runtime": "^7.13.17"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.9",
-    "@babel/core": "^7.18.9",
-    "@babel/plugin-transform-runtime": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@types/react": "^18.0.15",
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
-    "concurrently": "^7.2.2",
-    "eslint": "^8.20.0",
+    "@types/react": "^18.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "concurrently": "^7.3.0",
+    "eslint": "^8.21.0",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
-    "rimraf": "^3.0.2",
     "semantic-release": "19.0.3",
     "typescript": "^4.7.4"
   }
