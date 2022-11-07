@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.20.1"],\
             ["@semantic-release/changelog", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:6.0.1"],\
             ["@semantic-release/git", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:10.0.1"],\
-            ["@types/react", "npm:18.0.24"],\
+            ["@types/react", "npm:18.0.25"],\
             ["@typescript-eslint/eslint-plugin", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.0"],\
             ["@typescript-eslint/parser", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.0"],\
             ["concurrently", "npm:7.5.0"],\
@@ -3058,7 +3058,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.20.1"],\
             ["@semantic-release/changelog", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:6.0.1"],\
             ["@semantic-release/git", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:10.0.1"],\
-            ["@types/react", "npm:18.0.24"],\
+            ["@types/react", "npm:18.0.25"],\
             ["@typescript-eslint/eslint-plugin", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.0"],\
             ["@typescript-eslint/parser", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.0"],\
             ["concurrently", "npm:7.5.0"],\
@@ -3327,10 +3327,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/react", [\
-        ["npm:18.0.24", {\
-          "packageLocation": "./.yarn/cache/@types-react-npm-18.0.24-1552bafc8c-7d06125bac.zip/node_modules/@types/react/",\
+        ["npm:18.0.25", {\
+          "packageLocation": "./.yarn/cache/@types-react-npm-18.0.25-0d729c976f-231d658c45.zip/node_modules/@types/react/",\
           "packageDependencies": [\
-            ["@types/react", "npm:18.0.24"],\
+            ["@types/react", "npm:18.0.25"],\
             ["@types/prop-types", "npm:15.7.5"],\
             ["@types/scheduler", "npm:0.16.2"],\
             ["csstype", "npm:3.1.0"]\
