@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.25"],\
             ["@typescript-eslint/eslint-plugin", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.1"],\
             ["@typescript-eslint/parser", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.1"],\
-            ["concurrently", "npm:7.5.0"],\
+            ["concurrently", "npm:7.6.0"],\
             ["eslint", "npm:8.27.0"],\
             ["eslint-plugin-react", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:7.31.10"],\
             ["eslint-plugin-react-hooks", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:4.6.0"],\
@@ -3128,7 +3128,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.25"],\
             ["@typescript-eslint/eslint-plugin", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.1"],\
             ["@typescript-eslint/parser", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:5.42.1"],\
-            ["concurrently", "npm:7.5.0"],\
+            ["concurrently", "npm:7.6.0"],\
             ["eslint", "npm:8.27.0"],\
             ["eslint-plugin-react", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:7.31.10"],\
             ["eslint-plugin-react-hooks", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:4.6.0"],\
@@ -4396,10 +4396,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["concurrently", [\
-        ["npm:7.5.0", {\
-          "packageLocation": "./.yarn/cache/concurrently-npm-7.5.0-3391f9b984-7886e1c855.zip/node_modules/concurrently/",\
+        ["npm:7.6.0", {\
+          "packageLocation": "./.yarn/cache/concurrently-npm-7.6.0-2eabc58c36-f705c9a796.zip/node_modules/concurrently/",\
           "packageDependencies": [\
-            ["concurrently", "npm:7.5.0"],\
+            ["concurrently", "npm:7.6.0"],\
             ["chalk", "npm:4.1.2"],\
             ["date-fns", "npm:2.29.2"],\
             ["lodash", "npm:4.17.21"],\
