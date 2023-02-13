@@ -44,7 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.29.0"],\
             ["eslint-plugin-react", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:4.6.0"],\
-            ["prettier", "npm:2.8.0"],\
+            ["prettier", "npm:2.8.4"],\
             ["react", "npm:18.2.0"],\
             ["semantic-release", "npm:19.0.5"],\
             ["typescript", "patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"]\
@@ -3062,7 +3062,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.29.0"],\
             ["eslint-plugin-react", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:7.31.11"],\
             ["eslint-plugin-react-hooks", "virtual:74a1a62f03fd0bcb087ac7e6ce2688aa0c1fd780ec94e4c8be961553a14e2600cff49a6d6b20cbbd9ff5bdf403bba8bedfa74b04e05b808edb306f6b3e9ed9bb#npm:4.6.0"],\
-            ["prettier", "npm:2.8.0"],\
+            ["prettier", "npm:2.8.4"],\
             ["react", "npm:18.2.0"],\
             ["semantic-release", "npm:19.0.5"],\
             ["typescript", "patch:typescript@npm%3A4.9.3#~builtin<compat/typescript>::version=4.9.3&hash=d73830"]\
@@ -7898,10 +7898,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.8.0", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.8.0-746e3df53e-72004ce0cc.zip/node_modules/prettier/",\
+        ["npm:2.8.4", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.8.4-ba64a351d1-c173064bf3.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.8.0"]\
+            ["prettier", "npm:2.8.4"]\
           ],\
           "linkType": "HARD"\
         }]\
