@@ -17,21 +17,24 @@ export const Comment = ({
   const openNode = useRef<HTMLDivElement>(null);
   const closeNode = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    if (openComment) {
-      openNode.current?.insertAdjacentHTML(
-        'beforebegin',
-        `<!--${openComment}-->`
-      );
-    }
+  if (typeof document !== 'undefined') {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useLayoutEffect(() => {
+      if (openComment) {
+        openNode.current?.insertAdjacentHTML(
+          'beforebegin',
+          `<!--${openComment}-->`
+        );
+      }
 
-    if (closeComment) {
-      closeNode.current?.insertAdjacentHTML(
-        'afterend',
-        `<!--${closeComment}-->`
-      );
-    }
-  }, [openComment, closeComment]);
+      if (closeComment) {
+        closeNode.current?.insertAdjacentHTML(
+          'afterend',
+          `<!--${closeComment}-->`
+        );
+      }
+    }, [openComment, closeComment]);
+  }
 
   return (
     <>
